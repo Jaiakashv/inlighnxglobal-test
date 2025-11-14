@@ -22,7 +22,8 @@
   border-right: 1px solid rgba(148, 163, 184, 0.1);
   border-bottom: 1px solid rgba(148, 163, 184, 0.1);
   position: relative;
-  transition: all 0.3s ease;
+  /* Only transition specific properties instead of 'all' for better performance */
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 /* Single overlay that follows mouse - much more performant */
@@ -62,7 +63,7 @@
   transform: translateZ(0); /* Force GPU acceleration */
 }
 
-/* Animated Particles/Breadcrumbs */
+/* Animated Particles/Breadcrumbs - Optimized for Performance */
 .particles-container {
   position: absolute;
   inset: 0;
@@ -71,101 +72,80 @@
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  will-change: contents;
+  /* Improve rendering performance */
+  contain: layout style paint;
 }
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(20, 184, 166, 0.6);
+  width: 5px;
+  height: 5px;
+  background: rgba(20, 184, 166, 0.8);
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(20, 184, 166, 0.8);
+  /* Enhanced glow effect for better visibility */
+  box-shadow: 0 0 6px rgba(20, 184, 166, 0.7), 0 0 12px rgba(20, 184, 166, 0.4);
   animation: float-particle linear infinite;
-  will-change: transform;
+  /* Optimize for GPU acceleration */
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  /* Remove ::before pseudo-element animation to reduce complexity */
 }
 
-.particle::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(20, 184, 166, 0.4);
-  border-radius: 50%;
-  animation: pulse-particle 2s ease-in-out infinite;
-}
-
+/* Optimized animation - using transform3d for GPU acceleration */
+/* Note: We still use CSS variables but with simpler calculations */
 @keyframes float-particle {
   0% {
-    transform: translate(0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 0;
   }
-  5% {
+  3% {
     opacity: 1;
   }
-  25% {
-    transform: translate(
-      calc(var(--random-x, 200px) * 0.25),
-      calc(var(--random-y, 200px) * 0.25)
-    ) scale(1.2);
+  20% {
+    transform: translate3d(
+      calc(var(--random-x, 0px) * 0.2),
+      calc(var(--random-y, 0px) * 0.2),
+      0
+    ) scale(1.15);
+    opacity: 1;
   }
-  50% {
-    transform: translate(
-      calc(var(--random-x, 200px) * 0.5),
-      calc(var(--random-y, 200px) * 0.5)
+  40% {
+    transform: translate3d(
+      calc(var(--random-x, 0px) * 0.4),
+      calc(var(--random-y, 0px) * 0.4),
+      0
+    ) scale(1.05);
+    opacity: 1;
+  }
+  60% {
+    transform: translate3d(
+      calc(var(--random-x, 0px) * 0.6),
+      calc(var(--random-y, 0px) * 0.6),
+      0
     ) scale(1);
+    opacity: 1;
   }
-  75% {
-    transform: translate(
-      calc(var(--random-x, 200px) * 0.75),
-      calc(var(--random-y, 200px) * 0.75)
-    ) scale(0.8);
+  80% {
+    transform: translate3d(
+      calc(var(--random-x, 0px) * 0.8),
+      calc(var(--random-y, 0px) * 0.8),
+      0
+    ) scale(0.95);
+    opacity: 1;
   }
-  95% {
+  97% {
     opacity: 1;
   }
   100% {
-    transform: translate(
-      var(--random-x, 200px),
-      var(--random-y, 200px)
-    ) scale(0.5);
+    transform: translate3d(
+      var(--random-x, 0px),
+      var(--random-y, 0px),
+      0
+    ) scale(0.7);
     opacity: 0;
   }
-}
-
-@keyframes pulse-particle {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.5);
-    opacity: 0.3;
-  }
-}
-
-/* Add random movement for each particle */
-.particle:nth-child(odd) {
-  --random-x: 300px;
-  --random-y: -200px;
-}
-
-.particle:nth-child(even) {
-  --random-x: -250px;
-  --random-y: 300px;
-}
-
-.particle:nth-child(3n) {
-  --random-x: 400px;
-  --random-y: 250px;
-}
-
-.particle:nth-child(4n) {
-  --random-x: -350px;
-  --random-y: -300px;
-}
-
-.particle:nth-child(5n) {
-  --random-x: 200px;
-  --random-y: 400px;
 }
 

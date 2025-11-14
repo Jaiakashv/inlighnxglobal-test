@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import FollowCursor from './components/FollowCursor'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
@@ -23,6 +24,7 @@ function App() {
           <Route path="/whats-special" element={<WhatsSpecial />} />
           <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   )

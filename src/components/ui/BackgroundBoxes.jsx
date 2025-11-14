@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import "./BackgroundBoxes.css";
 
 export const Boxes = () => {
@@ -12,15 +12,19 @@ export const Boxes = () => {
       const boxSize = 30;
       const gap = 1;
       const container = containerRef.current;
+      // Limit maximum boxes to prevent performance issues on very large screens
+      const maxCols = 80;
+      const maxRows = 50;
+      
       if (container) {
         const width = container.offsetWidth || window.innerWidth;
         const height = container.offsetHeight || window.innerHeight;
-        const cols = Math.ceil(width / (boxSize + gap));
-        const rows = Math.ceil(height / (boxSize + gap));
+        const cols = Math.min(Math.ceil(width / (boxSize + gap)), maxCols);
+        const rows = Math.min(Math.ceil(height / (boxSize + gap)), maxRows);
         setBoxCount({ cols, rows });
       } else {
-        const cols = Math.ceil(window.innerWidth / (boxSize + gap));
-        const rows = Math.ceil(window.innerHeight / (boxSize + gap));
+        const cols = Math.min(Math.ceil(window.innerWidth / (boxSize + gap)), maxCols);
+        const rows = Math.min(Math.ceil(window.innerHeight / (boxSize + gap)), maxRows);
         setBoxCount({ cols, rows });
       }
     };
@@ -66,7 +70,32 @@ export const Boxes = () => {
   }, [boxCount]);
 
   const totalBoxes = boxCount.cols * boxCount.rows;
-  const particleCount = 20;
+  const particleCount = 18; // Balanced for performance and visual appeal
+
+  // Memoize particle data to prevent recalculation on every render
+  const particles = useMemo(() => {
+    return Array.from({ length: particleCount }).map((_, i) => {
+      // Pre-calculate random values once
+      // Increased movement range for more dynamic effect
+      const randomX = (Math.random() - 0.5) * 800; // -400 to 400
+      const randomY = (Math.random() - 0.5) * 800; // -400 to 400
+      // Stagger delays more evenly to ensure particles are always visible
+      const delay = (i / particleCount) * 15 + Math.random() * 5;
+      const duration = 18 + Math.random() * 8; // 18-26 seconds
+      const startX = Math.random() * 100;
+      const startY = Math.random() * 100;
+      
+      return {
+        id: i,
+        randomX,
+        randomY,
+        delay,
+        duration,
+        startX,
+        startY,
+      };
+    });
+  }, []); // Empty dependency array - only calculate once
 
   return (
     <div 
@@ -82,15 +111,17 @@ export const Boxes = () => {
       ))}
       <div ref={overlayRef} className="mouse-overlay" />
       <div className="particles-container">
-        {Array.from({ length: particleCount }).map((_, i) => (
+        {particles.map((particle) => (
           <div 
-            key={i} 
+            key={particle.id} 
             className="particle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 20}s`,
-              animationDuration: `${15 + Math.random() * 10}s`
+              left: `${particle.startX}%`,
+              top: `${particle.startY}%`,
+              animationDelay: `${particle.delay}s`,
+              animationDuration: `${particle.duration}s`,
+              '--random-x': `${particle.randomX}px`,
+              '--random-y': `${particle.randomY}px`,
             }}
           />
         ))}

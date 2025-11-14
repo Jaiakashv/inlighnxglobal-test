@@ -29,32 +29,60 @@ function Home() {
   const autoPlayRef = useRef(null);
   const nextCardRef = useRef(null);
   const prevCardRef = useRef(null);
+  const animationTimeoutsRef = useRef([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true);
-            // Stagger the card animations
-            setTimeout(() => {
-              setVisibleCards([true, false, false, false]);
+            // Clear any existing timeouts
+            animationTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+            animationTimeoutsRef.current = [];
+            
+            // Reset first
+            setVisibleCards([false, false, false, false]);
+            setIsVisible(false);
+            
+            // Force a reflow to ensure reset is processed
+            if (cardRefs.current[0]) {
+              cardRefs.current[0].offsetHeight;
+            }
+            
+            // Small delay to ensure browser processes the reset before starting animation
+            const resetTimeout = setTimeout(() => {
+              setIsVisible(true);
+              // Stagger the card animations with better timing for smoother effect
+              const timeout1 = setTimeout(() => {
+                setVisibleCards([true, false, false, false]);
+              }, 200);
+              const timeout2 = setTimeout(() => {
+                setVisibleCards([true, true, false, false]);
+              }, 400);
+              const timeout3 = setTimeout(() => {
+                setVisibleCards([true, true, true, false]);
+              }, 600);
+              const timeout4 = setTimeout(() => {
+                setVisibleCards([true, true, true, true]);
+              }, 800);
+              
+              animationTimeoutsRef.current = [timeout1, timeout2, timeout3, timeout4];
             }, 100);
-            setTimeout(() => {
-              setVisibleCards([true, true, false, false]);
-            }, 200);
-            setTimeout(() => {
-              setVisibleCards([true, true, true, false]);
-            }, 300);
-            setTimeout(() => {
-              setVisibleCards([true, true, true, true]);
-            }, 400);
+            
+            animationTimeoutsRef.current.push(resetTimeout);
+          } else {
+            // Clear timeouts when section leaves viewport
+            animationTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+            animationTimeoutsRef.current = [];
+            // Reset when section leaves viewport
+            setIsVisible(false);
+            setVisibleCards([false, false, false, false]);
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
       }
     );
 
@@ -63,6 +91,8 @@ function Home() {
     }
 
     return () => {
+      // Cleanup timeouts on unmount
+      animationTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
@@ -145,6 +175,7 @@ function Home() {
       title: "About INLIGHN TECH",
       content: "At INLIGHN TECH, we believe that the future of education lies in bridging the gap between academic learning and industry needs. Founded with a passion for providing meaningful and immersive learning experiences, we offer internship programs that equip students and young professionals with practical skills in Full Stack Development, Data Science, and Project Management.",
       iconBg: "#14b8a6",
+      image: titleimg, // Add your custom image here
       icon: (
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -160,6 +191,7 @@ function Home() {
       title: "Our Mission",
       content: "To empower students and young professionals by providing immersive, real-world learning experiences through tailored internship programs. We aim to equip our participants with the practical skills and confidence they need to succeed in the fast-evolving tech industry.",
       iconBg: "#ff6b35",
+      image: titleimg, // Add your custom image here
       icon: (
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -173,6 +205,7 @@ function Home() {
       title: "Our Vision",
       content: "To empower students and young professionals by providing immersive, real-world learning experiences through tailored internship programs. We aim to equip our participants with the practical skills and confidence they need to succeed in the fast-evolving tech industry.",
       iconBg: "#14b8a6",
+      image: titleimg, // Add your custom image here
       icon: (
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -192,6 +225,7 @@ function Home() {
       title: "What's Different from Others",
       content: "We stand out by offering real-world projects, expert mentorship, certified programs, and flexible learning paths. Our immersive approach ensures that every participant gains hands-on experience with industry-standard tools and practices, making them job-ready from day one.",
       iconBg: "#ff6b35",
+      image: titleimg, // Add your custom image here
       icon: (
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -423,6 +457,36 @@ function Home() {
           ref={sectionRef}
           className={`certifications-section ${isVisible ? 'fade-in-up' : ''}`}
         >
+          {/* Left Wavy Background */}
+          <div className="certifications-wave certifications-wave-left">
+            <svg viewBox="0 0 200 600" preserveAspectRatio="none" className="wave-svg">
+              <defs>
+                <linearGradient id="waveGradientLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#14b8a6" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#0d9488" stopOpacity="1" />
+                </linearGradient>
+              </defs>
+              <path d="M0,0 Q30,80 0,160 T0,320 T0,480 T0,600" fill="url(#waveGradientLeft)" opacity="0.12"/>
+              <path d="M0,40 Q50,120 0,200 T0,360 T0,520 T0,600" fill="url(#waveGradientLeft)" opacity="0.18"/>
+              <path d="M0,80 Q40,160 0,240 T0,400 T0,560 T0,600" fill="url(#waveGradientLeft)" opacity="0.1"/>
+            </svg>
+          </div>
+          
+          {/* Right Wavy Background */}
+          <div className="certifications-wave certifications-wave-right">
+            <svg viewBox="0 0 200 600" preserveAspectRatio="none" className="wave-svg">
+              <defs>
+                <linearGradient id="waveGradientRight" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#ff6b35" stopOpacity="1" />
+                  <stop offset="100%" stopColor="#e55a2b" stopOpacity="1" />
+                </linearGradient>
+              </defs>
+              <path d="M200,0 Q170,80 200,160 T200,320 T200,480 T200,600" fill="url(#waveGradientRight)" opacity="0.12"/>
+              <path d="M200,40 Q150,120 200,200 T200,360 T200,520 T200,600" fill="url(#waveGradientRight)" opacity="0.18"/>
+              <path d="M200,80 Q160,160 200,240 T200,400 T200,560 T200,600" fill="url(#waveGradientRight)" opacity="0.1"/>
+            </svg>
+          </div>
+          
           <h2 className={`certifications-title ${isVisible ? 'fade-in-up' : ''}`}>
             Our Certifications & Recognitions
           </h2>
@@ -433,7 +497,7 @@ function Home() {
             <div 
               ref={(el) => (cardRefs.current[0] = el)}
               className={`certification-card slide-from-left ${visibleCards[0] ? 'fade-in-slide' : ''}`}
-              style={{ transitionDelay: visibleCards[0] ? '0.1s' : '0s' }}
+              style={{ transitionDelay: visibleCards[0] ? '0s' : '0s' }}
             >
               <div className="certification-logo-wrapper">
                 <img 
@@ -461,7 +525,7 @@ function Home() {
             <div 
               ref={(el) => (cardRefs.current[2] = el)}
               className={`certification-card slide-from-right ${visibleCards[2] ? 'fade-in-slide' : ''}`}
-              style={{ transitionDelay: visibleCards[2] ? '0.3s' : '0s' }}
+              style={{ transitionDelay: visibleCards[2] ? '0.4s' : '0s' }}
             >
               <div className="certification-logo-wrapper">
                 <img 
@@ -475,7 +539,7 @@ function Home() {
             <div 
               ref={(el) => (cardRefs.current[3] = el)}
               className={`certification-card slide-from-right ${visibleCards[3] ? 'fade-in-slide' : ''}`}
-              style={{ transitionDelay: visibleCards[3] ? '0.4s' : '0s' }}
+              style={{ transitionDelay: visibleCards[3] ? '0.6s' : '0s' }}
             >
               <div className="certification-logo-wrapper">
                 <img 
@@ -490,11 +554,143 @@ function Home() {
         </div>
         <div className="internship-section">
           <div className="internship-image-wrapper">
-            <img 
-              src={titleimg} 
-              alt="Best Internship Programs" 
-              className="internship-image"
-            />
+            <div className="floating-cards-container">
+              {/* Top Center - Assignment Complete Notification */}
+              <div className="floating-card floating-card-top">
+                <div className="floating-card-icon" style={{ backgroundColor: '#10b981' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div className="floating-card-content">
+                  <h4 className="floating-card-title">Daily Tasks</h4>
+                  <p className="floating-card-subtitle">Activity Deadline</p>
+                </div>
+                <div className="floating-card-dots">
+                  <span className="mini-dot mini-dot-red"></span>
+                  <span className="mini-dot mini-dot-yellow"></span>
+                  <span className="mini-dot mini-dot-green"></span>
+                  <span className="mini-dot mini-dot-orange"></span>
+                </div>
+              </div>
+
+              {/* Mid Left - Code Window */}
+              <div className="floating-card floating-card-code">
+                <div className="code-window-header">
+                  <div className="code-window-dots">
+                    <span className="dot dot-red"></span>
+                    <span className="dot dot-yellow"></span>
+                    <span className="dot dot-green"></span>
+                  </div>
+                </div>
+                <div className="code-window-content">
+                  <div className="code-line">
+                    <span className="code-keyword">const</span>
+                    <span className="code-text">InlighnXglobal</span>
+                    <span className="code-operator"> = </span>
+                    <span className="code-text">()</span>
+                    <span className="code-operator"> =&gt; </span>
+                    <span className="code-text">{'{'}</span>
+                  </div>
+                  <div className="code-line">
+                    <span className="code-keyword">  return</span>
+                    <span className="code-string"> 'success'</span>
+                    <span className="code-text">;</span>
+                  </div>
+                  <div className="code-line">
+                    <span className="code-text">{'}'}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mid Right - Streak Widget */}
+              <div className="floating-card floating-card-streak">
+                <div className="streak-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#f97316" opacity="0.8"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <h4 className="floating-card-title">Daily Sessions</h4>
+              </div>
+
+              {/* Bottom Right - New Mentor Notification */}
+              <div className="floating-card floating-card-mentor">
+                <div className="floating-card-icon" style={{ backgroundColor: '#10b981' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div className="floating-card-content">
+                  <h4 className="floating-card-title">Mentor Support</h4>
+                  <p className="floating-card-subtitle">Our Mentors are here to help you with your doubts and queries</p>
+                </div>
+              </div>
+
+              {/* Main Dashboard Card - Center Right */}
+              <div className="floating-card floating-card-dashboard">
+                <h3 className="dashboard-title">Internship Completion Benefits</h3>
+                
+                {/* Progress Circles */}
+                <div className="progress-circles">
+                  <div className="progress-circle">
+                    <svg className="progress-ring" width="100" height="100">
+                      <circle className="progress-ring-bg" cx="50" cy="50" r="40" />
+                      <circle className="progress-ring-fill" cx="50" cy="50" r="40" style={{ strokeDasharray: '251.2', strokeDashoffset: '0' }} />
+                    </svg>
+                    <div className="progress-text">
+                      <span className="progress-percent">100%</span>
+                      <span className="progress-label">Success</span>
+                    </div>
+                  </div>
+                  <div className="progress-circle">
+                    <svg className="progress-ring" width="100" height="100">
+                      <circle className="progress-ring-bg" cx="50" cy="50" r="40" />
+                      <circle className="progress-ring-fill" cx="50" cy="50" r="40" style={{ strokeDasharray: '251.2', strokeDashoffset: '25.12' }} />
+                    </svg>
+                    <div className="progress-text">
+                      <span className="progress-percent">95%</span>
+                      <span className="progress-label">Confidence</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Completion Checklist */}
+                <div className="completion-checklist">
+                  <div className="checklist-item">
+                    <div className="check-icon">✓</div>
+                    <span className="checklist-text">Certificate</span>
+                    <div className="checklist-progress">
+                      <div className="checklist-progress-bar" style={{ width: '100%' }}></div>
+                    </div>
+                  </div>
+                  <div className="checklist-item">
+                    <div className="check-icon">✓</div>
+                    <span className="checklist-text">Job Placement</span>
+                    <div className="checklist-progress">
+                      <div className="checklist-progress-bar" style={{ width: '75%' }}></div>
+                    </div>
+                  </div>
+                  <div className="checklist-item">
+                    <div className="check-icon">✓</div>
+                    <span className="checklist-text">Real-World Project</span>
+                    <div className="checklist-progress">
+                      <div className="checklist-progress-bar" style={{ width: '90%' }}></div>
+                    </div>
+                  </div>
+                  <div className="checklist-item">
+                    <div className="check-icon">✓</div>
+                    <span className="checklist-text">LOR (Performance-based)</span>
+                    <div className="checklist-progress">
+                      <div className="checklist-progress-bar" style={{ width: '90%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="internship-content">
             <h2 className="internship-title">We Provide Best Internship For You</h2>
@@ -589,20 +785,26 @@ function Home() {
                 {[...whoWeAreCards, ...whoWeAreCards, ...whoWeAreCards].map((card, index) => (
                   <div key={index} className="who-we-are-card">
                     <div 
-                      className="card-icon-wrapper"
-                      style={{ backgroundColor: card.iconBg }}
-                    >
-                      {card.icon}
+                      className="card-background-image"
+                      style={{ backgroundImage: `url(${card.image})` }}
+                    ></div>
+                    <div className="card-content-wrapper">
+                      <div 
+                        className="card-icon-wrapper"
+                        style={{ backgroundColor: card.iconBg }}
+                      >
+                        {card.icon}
+                      </div>
+                      <h3 className="card-title">{card.title}</h3>
+                      <p className="card-content">{card.content}</p>
+                      <button className="card-button">
+                        <span>Learn More</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </button>
                     </div>
-                    <h3 className="card-title">{card.title}</h3>
-                    <p className="card-content">{card.content}</p>
-                    <button className="card-button">
-                      <span>Learn More</span>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </button>
                   </div>
                 ))}
               </div>
@@ -630,6 +832,114 @@ function Home() {
                 />
               );
             })}
+          </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="testimonials-section">
+          <Boxes />
+          <h1 className="testimonials-title">What Our Interns Say</h1>
+          <div className="testimonials-marquee-container">
+            <div className="testimonials-marquee">
+              {/* First set of testimonials */}
+              <div className="testimonial-card">
+                <div className="testimonial-avatar">
+                  <div className="avatar-placeholder" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+                    DP
+                  </div>
+                </div>
+                <div className="testimonial-info">
+                  <h4 className="testimonial-name">David Park</h4>
+                  <p className="testimonial-handle">@davidtech</p>
+                  <p className="testimonial-text">API integration is flawless. We've reduced our development time by 60% since implementing this solution.</p>
+                </div>
+              </div>
+              <div className="testimonial-card">
+                <div className="testimonial-avatar">
+                  <div className="avatar-placeholder" style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' }}>
+                    SR
+                  </div>
+                </div>
+                <div className="testimonial-info">
+                  <h4 className="testimonial-name">Sofia Rodriguez</h4>
+                  <p className="testimonial-handle">@sofiaml</p>
+                  <p className="testimonial-text">Finally, an AI tool that actually understands context! The accuracy in natural language processing is impressive.</p>
+                </div>
+              </div>
+              <div className="testimonial-card">
+                <div className="testimonial-avatar">
+                  <div className="avatar-placeholder" style={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' }}>
+                    ET
+                  </div>
+                </div>
+                <div className="testimonial-info">
+                  <h4 className="testimonial-name">Emma Thompson</h4>
+                  <p className="testimonial-handle">@emmaai</p>
+                  <p className="testimonial-text">Using this AI platform has transformed how we handle data analysis. The speed and accuracy are unprecedented.</p>
+                </div>
+              </div>
+              <div className="testimonial-card">
+                <div className="testimonial-avatar">
+                  <div className="avatar-placeholder" style={{ background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' }}>
+                    MJ
+                  </div>
+                </div>
+                <div className="testimonial-info">
+                  <h4 className="testimonial-name">Michael Johnson</h4>
+                  <p className="testimonial-handle">@mikecode</p>
+                  <p className="testimonial-text">The reduced development time since implementing this solution has been remarkable. Highly recommended!</p>
+                </div>
+              </div>
+              {/* Duplicate set for seamless loop */}
+              <div className="testimonial-card">
+                <div className="testimonial-avatar">
+                  <div className="avatar-placeholder" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+                    DP
+                  </div>
+                </div>
+                <div className="testimonial-info">
+                  <h4 className="testimonial-name">David Park</h4>
+                  <p className="testimonial-handle">@davidtech</p>
+                  <p className="testimonial-text">API integration is flawless. We've reduced our development time by 60% since implementing this solution.</p>
+                </div>
+              </div>
+              <div className="testimonial-card">
+                <div className="testimonial-avatar">
+                  <div className="avatar-placeholder" style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' }}>
+                    SR
+                  </div>
+                </div>
+                <div className="testimonial-info">
+                  <h4 className="testimonial-name">Sofia Rodriguez</h4>
+                  <p className="testimonial-handle">@sofiaml</p>
+                  <p className="testimonial-text">Finally, an AI tool that actually understands context! The accuracy in natural language processing is impressive.</p>
+                </div>
+              </div>
+              <div className="testimonial-card">
+                <div className="testimonial-avatar">
+                  <div className="avatar-placeholder" style={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' }}>
+                    ET
+                  </div>
+                </div>
+                <div className="testimonial-info">
+                  <h4 className="testimonial-name">Emma Thompson</h4>
+                  <p className="testimonial-handle">@emmaai</p>
+                  <p className="testimonial-text">Using this AI platform has transformed how we handle data analysis. The speed and accuracy are unprecedented.</p>
+                </div>
+              </div>
+              <div className="testimonial-card">
+                <div className="testimonial-avatar">
+                  <div className="avatar-placeholder" style={{ background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' }}>
+                    MJ
+                  </div>
+                </div>
+                <div className="testimonial-info">
+                  <h4 className="testimonial-name">Michael Johnson</h4>
+                  <p className="testimonial-handle">@mikecode</p>
+                  <p className="testimonial-text">The reduced development time since implementing this solution has been remarkable. Highly recommended!</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

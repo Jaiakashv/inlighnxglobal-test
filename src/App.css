@@ -4,3 +4,8 @@
   flex-direction: column;
 }
 
+.app > main,
+.app > div:not(.footer) {
+  flex: 1;
+}
+
