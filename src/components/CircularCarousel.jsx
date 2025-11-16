@@ -7,49 +7,49 @@ import man2 from '../assets/man-profile2.jpeg';
 const carouselData = [
   {
     quote:
-      "I was impressed by the food — every dish is bursting with flavor! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive, going the extra mile. I'll definitely be back for more!",
+      "The internship program at InLighnX was transformative! The hands-on projects and mentorship helped me land my dream job at Google as a Software Engineer. The practical experience I gained here was invaluable.",
     name: "Tamar Mendelson",
-    designation: "Restaurant Critic",
+    designation: "Placed at Google | Software Engineer",
     src: man1,
     linkedin: "", // Add LinkedIn profile URL here
   },
   {
     quote:
-      "This place exceeded all expectations! The atmosphere is inviting, and the staff truly goes above and beyond to ensure a fantastic visit. I'll definitely keep returning for more exceptional dining experience.",
+      "I'm grateful for the comprehensive training and real-world projects at InLighnX. The skills I developed here directly led to my placement at Microsoft as a Full Stack Developer. This program exceeded all my expectations!",
     name: "Joe Charlescraft",
-    designation: "Frequent Visitor",
+    designation: "Placed at Microsoft | Full Stack Developer",
     src: "https://images.unsplash.com/photo-1628749528992-f5702133b686",
     linkedin: "", // Add LinkedIn profile URL here
   },
   {
     quote:
-      "Shining Yam is a hidden gem! From the moment I walked in, I knew I was in for a treat. The impeccable service and overall attention to detail created a memorable experience. I highly recommend it!",
+      "InLighnX provided me with the perfect foundation to kickstart my career. The industry-relevant projects and expert guidance helped me secure a position at Amazon as a Cloud Solutions Architect. Highly recommended!",
     name: "Martina Edelweist",
-    designation: "Satisfied Customer",
+    designation: "Placed at Amazon | Cloud Solutions Architect",
     src: "https://images.unsplash.com/photo-1524267213992-b76e8577d046",
     linkedin: "", // Add LinkedIn profile URL here
   },
   {
     quote:
-      "Absolutely fantastic experience! The quality of service and attention to detail is unmatched. Every visit feels special and I always leave with a smile. This is definitely my go-to place now!",
+      "The internship experience at InLighnX was exceptional! The mentorship and hands-on learning opportunities prepared me perfectly for my role at Meta as a Frontend Developer. I couldn't have asked for a better start to my career!",
     name: "Sarah Johnson",
-    designation: "Regular Customer",
+    designation: "Placed at Meta | Frontend Developer",
     src: man2,
     linkedin: "", // Add LinkedIn profile URL here
   },
   {
     quote:
-      "Outstanding service and incredible atmosphere! The team here really knows how to make you feel welcome. I've recommended this place to all my friends and they all love it too!",
+      "InLighnX's program gave me the confidence and skills needed to succeed. Thanks to the practical training and industry connections, I landed a position at Apple as an iOS Developer. This program truly changed my career trajectory!",
     name: "Michael Chen",
-    designation: "Food Enthusiast",
+    designation: "Placed at Apple | iOS Developer",
     src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
     linkedin: "", // Add LinkedIn profile URL here
   },
   {
     quote:
-      "What an amazing place! The attention to detail in every aspect, from the ambiance to the service, is remarkable. I've been coming here for months and it never disappoints. Truly exceptional!",
+      "The comprehensive curriculum and real-world projects at InLighnX were exactly what I needed. I'm now working at Netflix as a Backend Engineer, and I credit this program for my success. The support and guidance were outstanding!",
     name: "Emily Rodriguez",
-    designation: "Loyal Patron",
+    designation: "Placed at Netflix | Backend Engineer",
     src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
     linkedin: "", // Add LinkedIn profile URL here
   },
