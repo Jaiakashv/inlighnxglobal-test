@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./CircularCarousel.css";
+import man1 from '../assets/man-profile.jpg';
+import man2 from '../assets/man-profile2.jpeg';
 
 const carouselData = [
   {
@@ -8,7 +10,8 @@ const carouselData = [
       "I was impressed by the food — every dish is bursting with flavor! And I could really tell that they use high-quality ingredients. The staff was friendly and attentive, going the extra mile. I'll definitely be back for more!",
     name: "Tamar Mendelson",
     designation: "Restaurant Critic",
-    src: "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a",
+    src: man1,
+    linkedin: "", // Add LinkedIn profile URL here
   },
   {
     quote:
@@ -16,6 +19,7 @@ const carouselData = [
     name: "Joe Charlescraft",
     designation: "Frequent Visitor",
     src: "https://images.unsplash.com/photo-1628749528992-f5702133b686",
+    linkedin: "", // Add LinkedIn profile URL here
   },
   {
     quote:
@@ -23,6 +27,31 @@ const carouselData = [
     name: "Martina Edelweist",
     designation: "Satisfied Customer",
     src: "https://images.unsplash.com/photo-1524267213992-b76e8577d046",
+    linkedin: "", // Add LinkedIn profile URL here
+  },
+  {
+    quote:
+      "Absolutely fantastic experience! The quality of service and attention to detail is unmatched. Every visit feels special and I always leave with a smile. This is definitely my go-to place now!",
+    name: "Sarah Johnson",
+    designation: "Regular Customer",
+    src: man2,
+    linkedin: "", // Add LinkedIn profile URL here
+  },
+  {
+    quote:
+      "Outstanding service and incredible atmosphere! The team here really knows how to make you feel welcome. I've recommended this place to all my friends and they all love it too!",
+    name: "Michael Chen",
+    designation: "Food Enthusiast",
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    linkedin: "", // Add LinkedIn profile URL here
+  },
+  {
+    quote:
+      "What an amazing place! The attention to detail in every aspect, from the ambiance to the service, is remarkable. I've been coming here for months and it never disappoints. Truly exceptional!",
+    name: "Emily Rodriguez",
+    designation: "Loyal Patron",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+    linkedin: "", // Add LinkedIn profile URL here
   },
 ];
 
@@ -33,14 +62,20 @@ export default function CircularCarousel() {
   const nameRef = useRef(null);
   const designationRef = useRef(null);
   const quoteRef = useRef(null);
+  const linkedinRef = useRef(null);
 
   const updateCarousel = (direction) => {
-    if (isAnimatingRef.current) return;
-    
-    isAnimatingRef.current = true;
+    // Calculate next index with looping (wraps around from last to first)
     const newIndex =
       (activeIndex + direction + carouselData.length) %
       carouselData.length;
+    
+    // Don't block auto-rotation, only prevent rapid manual clicks
+    if (isAnimatingRef.current) {
+      return;
+    }
+    
+    isAnimatingRef.current = true;
     setActiveIndex(newIndex);
 
     const images = imageContainerRef.current.children;
@@ -95,10 +130,15 @@ export default function CircularCarousel() {
     });
 
     // Simplified text update - no complex animations
-    if (nameRef.current && designationRef.current && quoteRef.current) {
+    if (nameRef.current && designationRef.current && quoteRef.current && linkedinRef.current) {
       nameRef.current.textContent = carouselData[newIndex].name;
       designationRef.current.textContent = carouselData[newIndex].designation;
       quoteRef.current.textContent = carouselData[newIndex].quote;
+      linkedinRef.current.href = carouselData[newIndex].linkedin || "#";
+      // Always show the button - it will be disabled if no LinkedIn URL is provided
+      linkedinRef.current.style.display = "inline-flex";
+      linkedinRef.current.style.pointerEvents = carouselData[newIndex].linkedin ? "auto" : "none";
+      linkedinRef.current.style.opacity = carouselData[newIndex].linkedin ? "1" : "0.5";
     }
     
     // Simple fade for text
@@ -117,6 +157,12 @@ export default function CircularCarousel() {
 
   const next = () => updateCarousel(1);
   const prev = () => updateCarousel(-1);
+  
+  // Use ref to store the latest next function for interval
+  const nextRef = useRef(next);
+  useEffect(() => {
+    nextRef.current = next;
+  }, [activeIndex]);
 
   useEffect(() => {
     const container = imageContainerRef.current;
@@ -132,10 +178,15 @@ export default function CircularCarousel() {
     });
 
     // Initialize content
-    if (nameRef.current && designationRef.current && quoteRef.current) {
+    if (nameRef.current && designationRef.current && quoteRef.current && linkedinRef.current) {
       nameRef.current.textContent = carouselData[0].name;
       designationRef.current.textContent = carouselData[0].designation;
       quoteRef.current.textContent = carouselData[0].quote;
+      linkedinRef.current.href = carouselData[0].linkedin || "#";
+      // Always show the button - it will be disabled if no LinkedIn URL is provided
+      linkedinRef.current.style.display = "inline-flex";
+      linkedinRef.current.style.pointerEvents = carouselData[0].linkedin ? "auto" : "none";
+      linkedinRef.current.style.opacity = carouselData[0].linkedin ? "1" : "0.5";
       // Set initial opacity
       gsap.set([nameRef.current, designationRef.current, quoteRef.current], { opacity: 1 });
     }
@@ -182,23 +233,39 @@ export default function CircularCarousel() {
       });
     }, 0);
 
-    const interval = setInterval(next, 6000);
-
     return () => {
-      clearInterval(interval);
       if (container) {
         container.innerHTML = '';
       }
     };
   }, []);
 
+  // Auto-rotate carousel - loops continuously
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Force update even if animation is in progress
+      if (nextRef.current) {
+        nextRef.current();
+      }
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   useEffect(() => {
     const updateContent = () => {
       const currentData = carouselData[activeIndex];
-      if (nameRef.current && designationRef.current && quoteRef.current) {
+      if (nameRef.current && designationRef.current && quoteRef.current && linkedinRef.current) {
         nameRef.current.textContent = currentData.name;
         designationRef.current.textContent = currentData.designation;
         quoteRef.current.textContent = currentData.quote;
+        linkedinRef.current.href = currentData.linkedin || "#";
+        // Always show the button - it will be disabled if no LinkedIn URL is provided
+        linkedinRef.current.style.display = "inline-flex";
+        linkedinRef.current.style.pointerEvents = currentData.linkedin ? "auto" : "none";
+        linkedinRef.current.style.opacity = currentData.linkedin ? "1" : "0.5";
       }
     };
     updateContent();
@@ -214,6 +281,18 @@ export default function CircularCarousel() {
             <h3 className="carousel-name" ref={nameRef}></h3>
             <p className="carousel-designation" ref={designationRef}></p>
             <p className="carousel-quote" ref={quoteRef}></p>
+            <a 
+              ref={linkedinRef}
+              href="#" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="carousel-linkedin-button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
           </div>
 
           <div className="carousel-arrow-buttons">
