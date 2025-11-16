@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import TiltedCard from '../components/TiltedCard';
-import Particles from '../components/Particles';
 import { cn } from "../lib/utils";
 import './Page.css';
 import titleimg from '../assets/title-card.jpg';
@@ -30,6 +29,7 @@ function Home() {
   const nextCardRef = useRef(null);
   const prevCardRef = useRef(null);
   const animationTimeoutsRef = useRef([]);
+  const parallaxImageRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -404,21 +404,29 @@ function Home() {
     };
   }, [totalCards]);
 
+  // Parallax effect for background image
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const parallax = parallaxImageRef.current;
+      if (parallax) {
+        const speed = 0.5;
+        parallax.style.transform = `translateY(${scrolled * speed}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="home-container">
       <div className="home-background">
-        <div style={{ width: '100%', height: '100%', position: 'absolute', inset: 0, zIndex: 0 }}>
-          <Particles
-            particleColors={['#ffffff', '#ffffff']}
-            particleCount={200}
-            particleSpread={10}
-            speed={0.1}
-            particleBaseSize={100}
-            moveParticlesOnHover={true}
-            alphaParticles={false}
-            disableRotation={false}
-          />
-        </div>
+        <div 
+          ref={parallaxImageRef}
+          className="home-background-image"
+          style={{ backgroundImage: `url(${titleimg})` }}
+        />
         <div className="home-overlay" />
         <div className="home-content-wrapper">
           <div className="home-content">
@@ -750,18 +758,6 @@ function Home() {
         
         <div ref={statsSectionRef} className="statistics-section">
           <div className="statistics-banner">
-            <div style={{ width: '100%', height: '100%', position: 'absolute', inset: 0, zIndex: 0 }}>
-              <Particles
-                particleColors={['#ffffff', '#ffffff']}
-                particleCount={200}
-                particleSpread={10}
-                speed={0.1}
-                particleBaseSize={100}
-                moveParticlesOnHover={true}
-                alphaParticles={false}
-                disableRotation={false}
-              />
-            </div>
             <div className="statistics-cards-container">
               <div className="statistics-card">
                 <div className="statistics-number">{statsValues.interns.toLocaleString()}+</div>
@@ -859,18 +855,6 @@ function Home() {
 
         {/* Testimonials Section */}
         <div className="testimonials-section">
-          <div style={{ width: '100%', height: '100%', position: 'absolute', inset: 0, zIndex: 0 }}>
-            <Particles
-              particleColors={['#ffffff', '#ffffff']}
-              particleCount={200}
-              particleSpread={10}
-              speed={0.1}
-              particleBaseSize={100}
-              moveParticlesOnHover={true}
-              alphaParticles={false}
-              disableRotation={false}
-            />
-          </div>
           <h1 className="testimonials-title">What Our Interns Say</h1>
           <div className="testimonials-marquee-container">
             <div className="testimonials-marquee">

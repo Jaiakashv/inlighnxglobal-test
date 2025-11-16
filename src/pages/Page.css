@@ -11,11 +11,24 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: black;
+  background: #252c30;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.home-background-image {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  z-index: 0;
 }
 
 @media (max-width: 768px) {
@@ -28,6 +41,10 @@
     min-height: calc(100vh - 70px);
     padding: 2rem 0;
   }
+
+  .home-background-image {
+    height: 150%;
+  }
   
   .page-container {
     padding-top: calc(70px + 1rem);
@@ -39,10 +56,13 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: black;
-  z-index: 20;
-  mask-image: radial-gradient(transparent, white);
-  -webkit-mask-image: radial-gradient(transparent, white);
+  background: linear-gradient(
+    135deg,
+    rgba(37, 44, 48, 0.85) 0%,
+    rgba(37, 44, 48, 0.75) 50%,
+    rgba(37, 44, 48, 0.85) 100%
+  );
+  z-index: 10;
   pointer-events: none;
 }
 
@@ -2252,11 +2272,11 @@
 }
 
 .testimonials-marquee-container {
-  position: relative;
-  z-index: 1;
   width: 100%;
   margin-top: 2rem;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
   mask-image: linear-gradient(
     to right,
     transparent 0%,
