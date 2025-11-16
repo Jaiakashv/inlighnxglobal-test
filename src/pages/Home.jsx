@@ -964,6 +964,7 @@ function Home() {
 
         {/* Circular 3D Carousel Section */}
         <div className="circular-carousel-section">
+          <h1 className="circular-carousel-title">Placed Interns from Our Program</h1>
           <CircularCarousel />
         </div>
       </div>
