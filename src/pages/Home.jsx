@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import TiltedCard from '../components/TiltedCard';
+import CircularCarousel from '../components/CircularCarousel';
 import { cn } from "../lib/utils";
 import './Page.css';
 import titleimg from '../assets/title-card.jpg';
@@ -959,6 +960,11 @@ function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Circular 3D Carousel Section */}
+        <div className="circular-carousel-section">
+          <CircularCarousel />
         </div>
       </div>
     </div>
