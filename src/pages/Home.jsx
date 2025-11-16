@@ -7,6 +7,7 @@ import isoLogo from '../assets/iso.png';
 import msmeLogo from '../assets/MSME-Logo.png';
 import startupLogo from '../assets/startup-india.png';
 import mcaLogo from '../assets/mca.jpg';
+import bannerimg from '../assets/banner-bg.jpg';
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [visibleCards, setVisibleCards] = useState([false, false, false, false]);
@@ -425,7 +426,7 @@ function Home() {
         <div 
           ref={parallaxImageRef}
           className="home-background-image"
-          style={{ backgroundImage: `url(${titleimg})` }}
+          style={{ backgroundImage: `url(${bannerimg})` }}
         />
         <div className="home-overlay" />
         <div className="home-content-wrapper">
