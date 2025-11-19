@@ -1282,7 +1282,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #252c30;
+  background: black;
   z-index: 20;
   mask-image: radial-gradient(transparent, white);
   -webkit-mask-image: radial-gradient(transparent, white);
