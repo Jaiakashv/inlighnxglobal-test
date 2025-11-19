@@ -11,6 +11,7 @@ import startupLogo from '../assets/startup-india.png';
 import mcaLogo from '../assets/mca.jpg';
 import bannerimg from '../assets/banner-bg.jpg';
 import mentorimg from '../assets/Mentorship.jpg';
+import whoBg from '../assets/who-bg.jpg';
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [visibleCards, setVisibleCards] = useState([false, false, false, false]);
@@ -783,7 +784,7 @@ function Home() {
           </div>
         </div>
         
-        <div className="who-we-are-section">
+        <div className="who-we-are-section" style={{ ['--who-bg-image']: `url(${whoBg})` }}>
           <h2 className="who-we-are-title">Who We Are</h2>
           <div className="carousel-container" ref={carouselRef}>
             <div 
