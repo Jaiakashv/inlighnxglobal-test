@@ -875,8 +875,8 @@ function Home() {
             />
           </div>
           <div style={{ position: 'relative', zIndex: 4 }}>
-            <h1 className="testimonials-title">What Our Interns Say</h1>
-            <div className="testimonials-marquee-container">
+          <h1 className="testimonials-title">What Our Interns Say</h1>
+          <div className="testimonials-marquee-container">
             <div className="testimonials-marquee">
               {/* First set of testimonials */}
               <div className="testimonial-card">
@@ -999,9 +999,9 @@ function Home() {
                   </p>
                   <p className="testimonial-text">The mentorship program is outstanding! My mentor guided me through every step and helped me build a strong portfolio. Thank you!</p>
                 </div>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
 
