@@ -1,125 +1,18 @@
 import { useEffect } from 'react'
 import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import './aboutus.css'
+import Roadmap from '../assets/Roadmap.jpg';
 
 function AboutUs() {
-  const roadmapSvg = `
-    <svg class="roadmap-svg" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#cbd5e1" />
-          <stop offset="100%" stop-color="#94a3b8" />
-        </linearGradient>
-        <linearGradient id="pinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#0F172A" />
-          <stop offset="100%" stop-color="#1e293b" />
-        </linearGradient>
-        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-          <feOffset dx="0" dy="2" result="offsetblur"/>
-          <feComponentTransfer>
-            <feFuncA type="linear" slope="0.3"/>
-          </feComponentTransfer>
-          <feMerge>
-            <feMergeNode/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-          <path d="M0,0 L10,5 L0,10 z" fill="#0F172A" />
-        </marker>
-      </defs>
-      <!-- Title with better styling -->
-      <text x="600" y="40" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#0F172A" letter-spacing="0.5px">ROADMAP OF INTERNSHIP JOURNEY</text>
-      
-      <!-- Road path with enhanced styling -->
-      <path id="roadPath" d="M1180,80 C880,120 860,280 640,300 C480,316 480,180 320,180 C160,180 160,340 340,360 C540,382 560,520 760,540 C980,562 980,420 820,400 C620,376 600,240 420,220 C220,198 180,360 60,420" fill="none" stroke="url(#roadGrad)" stroke-width="48" stroke-linecap="round" />
-      <!-- Road center line -->
-      <path d="M1180,80 C880,120 860,280 640,300 C480,316 480,180 320,180 C160,180 160,340 340,360 C540,382 560,520 760,540 C980,562 980,420 820,400 C620,376 600,240 420,220 C220,198 180,360 60,420" fill="none" stroke="#ffffff" stroke-width="3" stroke-dasharray="15 15" stroke-linecap="round" opacity="0.8">
-        <animate attributeName="stroke-dashoffset" from="0" to="-30" dur="3s" repeatCount="indefinite" />
-      </path>
-      
-      <!-- Animated car with better design -->
-      <g id="car" transform="translate(0,0)">
-        <g filter="url(#shadow)">
-          <!-- Car body -->
-          <ellipse cx="0" cy="0" rx="18" ry="12" fill="#f59e0b" stroke="#ffffff" stroke-width="2.5" />
-          <!-- Car windows -->
-          <rect x="-12" y="-8" width="24" height="6" rx="2" fill="#ffffff" opacity="0.85" />
-          <!-- Car wheels -->
-          <circle r="5" cx="-10" cy="10" fill="#1f2937" stroke="#ffffff" stroke-width="1.5" />
-          <circle r="5" cx="10" cy="10" fill="#1f2937" stroke="#ffffff" stroke-width="1.5" />
-          <!-- Wheel highlights -->
-          <circle r="2.5" cx="-10" cy="10" fill="#4b5563" />
-          <circle r="2.5" cx="10" cy="10" fill="#4b5563" />
-        </g>
-        <animateMotion dur="20s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
-          <mpath xlink:href="#roadPath" />
-        </animateMotion>
-      </g>
-      
-      <!-- Enhanced step markers with better readability -->
-      <g font-family="Inter, Arial, sans-serif">
-        <!-- Step 1 -->
-        <g>
-          <circle cx="900" cy="140" r="28" fill="url(#pinGrad)" filter="url(#shadow)" />
-          <circle cx="900" cy="140" r="22" fill="#ffffff" opacity="0.2" />
-          <text x="900" y="147" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">1</text>
-          <text x="900" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A" letter-spacing="0.3px">STEP 1</text>
-          <rect x="850" y="210" width="100" height="35" rx="6" fill="#ffffff" stroke="#0F172A" stroke-width="2" opacity="0.95" filter="url(#shadow)" />
-          <text x="900" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Registration</text>
-          <text x="900" y="245" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">&amp; Portal</text>
-        </g>
-        
-        <!-- Step 2 -->
-        <g>
-          <circle cx="320" cy="180" r="28" fill="url(#pinGrad)" filter="url(#shadow)" />
-          <circle cx="320" cy="180" r="22" fill="#ffffff" opacity="0.2" />
-          <text x="320" y="187" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">2</text>
-          <text x="320" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A" letter-spacing="0.3px">STEP 2</text>
-          <rect x="270" y="250" width="100" height="30" rx="6" fill="#ffffff" stroke="#0F172A" stroke-width="2" opacity="0.95" filter="url(#shadow)" />
-          <text x="320" y="270" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Interview</text>
-          <text x="320" y="285" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Call</text>
-        </g>
-        
-        <!-- Step 3 -->
-        <g>
-          <circle cx="760" cy="540" r="28" fill="url(#pinGrad)" filter="url(#shadow)" />
-          <circle cx="760" cy="540" r="22" fill="#ffffff" opacity="0.2" />
-          <text x="760" y="547" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">3</text>
-          <text x="760" y="500" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A" letter-spacing="0.3px">STEP 3</text>
-          <rect x="710" y="610" width="100" height="30" rx="6" fill="#ffffff" stroke="#0F172A" stroke-width="2" opacity="0.95" filter="url(#shadow)" />
-          <text x="760" y="630" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Offer</text>
-          <text x="760" y="645" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Letter</text>
-        </g>
-        
-        <!-- Step 4 -->
-        <g>
-          <circle cx="820" cy="400" r="28" fill="url(#pinGrad)" filter="url(#shadow)" />
-          <circle cx="820" cy="400" r="22" fill="#ffffff" opacity="0.2" />
-          <text x="820" y="407" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">4</text>
-          <text x="820" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A" letter-spacing="0.3px">STEP 4</text>
-          <rect x="770" y="470" width="100" height="30" rx="6" fill="#ffffff" stroke="#0F172A" stroke-width="2" opacity="0.95" filter="url(#shadow)" />
-          <text x="820" y="490" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Select</text>
-          <text x="820" y="505" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Project</text>
-        </g>
-        
-        <!-- Step 5 -->
-        <g>
-          <circle cx="200" cy="400" r="28" fill="url(#pinGrad)" filter="url(#shadow)" />
-          <circle cx="200" cy="400" r="22" fill="#ffffff" opacity="0.2" />
-          <text x="200" y="407" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">5</text>
-          <text x="200" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A" letter-spacing="0.3px">STEP 5</text>
-          <rect x="150" y="470" width="100" height="30" rx="6" fill="#ffffff" stroke="#0F172A" stroke-width="2" opacity="0.95" filter="url(#shadow)" />
-          <text x="200" y="490" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Completion</text>
-        </g>
-      </g>
-      
-      <!-- Start arrow indicator -->
-      <path d="M1120,60 L1180,80" stroke="#0F172A" stroke-width="5" marker-end="url(#arrow)" stroke-linecap="round" />
-      <circle cx="1120" cy="60" r="6" fill="#0F172A" />
-      <text x="1120" y="50" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">START</text>
-    </svg>`
+  const roadmapSvg = (
+    <div className="roadmap-container" style={{ width: '100%', height: 'auto', maxWidth: '1200px', margin: '0 auto' }}>
+      <img 
+        src={Roadmap}
+        alt="Internship Journey Roadmap"
+        style={{ width: '100%', height: 'auto', display: 'block' }}
+      />
+    </div>
+  )
   useEffect(() => {
     if (typeof window === 'undefined') return
     let io
@@ -217,7 +110,9 @@ function AboutUs() {
         <section className="about-hero reveal-on-scroll">
           <div className="about-hero-grid">
             <div className="about-hero-media">
-              <div className="roadmap-wrapper" aria-hidden="true" dangerouslySetInnerHTML={{ __html: roadmapSvg }} />
+              <div className="roadmap-wrapper" aria-hidden="true">
+                {roadmapSvg}
+              </div>
             </div>
             <div className="about-hero-content">
               <h2 className="about-hero-title">
@@ -317,11 +212,11 @@ function AboutUs() {
           </svg>
         </div>
 
-        <section className="about-banner reveal-on-scroll">
+        {/* <section className="about-banner reveal-on-scroll">
           <div className="about-banner-inner"><br />
             <h3>Save Time and Effort with INLIGHN TECH</h3>
           </div>
-        </section>
+        </section> */}
 
         <section className="vision-mission reveal-on-scroll">
           <div className="vm-grid">
@@ -426,7 +321,7 @@ function AboutUs() {
               rel="noreferrer noopener"
             >
               <div className="achievement-image">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Startup India Recognitions" loading="lazy" />
+                <img src="/startup-india-certificate.jpg" alt="Startup India Recognitions" loading="lazy" />
                 <span className="achievement-badge" aria-hidden>+</span>
               </div>
               <div className="achievement-texts">
