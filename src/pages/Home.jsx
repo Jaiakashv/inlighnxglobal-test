@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import TiltedCard from '../components/TiltedCard';
 import CircularCarousel from '../components/CircularCarousel';
 import LightRays from '../components/LightRays';
+import FloatingWhatsApp from '../components/FloatingWhatsApp';
 import { cn } from "../lib/utils";
 import './Page.css';
 import titleimg from '../assets/title-card.jpg';
@@ -1011,6 +1012,7 @@ function Home() {
           <CircularCarousel />
         </div>
       </div>
+      <FloatingWhatsApp />
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import './aboutus.css'
 
 function AboutUs() {
@@ -503,6 +504,7 @@ function AboutUs() {
           </form>
         </section>
       </div>
+      <FloatingWhatsApp />
     </div>
   )
 }

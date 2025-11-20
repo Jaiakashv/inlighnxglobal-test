@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import './Page.css'
 import logo from '../assets/logo.png'
 
@@ -163,6 +164,7 @@ function VerifyCertificate() {
           )}
         </div>
       </div>
+      <FloatingWhatsApp />
     </div>
   )
 }

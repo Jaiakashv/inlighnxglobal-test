@@ -1,3 +1,4 @@
+import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import './Page.css'
 
 function WhatsSpecial() {
@@ -74,6 +75,7 @@ function WhatsSpecial() {
           </p>
         </div>
       </div>
+      <FloatingWhatsApp />
     </div>
   )
 }

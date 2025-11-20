@@ -1,3 +1,4 @@
+import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import './Page.css'
 
 function Programs() {
@@ -59,6 +60,7 @@ function Programs() {
           ))}
         </div>
       </div>
+      <FloatingWhatsApp />
     </div>
   )
 }

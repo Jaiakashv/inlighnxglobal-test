@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import './Page.css'
 
 function ContactUs() {
@@ -118,6 +119,7 @@ function ContactUs() {
           </div>
         </div>
       </div>
+      <FloatingWhatsApp />
     </div>
   )
 }
