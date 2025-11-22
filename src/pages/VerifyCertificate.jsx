@@ -3,7 +3,7 @@ import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import './Page.css'
 import logo from '../assets/logo.png'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://web-backend-0aiv.onrender.com'
 
 // Helper function to format date from DD-MM-YYYY to DD/MM/YYYY
 const formatDateForDisplay = (dateStr) => {
