@@ -217,18 +217,21 @@ function CourseDetail({ course: courseProp, onClose: onCloseProp }) {
                   <span>Apply this Course @</span>
                   <span className="original-price">₹{originalPrice}</span>
                   <span className="discounted-price">₹{discountedPrice}</span>
-                  <button style={{
-                    background: '#FFD700',
-                    color: '#064B45',
-                    border: 'none',
-                    padding: '0.75rem 2rem',
-                    borderRadius: '8px',
-                    fontSize: '1.1rem',
-                    fontWeight: '700',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    fontFamily: 'inherit'
-                  }}>Apply Now</button>
+                  <button 
+                    onClick={() => window.open('https://www.youtube.com/watch?v=w07el7UywbQ', '_blank', 'noopener,noreferrer')}
+                    style={{
+                      background: '#FFD700',
+                      color: '#064B45',
+                      border: 'none',
+                      padding: '0.75rem 2rem',
+                      borderRadius: '8px',
+                      fontSize: '1.1rem',
+                      fontWeight: '700',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      fontFamily: 'inherit'
+                    }}
+                  >Apply Now</button>
                 </div>
 
                 <div className="course-highlights">
@@ -298,7 +301,10 @@ function CourseDetail({ course: courseProp, onClose: onCloseProp }) {
 
                 <div className="enrollment-card-divider"></div>
 
-                <button className="apply-now-btn" onClick={() => alert('Application form will open here')}>
+                <button 
+                  className="apply-now-btn" 
+                  onClick={() => window.open('https://www.youtube.com/watch?v=w07el7UywbQ', '_blank', 'noopener,noreferrer')}
+                >
                   <span>Apply Now</span>
                   <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <line x1="5" y1="12" x2="19" y2="12"></line>

@@ -162,6 +162,16 @@
   transform: translateY(0);
 }
 
+/* Desktop login button - show on desktop, hide on mobile */
+.login-button-desktop {
+  display: block;
+}
+
+/* Mobile login button - hide on desktop, show in mobile menu */
+.login-button-mobile {
+  display: none;
+}
+
 /* Hamburger Menu */
 .hamburger-menu {
   display: none;
@@ -306,12 +316,21 @@
     font-weight: 600;
   }
   
-  .login-button {
-    order: 2;
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    margin-left: 0.5rem;
+  /* Hide desktop login button on mobile */
+  .login-button-desktop {
+    display: none;
+  }
+
+  /* Show mobile login button in menu */
+  .login-button-mobile {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
   }
 }
 
@@ -388,11 +407,21 @@
     font-weight: 600;
   }
   
-  .login-button {
-    order: 2;
-    padding: 0.55rem 0.9rem;
-    font-size: 0.8rem;
-    margin-left: 0.5rem;
+  /* Hide desktop login button on mobile */
+  .login-button-desktop {
+    display: none;
+  }
+
+  /* Show mobile login button in menu */
+  .login-button-mobile {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
   }
 }
 
@@ -431,9 +460,21 @@
     padding: 0.65rem 0;
   }
   
-  .login-button {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.75rem;
+  /* Hide desktop login button on mobile */
+  .login-button-desktop {
+    display: none;
+  }
+
+  /* Show mobile login button in menu */
+  .login-button-mobile {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.8rem;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
   }
 }
 
@@ -466,9 +507,21 @@
     padding: 0.55rem 0;
   }
   
-  .login-button {
-    padding: 0.45rem 0.6rem;
-    font-size: 0.7rem;
+  /* Hide desktop login button on mobile */
+  .login-button-desktop {
+    display: none;
+  }
+
+  /* Show mobile login button in menu */
+  .login-button-mobile {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.75rem;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
   }
 }
 

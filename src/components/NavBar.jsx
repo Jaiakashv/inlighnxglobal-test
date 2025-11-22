@@ -46,9 +46,10 @@ function NavBar() {
           <Link to="/verify-certificate" className={`nav-link ${isActive('/verify-certificate') ? 'active' : ''}`} onClick={closeMenu}>Verify Certificate</Link>
           <Link to="/whats-special" className={`nav-link ${isActive('/whats-special') ? 'active' : ''}`} onClick={closeMenu}>What's Special</Link>
           <Link to="/contact-us" className={`nav-link ${isActive('/contact-us') ? 'active' : ''}`} onClick={closeMenu}>Contact Us</Link>
+          <button className="login-button login-button-mobile" onClick={closeMenu}>Login to Portal</button>
         </div>
         
-        <button className="login-button" onClick={closeMenu}>Login to Portal</button>
+        <button className="login-button login-button-desktop" onClick={closeMenu}>Login to Portal</button>
       </div>
     </nav>
   )

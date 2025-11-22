@@ -426,9 +426,42 @@
   }
 
   @media (max-width: 768px) {
+    .enrollment-card {
+      padding: 1.5rem 1rem;
+      align-items: stretch;
+      place-content: flex-start;
+      place-items: stretch;
+    }
+
+    .enrollment-card-badge {
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .enrollment-card-header {
+      padding-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .enrollment-card-title {
+      font-size: 1.5rem;
+    }
+
+    .enrollment-card-subtitle {
+      font-size: 0.95rem;
+    }
+
     .enrollment-card-info {
       grid-template-columns: 1fr;
       gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-card {
+      padding: 1rem;
     }
   }
 
@@ -1055,6 +1088,36 @@
   
     .enrollment-panel {
       padding: 1.25rem;
+    }
+
+    .enrollment-card {
+      padding: 1.25rem 0.875rem;
+      place-content: flex-start;
+      place-items: stretch;
+    }
+
+    .enrollment-card-badge {
+      top: 0.75rem;
+      right: 0.75rem;
+      font-size: 0.7rem;
+      padding: 0.35rem 0.7rem;
+    }
+
+    .enrollment-card-header {
+      padding-top: 2.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .enrollment-card-title {
+      font-size: 1.25rem;
+    }
+
+    .enrollment-card-subtitle {
+      font-size: 0.85rem;
+    }
+
+    .info-card {
+      padding: 0.875rem;
     }
   
     .course-section-title {
