@@ -170,65 +170,181 @@ function Programs() {
                 className="clear-search"
                 onClick={() => setSearchQuery('')}
                 type="button"
+                aria-label="Clear search"
               >
                 ✕
               </button>
             )}
           </div>
 
-          {/* Filters */}
-          <div className="filters-row">
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="filter-select"
-            >
-              {categories.map(cat => (
-                <option key={cat} value={cat}>
-                  {cat === 'All' ? 'All Categories' : cat}
-                </option>
-              ))}
-            </select>
+          {/* Mobile Combined Filter Dropdown */}
+          <div className="mobile-filters-wrapper">
+            {/* Active Filters Display */}
+            {(selectedCategory !== 'All' || selectedLevel !== 'All' || selectedDuration !== 'All' || sortBy !== 'Featured') && (
+              <div className="active-filters-mobile">
+                {selectedCategory !== 'All' && (
+                  <span className="active-filter-badge">
+                    Category: {selectedCategory}
+                  </span>
+                )}
+                {selectedLevel !== 'All' && (
+                  <span className="active-filter-badge">
+                    Level: {selectedLevel}
+                  </span>
+                )}
+                {selectedDuration !== 'All' && (
+                  <span className="active-filter-badge">
+                    Duration: {selectedDuration}
+                  </span>
+                )}
+                {sortBy !== 'Featured' && (
+                  <span className="active-filter-badge">
+                    Sort: {sortBy === 'Rating' ? 'Highest Rated' : 'Shortest Duration'}
+                  </span>
+                )}
+              </div>
+            )}
+            
+            <div className="mobile-filter-controls">
+              <div className="mobile-filter-group">
+                <label htmlFor="mobile-combined-filter" className="filter-label">Filters</label>
+                <select
+                  id="mobile-combined-filter"
+                  className="mobile-combined-filter"
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (value.startsWith('category:')) {
+                      setSelectedCategory(value.replace('category:', ''));
+                    } else if (value.startsWith('level:')) {
+                      setSelectedLevel(value.replace('level:', ''));
+                    } else if (value.startsWith('duration:')) {
+                      setSelectedDuration(value.replace('duration:', ''));
+                    } else if (value.startsWith('sort:')) {
+                      setSortBy(value.replace('sort:', ''));
+                    }
+                    // Reset to placeholder after selection
+                    setTimeout(() => {
+                      e.target.value = '';
+                    }, 100);
+                  }}
+                  defaultValue=""
+                >
+                  <option value="" disabled>Select a filter...</option>
+                  <optgroup label="Category">
+                    {categories.map(cat => (
+                      <option key={`category-${cat}`} value={`category:${cat}`}>
+                        {cat === 'All' ? 'All Categories' : cat}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Level">
+                    {levels.map(level => (
+                      <option key={`level-${level}`} value={`level:${level}`}>
+                        {level === 'All' ? 'All Levels' : level}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Duration">
+                    {durations.map(duration => (
+                      <option key={`duration-${duration}`} value={`duration:${duration}`}>
+                        {duration === 'All' ? 'All Durations' : duration}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Sort By">
+                    <option value="sort:Featured">Featured</option>
+                    <option value="sort:Rating">Highest Rated</option>
+                    <option value="sort:Duration">Shortest Duration</option>
+                  </optgroup>
+                </select>
+              </div>
+              <button
+                className="mobile-reset-btn"
+                onClick={clearFilters}
+                type="button"
+                aria-label="Reset all filters"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 6h18M7 6v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+                </svg>
+                Reset
+              </button>
+            </div>
+          </div>
 
-            <select
-              value={selectedLevel}
-              onChange={(e) => setSelectedLevel(e.target.value)}
-              className="filter-select"
-            >
-              {levels.map(level => (
-                <option key={level} value={level}>
-                  {level === 'All' ? 'All Levels' : level}
-                </option>
-              ))}
-            </select>
+          {/* Desktop Filters */}
+          <div className="filters-row desktop-filters">
+            <div className="filter-group">
+              <label htmlFor="category-filter" className="filter-label">Category</label>
+              <select
+                id="category-filter"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="filter-select"
+              >
+                {categories.map(cat => (
+                  <option key={cat} value={cat}>
+                    {cat === 'All' ? 'All Categories' : cat}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-            <select
-              value={selectedDuration}
-              onChange={(e) => setSelectedDuration(e.target.value)}
-              className="filter-select"
-            >
-              {durations.map(duration => (
-                <option key={duration} value={duration}>
-                  {duration === 'All' ? 'All Durations' : duration}
-                </option>
-              ))}
-            </select>
+            <div className="filter-group">
+              <label htmlFor="level-filter" className="filter-label">Level</label>
+              <select
+                id="level-filter"
+                value={selectedLevel}
+                onChange={(e) => setSelectedLevel(e.target.value)}
+                className="filter-select"
+              >
+                {levels.map(level => (
+                  <option key={level} value={level}>
+                    {level === 'All' ? 'All Levels' : level}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="filter-select"
-            >
-              <option value="Featured">Featured</option>
-              <option value="Rating">Highest Rated</option>
-              <option value="Duration">Shortest Duration</option>
-            </select>
+            <div className="filter-group">
+              <label htmlFor="duration-filter" className="filter-label">Duration</label>
+              <select
+                id="duration-filter"
+                value={selectedDuration}
+                onChange={(e) => setSelectedDuration(e.target.value)}
+                className="filter-select"
+              >
+                {durations.map(duration => (
+                  <option key={duration} value={duration}>
+                    {duration === 'All' ? 'All Durations' : duration}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="filter-group">
+              <label htmlFor="sort-filter" className="filter-label">Sort By</label>
+              <select
+                id="sort-filter"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="filter-select"
+              >
+                <option value="Featured">Featured</option>
+                <option value="Rating">Highest Rated</option>
+                <option value="Duration">Shortest Duration</option>
+              </select>
+            </div>
 
             <button
               className="reset-btn"
               onClick={clearFilters}
               type="button"
+              aria-label="Reset all filters"
             >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 6h18M7 6v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+              </svg>
               Reset
             </button>
           </div>
