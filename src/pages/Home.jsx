@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import TiltedCard from '../components/TiltedCard';
 import CircularCarousel from '../components/CircularCarousel';
 import LightRays from '../components/LightRays';
@@ -23,8 +23,6 @@ function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const [dragStart, setDragStart] = useState(null);
-  const [dragEnd, setDragEnd] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
@@ -37,146 +35,99 @@ function Home() {
   const animationTimeoutsRef = useRef([]);
   const parallaxImageRef = useRef(null);
 
+  // Optimized certification cards animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Clear any existing timeouts
-            animationTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
-            animationTimeoutsRef.current = [];
-            
-            // Reset first
-            setVisibleCards([false, false, false, false]);
-            setIsVisible(false);
-            
-            // Force a reflow to ensure reset is processed
-            if (cardRefs.current[0]) {
-              cardRefs.current[0].offsetHeight;
-            }
-            
-            // Small delay to ensure browser processes the reset before starting animation
-            const resetTimeout = setTimeout(() => {
-              setIsVisible(true);
-              // Stagger the card animations with better timing for smoother effect
-              const timeout1 = setTimeout(() => {
-                setVisibleCards([true, false, false, false]);
-              }, 200);
-              const timeout2 = setTimeout(() => {
-                setVisibleCards([true, true, false, false]);
-              }, 400);
-              const timeout3 = setTimeout(() => {
-                setVisibleCards([true, true, true, false]);
-              }, 600);
-              const timeout4 = setTimeout(() => {
-                setVisibleCards([true, true, true, true]);
-              }, 800);
-              
-              animationTimeoutsRef.current = [timeout1, timeout2, timeout3, timeout4];
-            }, 100);
-            
-            animationTimeoutsRef.current.push(resetTimeout);
-          } else {
-            // Clear timeouts when section leaves viewport
-            animationTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
-            animationTimeoutsRef.current = [];
-            // Reset when section leaves viewport
-            setIsVisible(false);
-            setVisibleCards([false, false, false, false]);
-          }
-        });
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Simplified staggered animation
+          const delays = [0, 200, 400, 600];
+          delays.forEach((delay, index) => {
+            setTimeout(() => {
+              setVisibleCards(prev => {
+                const newCards = [...prev];
+                newCards[index] = true;
+                return newCards;
+              });
+            }, delay);
+          });
+        } else {
+          setIsVisible(false);
+          setVisibleCards([false, false, false, false]);
+        }
       },
-      {
-        threshold: 0.15,
-        rootMargin: '0px 0px -100px 0px'
-      }
+      { threshold: 0.15, rootMargin: '0px 0px -100px 0px' }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentSection = sectionRef.current;
+    if (currentSection) {
+      observer.observe(currentSection);
     }
 
     return () => {
-      // Cleanup timeouts on unmount
-      animationTimeoutsRef.current.forEach(timeout => clearTimeout(timeout));
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSection) {
+        observer.unobserve(currentSection);
       }
     };
   }, []);
 
-  // Statistics counter animation
+  // Optimized statistics counter animation
   useEffect(() => {
+    if (hasAnimated) return;
+
     const animateCounter = (start, end, duration, callback) => {
       const startTime = performance.now();
-      
       const animate = (currentTime) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
-        // Easing function for smooth animation
         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
         const current = Math.floor(start + (end - start) * easeOutQuart);
-        
         callback(current);
-        
         if (progress < 1) {
           requestAnimationFrame(animate);
         } else {
           callback(end);
         }
       };
-      
       requestAnimationFrame(animate);
     };
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            
-            // Animate interns (0 to 5000)
-            animateCounter(0, 5000, 2000, (value) => {
-              setStatsValues(prev => ({ ...prev, interns: value }));
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const targets = [
+            { key: 'interns', end: 5000 },
+            { key: 'projects', end: 9000 },
+            { key: 'satisfaction', end: 93 },
+            { key: 'instructors', end: 30 }
+          ];
+          targets.forEach(({ key, end }) => {
+            animateCounter(0, end, 2000, (value) => {
+              setStatsValues(prev => ({ ...prev, [key]: value }));
             });
-            
-            // Animate projects (0 to 9000)
-            animateCounter(0, 9000, 2000, (value) => {
-              setStatsValues(prev => ({ ...prev, projects: value }));
-            });
-            
-            // Animate satisfaction (0 to 93)
-            animateCounter(0, 93, 2000, (value) => {
-              setStatsValues(prev => ({ ...prev, satisfaction: value }));
-            });
-            
-            // Animate instructors (0 to 30)
-            animateCounter(0, 30, 2000, (value) => {
-              setStatsValues(prev => ({ ...prev, instructors: value }));
-            });
-          }
-        });
+          });
+        }
       },
-      {
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
-      }
+      { threshold: 0.3, rootMargin: '0px 0px -50px 0px' }
     );
 
-    if (statsSectionRef.current) {
-      observer.observe(statsSectionRef.current);
+    const currentStats = statsSectionRef.current;
+    if (currentStats) {
+      observer.observe(currentStats);
     }
 
     return () => {
-      if (statsSectionRef.current) {
-        observer.unobserve(statsSectionRef.current);
+      if (currentStats) {
+        observer.unobserve(currentStats);
       }
     };
   }, [hasAnimated]);
 
-  // Who We Are Carousel
-  const whoWeAreCards = [
+  // Who We Are Carousel - Memoized to prevent re-renders
+  const whoWeAreCards = useMemo(() => [
     {
       title: "About INLIGHN TECH",
       content: "At INLIGHN TECH, we believe that the future of education lies in bridging the gap between academic learning and industry needs. Founded with a passion for providing meaningful and immersive learning experiences, we offer internship programs that equip students and young professionals with practical skills in Full Stack Development, Data Science, and Project Management.",
@@ -238,65 +189,32 @@ function Home() {
         </svg>
       )
     }
-  ];
+  ], []);
 
   const totalCards = whoWeAreCards.length;
 
-  const nextCard = () => {
+  // Optimized carousel navigation with useCallback
+  const nextCard = useCallback(() => {
     if (isTransitioning) return;
-    // Pause auto-play temporarily
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-    }
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     setIsTransitioning(true);
-    // Infinite loop - wrap around
-    setCurrentCardIndex((prev) => {
-      const next = prev + 1;
-      return next >= totalCards ? 0 : next;
-    });
-    setTimeout(() => {
-      setIsTransitioning(false);
-      // Resume auto-play
-      autoPlayRef.current = setInterval(() => {
-        setCurrentCardIndex((prev) => {
-          setIsTransitioning(true);
-          setTimeout(() => setIsTransitioning(false), 500);
-          return (prev + 1) % totalCards;
-        });
-      }, 5000);
-    }, 500);
-  };
+    setCurrentCardIndex((prev) => (prev + 1) % totalCards);
+    setTimeout(() => setIsTransitioning(false), 500);
+  }, [isTransitioning, totalCards]);
 
-  const prevCard = () => {
+  const prevCard = useCallback(() => {
     if (isTransitioning) return;
-    // Pause auto-play temporarily
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-    }
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     setIsTransitioning(true);
-    // Infinite loop - wrap around
-    setCurrentCardIndex((prev) => {
-      const next = prev - 1;
-      return next < 0 ? totalCards - 1 : next;
-    });
-    setTimeout(() => {
-      setIsTransitioning(false);
-      // Resume auto-play
-      autoPlayRef.current = setInterval(() => {
-        setCurrentCardIndex((prev) => {
-          setIsTransitioning(true);
-          setTimeout(() => setIsTransitioning(false), 500);
-          return (prev + 1) % totalCards;
-        });
-      }, 5000);
-    }, 500);
-  };
+    setCurrentCardIndex((prev) => (prev - 1 + totalCards) % totalCards);
+    setTimeout(() => setIsTransitioning(false), 500);
+  }, [isTransitioning, totalCards]);
 
   // Store functions in refs for use in event handlers
   useEffect(() => {
     nextCardRef.current = nextCard;
     prevCardRef.current = prevCard;
-  }, [isTransitioning, totalCards]);
+  }, [nextCard, prevCard]);
 
   // Check if mobile view
   useEffect(() => {
@@ -310,33 +228,27 @@ function Home() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Swipe handlers
+  // Optimized swipe handlers with useCallback
   const minSwipeDistance = 50;
 
-  const onTouchStart = (e) => {
+  const onTouchStart = useCallback((e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
-  };
+  }, []);
 
-  const onTouchMove = (e) => {
+  const onTouchMove = useCallback((e) => {
     setTouchEnd(e.targetTouches[0].clientX);
-  };
+  }, []);
 
-  const onTouchEnd = () => {
+  const onTouchEnd = useCallback(() => {
     if (!touchStart || !touchEnd) return;
-    
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe && nextCardRef.current) {
-      nextCardRef.current();
-    } else if (isRightSwipe && prevCardRef.current) {
-      prevCardRef.current();
+    if (Math.abs(distance) > minSwipeDistance) {
+      distance > 0 ? nextCardRef.current?.() : prevCardRef.current?.();
     }
-  };
+  }, [touchStart, touchEnd]);
 
-  // Add mouse event listeners for drag
+  // Optimized mouse drag handlers
   useEffect(() => {
     const wrapper = carouselWrapperRef.current;
     if (!wrapper) return;
@@ -349,36 +261,29 @@ function Home() {
       isDraggingLocal = true;
       setIsDragging(true);
       startX = e.clientX;
-      currentX = null;
     };
 
     const handleMouseMove = (e) => {
       if (!isDraggingLocal) return;
       currentX = e.clientX;
-      setDragEnd(e.clientX);
     };
 
     const handleMouseUp = () => {
-      if (!isDraggingLocal) return;
+      if (!isDraggingLocal || startX === null || currentX === null) {
+        isDraggingLocal = false;
+        setIsDragging(false);
+        return;
+      }
       
-      if (startX !== null && currentX !== null) {
-        const distance = startX - currentX;
-        const isLeftSwipe = distance > minSwipeDistance;
-        const isRightSwipe = distance < -minSwipeDistance;
-
-        if (isLeftSwipe && nextCardRef.current) {
-          nextCardRef.current();
-        } else if (isRightSwipe && prevCardRef.current) {
-          prevCardRef.current();
-        }
+      const distance = startX - currentX;
+      if (Math.abs(distance) > minSwipeDistance) {
+        distance > 0 ? nextCardRef.current?.() : prevCardRef.current?.();
       }
       
       isDraggingLocal = false;
       setIsDragging(false);
       startX = null;
       currentX = null;
-      setDragStart(null);
-      setDragEnd(null);
     };
 
     wrapper.addEventListener('mousedown', handleMouseDown);
@@ -392,32 +297,37 @@ function Home() {
     };
   }, []);
 
-  // Auto-play carousel with infinite loop
+  // Optimized auto-play carousel
   useEffect(() => {
+    if (isTransitioning) return;
+    
     autoPlayRef.current = setInterval(() => {
-      setCurrentCardIndex((prev) => {
-        setIsTransitioning(true);
-        setTimeout(() => setIsTransitioning(false), 500);
-        // Infinite loop
-        return (prev + 1) % totalCards;
-      });
-    }, 5000); // Change card every 5 seconds
+      setIsTransitioning(true);
+      setCurrentCardIndex((prev) => (prev + 1) % totalCards);
+      setTimeout(() => setIsTransitioning(false), 500);
+    }, 5000);
 
     return () => {
       if (autoPlayRef.current) {
         clearInterval(autoPlayRef.current);
       }
     };
-  }, [totalCards]);
+  }, [totalCards, isTransitioning]);
 
-  // Parallax effect for background image
+  // Optimized parallax effect with throttling
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const parallax = parallaxImageRef.current;
-      if (parallax) {
-        const speed = 0.5;
-        parallax.style.transform = `translateY(${scrolled * speed}px)`;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          const parallax = parallaxImageRef.current;
+          if (parallax) {
+            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -468,7 +378,7 @@ function Home() {
               showTooltip={true}
               displayOverlayContent={true}
               overlayContent={
-                <p className="tilted-card-demo-text text-dark text-center font-semibold">
+                <p className="tilted-card-demo-text text-white text-center font-semibold">
                   "Learn. Grow. Succeed — Build your Career with InlighnX Global"
                 </p>
               }
@@ -805,9 +715,9 @@ function Home() {
                   transition: isTransitioning && !isDragging ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
                 }}
               >
-                {/* Duplicate cards for seamless loop */}
-                {[...whoWeAreCards, ...whoWeAreCards, ...whoWeAreCards].map((card, index) => (
-                  <div key={index} className="who-we-are-card">
+                {/* Optimized: Only duplicate once for seamless loop */}
+                {[...whoWeAreCards, ...whoWeAreCards].map((card, index) => (
+                  <div key={`card-${index}`} className="who-we-are-card">
                     <div 
                       className="card-background-image"
                       style={{ backgroundImage: `url(${card.image})` }}
@@ -837,18 +747,18 @@ function Home() {
           
           <div className="carousel-indicators">
             {whoWeAreCards.map((_, index) => {
-              // Check if this card is currently visible (within the 3-card view)
-              const isVisible = index >= currentCardIndex && index < currentCardIndex + 3;
+              const isCardVisible = !isMobile 
+                ? index >= currentCardIndex && index < currentCardIndex + 3
+                : index === currentCardIndex;
               return (
                 <button
                   key={index}
-                  className={`carousel-indicator ${isVisible ? 'active' : ''}`}
+                  className={`carousel-indicator ${isCardVisible ? 'active' : ''}`}
                   onClick={() => {
                     if (!isTransitioning) {
                       setIsTransitioning(true);
-                      // Show the clicked card as the leftmost card, but constrain to valid positions
-                      const targetIndex = Math.min(index, totalCards - 3);
-                      setCurrentCardIndex(Math.max(0, targetIndex));
+                      const targetIndex = isMobile ? index : Math.min(index, Math.max(0, totalCards - 3));
+                      setCurrentCardIndex(targetIndex);
                       setTimeout(() => setIsTransitioning(false), 500);
                     }
                   }}
