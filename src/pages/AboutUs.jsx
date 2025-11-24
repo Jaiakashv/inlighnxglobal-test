@@ -99,7 +99,7 @@ function AboutUs() {
   }, [])
 
   return (
-    <div className="aboutus-page-container mt-12">
+    <div className="aboutus-page-container">
      
       <div className="aboutus-page-content">
         <h1>About Us</h1>
@@ -364,7 +364,7 @@ function AboutUs() {
         <div className="aboutus-page-section">
           <h2>The Best Beneficial Side of INLIGHNTECH</h2>
         </div>
-        <section className="reveal-on-scroll relative py-8 mb-8 overflow-hidden w-full bg-transparent">
+        <section className="relative py-8 pb-4 mb-8 overflow-hidden reveal-on-scroll">
           <div className="absolute inset-0 top-0 h-[180px] z-0 overflow-hidden" aria-hidden="true">
             <svg className="w-full h-full block max-w-full" viewBox="0 0 1200 180" preserveAspectRatio="none">
               <path 
@@ -374,68 +374,32 @@ function AboutUs() {
                 strokeWidth="4" 
                 strokeLinecap="round" 
                 strokeDasharray="8 10" 
-                className="opacity-60"
-                style={{
-                  animation: 'dash-move 2.5s linear infinite'
-                }}
+                className="opacity-60 animate-dash-move"
               />
             </svg>
           </div>
 
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start w-full">
             <div className="flex flex-col items-center text-center gap-2 px-2">
-              <div 
-                className="rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative isolate transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]"
-                style={{
-                  background: 'radial-gradient(80% 80% at 30% 30%, #fde68a, #f59e0b)'
-                }}
-              >
-                <div 
-                  className="absolute inset-[-6px] rounded-full -z-10 blur-[12px] opacity-70"
-                  style={{
-                    background: 'radial-gradient(closest-side, rgba(245,158,11,0.35), transparent 70%)'
-                  }}
-                ></div>
-                <div className="w-16 h-16 rounded-full flex items-center justify-center text-[28px] text-slate-900 bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden="true">📘</div>
+              <div className="bg-transparent rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-2xl relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]" style={{ background: 'radial-gradient(80% 80% at 30% 30%, #fde68a, #f59e0b)' }}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-3xl text-[#0f172a] bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden>📘</div>
               </div>
-              <h3 className="mt-1 text-xl font-extrabold text-slate-900">High Quality Resources</h3>
-              <p className="m-0 text-slate-600 text-[0.98rem] leading-[1.7] max-w-[28ch]">Curated content, real-world projects, and structured roadmaps to accelerate your growth.</p>
+              <h3 className="mt-1 text-xl font-extrabold text-[#0f172a]">High Quality Resources</h3>
+              <p className="text-[#475569] text-[0.98rem] leading-[1.7] max-w-[28ch]">Curated content, real-world projects, and structured roadmaps to accelerate your growth.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-2 px-2">
-              <div 
-                className="rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative isolate transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]"
-                style={{
-                  background: 'radial-gradient(80% 80% at 30% 30%, #cbd5e1, #0F172A)'
-                }}
-              >
-                <div 
-                  className="absolute inset-[-6px] rounded-full -z-10 blur-[12px] opacity-70"
-                  style={{
-                    background: 'radial-gradient(closest-side, rgba(15,23,42,0.35), transparent 70%)'
-                  }}
-                ></div>
-                <div className="w-16 h-16 rounded-full flex items-center justify-center text-[28px] text-slate-900 bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden="true">🎓</div>
+              <div className="bg-transparent rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-2xl relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]" style={{ background: 'radial-gradient(80% 80% at 30% 30%, #cbd5e1, #0F172A)' }}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-3xl text-[#0f172a] bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden>🎓</div>
               </div>
-              <h3 className="mt-1 text-xl font-extrabold text-slate-900">Expert Instructors</h3>
-              <p className="m-0 text-slate-600 text-[0.98rem] leading-[1.7] max-w-[28ch]">Guidance from seasoned industry professionals with practical, hands-on mentorship.</p>
+              <h3 className="mt-1 text-xl font-extrabold text-[#0f172a]">Expert Instructors</h3>
+              <p className="text-[#475569] text-[0.98rem] leading-[1.7] max-w-[28ch]">Guidance from seasoned industry professionals with practical, hands-on mentorship.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-2 px-2">
-              <div 
-                className="rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative isolate transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]"
-                style={{
-                  background: 'radial-gradient(80% 80% at 30% 30%, #a7f3d0, #10b981)'
-                }}
-              >
-                <div 
-                  className="absolute inset-[-6px] rounded-full -z-10 blur-[12px] opacity-70"
-                  style={{
-                    background: 'radial-gradient(closest-side, rgba(16,185,129,0.35), transparent 70%)'
-                  }}
-                ></div>
-                <div className="w-16 h-16 rounded-full flex items-center justify-center text-[28px] text-slate-900 bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden="true">🧭</div>
+              <div className="bg-transparent rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-2xl relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]" style={{ background: 'radial-gradient(80% 80% at 30% 30%, #a7f3d0, #10b981)' }}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-3xl text-[#0f172a] bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden>🧭</div>
               </div>
-              <h3 className="mt-1 text-xl font-extrabold text-slate-900">Internship Portal Access</h3>
-              <p className="m-0 text-slate-600 text-[0.98rem] leading-[1.7] max-w-[28ch]">Gain practical exposure with opportunities and verified certificates, all in one place.</p>
+              <h3 className="mt-1 text-xl font-extrabold text-[#0f172a]">Internship Portal Access</h3>
+              <p className="text-[#475569] text-[0.98rem] leading-[1.7] max-w-[28ch]">Gain practical exposure with opportunities and verified certificates, all in one place.</p>
             </div>
           </div>
         </section>

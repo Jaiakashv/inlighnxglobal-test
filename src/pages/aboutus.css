@@ -154,6 +154,7 @@
 .features-connector path { fill: none; stroke: #0F172A; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 8 10; animation: dash-move 2.5s linear infinite; opacity: 0.6; }
 
 @keyframes dash-move { to { stroke-dashoffset: -36; } }
+.animate-dash-move { animation: dash-move 2.5s linear infinite; }
 
 .features-bubbles { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: start; width: 100%; box-sizing: border-box; }
 .feature-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; padding: 0 0.5rem; }
