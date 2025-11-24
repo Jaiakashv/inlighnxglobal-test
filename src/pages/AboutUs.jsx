@@ -99,7 +99,8 @@ function AboutUs() {
   }, [])
 
   return (
-    <div className="aboutus-page-container">
+    <div className="aboutus-page-container mt-12">
+     
       <div className="aboutus-page-content">
         <h1>About Us</h1>
         <p className="aboutus-page-subtitle">
@@ -128,49 +129,145 @@ function AboutUs() {
         </section>
 
         {/* Team Section */}
-        <section className="team-section reveal-on-scroll" aria-labelledby="team-title">
-          <h2 id="team-title" className="team-title">Meet Our Mentors</h2>
-          <p className="team-subtitle">Experienced professionals guiding you with practical, hands-on mentorship.</p>
-          <div className="team-grid">
-            <div className="team-card">
-              <div className="team-avatar">
-                <img src="https://i.pravatar.cc/240?img=5" alt="Ananya Gupta, Lead Data Scientist" loading="lazy" />
+       
+        {/* Mentor Cards Section */}
+        <br />
+        <section className="mentor-section reveal-on-scroll" aria-labelledby="mentor-title">
+          <div className="container" style={{ textAlign: 'center' }}>
+            <h1 id="mentor-title" className="section-title" style={{ textAlign: 'center', margin: '0 auto 1rem' }}>Meet our mentors</h1>
+            <p className="section-subtitle">Learn from industry professionals with real-world experience</p>
+            
+            <div className="mentor-cards-container">
+              {/* Mentor Card 1 */}
+              <div className="mentor-card">
+                <div className="mentor-image-container">
+                  <img 
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
+                    alt="Sarah Johnson" 
+                    className="mentor-image"
+                    loading="lazy"
+                  />
+                  <div className="mentor-initials">SJ</div>
+                  <div className="mentor-overlay">
+                    <h3 className="mentor-name">Sarah Johnson</h3>
+                    <p className="mentor-role">Senior UX Designer at Google</p>
+                    <p className="mentor-bio">
+                      Specializing in user-centered design with 8+ years of experience in creating intuitive and engaging digital experiences for global audiences.
+                    </p>
+                    <a 
+                      href="https://linkedin.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="mentor-linkedin"
+                      aria-label="Connect on LinkedIn"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                      Connect
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="team-info">
-                <div className="team-name">Ananya Gupta</div>
-                <div className="team-role">Lead Data Scientist</div>
+
+              {/* Mentor Card 2 */}
+              <div className="mentor-card">
+                <div className="mentor-image-container">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
+                    alt="Michael Chen" 
+                    className="mentor-image"
+                    loading="lazy"
+                  />
+                  <div className="mentor-initials">MC</div>
+                  <div className="mentor-overlay">
+                    <h3 className="mentor-name">Michael Chen</h3>
+                    <p className="mentor-role">Full Stack Developer at Microsoft</p>
+                    <p className="mentor-bio">
+                      Experienced full-stack developer with expertise in React, Node.js, and cloud technologies. Passionate about teaching clean code and best practices.
+                    </p>
+                    <a 
+                      href="https://linkedin.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="mentor-linkedin"
+                      aria-label="Connect on LinkedIn"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                      Connect
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="team-card">
-              <div className="team-avatar">
-                <img src="https://i.pravatar.cc/240?img=20" alt="Rohit Mehra, Full Stack Architect" loading="lazy" />
+
+              {/* Mentor Card 3 */}
+              <div className="mentor-card">
+                <div className="mentor-image-container">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80" 
+                    alt="Priya Patel" 
+                    className="mentor-image"
+                    loading="lazy"
+                  />
+                  <div className="mentor-initials">PP</div>
+                  <div className="mentor-overlay">
+                    <h3 className="mentor-name">Priya Patel</h3>
+                    <p className="mentor-role">Data Science Lead at Amazon</p>
+                    <p className="mentor-bio">
+                      Data science expert with a focus on machine learning and AI. Loves breaking down complex concepts into easy-to-understand lessons.
+                    </p>
+                    <a 
+                      href="https://linkedin.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="mentor-linkedin"
+                      aria-label="Connect on LinkedIn"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                      Connect
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="team-info">
-                <div className="team-name">Rohit Mehra</div>
-                <div className="team-role">Full Stack Architect</div>
-              </div>
-            </div>
-            <div className="team-card">
-              <div className="team-avatar">
-                <img src="https://i.pravatar.cc/240?img=11" alt="Sara Khan, Cyber Security Lead" loading="lazy" />
-              </div>
-              <div className="team-info">
-                <div className="team-name">Sara Khan</div>
-                <div className="team-role">Cyber Security Lead</div>
-              </div>
-            </div>
-            <div className="team-card">
-              <div className="team-avatar">
-                <img src="https://i.pravatar.cc/240?img=45" alt="Vikram Patel, Program Manager" loading="lazy" />
-              </div>
-              <div className="team-info">
-                <div className="team-name">Vikram Patel</div>
-                <div className="team-role">Program Manager</div>
+
+              {/* Mentor Card 4 - New Mentor */}
+              <div className="mentor-card">
+                <div className="mentor-image-container">
+                  <img 
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
+                    alt="Rajesh Kumar" 
+                    className="mentor-image"
+                    loading="lazy"
+                  />
+                  <div className="mentor-initials">RK</div>
+                  <div className="mentor-overlay">
+                    <h3 className="mentor-name">Rajesh Kumar</h3>
+                    <p className="mentor-role">AI/ML Lead at TechCorp</p>
+                    <p className="mentor-bio">
+                      Machine learning expert with 7+ years of experience in building scalable AI solutions. Specializes in deep learning, NLP, and computer vision applications.
+                    </p>
+                    <a 
+                      href="https://linkedin.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="mentor-linkedin"
+                      aria-label="Connect on LinkedIn"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                      Connect
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
-
         {/* FAQ Section */}
         <section className="faq-section reveal-on-scroll" aria-labelledby="faq-title">
           <h2 id="faq-title" className="faq-title">Frequently Asked Questions</h2>
@@ -267,28 +364,78 @@ function AboutUs() {
         <div className="aboutus-page-section">
           <h2>The Best Beneficial Side of INLIGHNTECH</h2>
         </div>
-        <section className="features-showcase reveal-on-scroll">
-          <div className="features-connector" aria-hidden="true">
-            <svg viewBox="0 0 1200 180" preserveAspectRatio="none">
-              <path d="M0,120 C200,60 350,160 520,110 C720,50 880,140 1200,80" />
+        <section className="reveal-on-scroll relative py-8 mb-8 overflow-hidden w-full bg-transparent">
+          <div className="absolute inset-0 top-0 h-[180px] z-0 overflow-hidden" aria-hidden="true">
+            <svg className="w-full h-full block max-w-full" viewBox="0 0 1200 180" preserveAspectRatio="none">
+              <path 
+                d="M0,120 C200,60 350,160 520,110 C720,50 880,140 1200,80" 
+                fill="none" 
+                stroke="#0F172A" 
+                strokeWidth="4" 
+                strokeLinecap="round" 
+                strokeDasharray="8 10" 
+                className="opacity-60"
+                style={{
+                  animation: 'dash-move 2.5s linear infinite'
+                }}
+              />
             </svg>
           </div>
 
-          <div className="features-bubbles">
-            <div className="feature-item">
-              <div className="feature-bubble bubble-orange"><div className="bubble-icon" aria-hidden>📘</div></div>
-              <h3 className="feature-title">High Quality Resources</h3>
-              <p className="feature-desc">Curated content, real-world projects, and structured roadmaps to accelerate your growth.</p>
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start w-full">
+            <div className="flex flex-col items-center text-center gap-2 px-2">
+              <div 
+                className="rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative isolate transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]"
+                style={{
+                  background: 'radial-gradient(80% 80% at 30% 30%, #fde68a, #f59e0b)'
+                }}
+              >
+                <div 
+                  className="absolute inset-[-6px] rounded-full -z-10 blur-[12px] opacity-70"
+                  style={{
+                    background: 'radial-gradient(closest-side, rgba(245,158,11,0.35), transparent 70%)'
+                  }}
+                ></div>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-[28px] text-slate-900 bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden="true">📘</div>
+              </div>
+              <h3 className="mt-1 text-xl font-extrabold text-slate-900">High Quality Resources</h3>
+              <p className="m-0 text-slate-600 text-[0.98rem] leading-[1.7] max-w-[28ch]">Curated content, real-world projects, and structured roadmaps to accelerate your growth.</p>
             </div>
-            <div className="feature-item">
-              <div className="feature-bubble bubble-purple"><div className="bubble-icon" aria-hidden>🎓</div></div>
-              <h3 className="feature-title">Expert Instructors</h3>
-              <p className="feature-desc">Guidance from seasoned industry professionals with practical, hands-on mentorship.</p>
+            <div className="flex flex-col items-center text-center gap-2 px-2">
+              <div 
+                className="rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative isolate transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]"
+                style={{
+                  background: 'radial-gradient(80% 80% at 30% 30%, #cbd5e1, #0F172A)'
+                }}
+              >
+                <div 
+                  className="absolute inset-[-6px] rounded-full -z-10 blur-[12px] opacity-70"
+                  style={{
+                    background: 'radial-gradient(closest-side, rgba(15,23,42,0.35), transparent 70%)'
+                  }}
+                ></div>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-[28px] text-slate-900 bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden="true">🎓</div>
+              </div>
+              <h3 className="mt-1 text-xl font-extrabold text-slate-900">Expert Instructors</h3>
+              <p className="m-0 text-slate-600 text-[0.98rem] leading-[1.7] max-w-[28ch]">Guidance from seasoned industry professionals with practical, hands-on mentorship.</p>
             </div>
-            <div className="feature-item">
-              <div className="feature-bubble bubble-teal"><div className="bubble-icon" aria-hidden>🧭</div></div>
-              <h3 className="feature-title">Internship Portal Access</h3>
-              <p className="feature-desc">Gain practical exposure with opportunities and verified certificates, all in one place.</p>
+            <div className="flex flex-col items-center text-center gap-2 px-2">
+              <div 
+                className="rounded-full w-[210px] h-[210px] mx-auto mb-4 flex flex-col items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative isolate transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_26px_48px_rgba(15,23,42,0.18)]"
+                style={{
+                  background: 'radial-gradient(80% 80% at 30% 30%, #a7f3d0, #10b981)'
+                }}
+              >
+                <div 
+                  className="absolute inset-[-6px] rounded-full -z-10 blur-[12px] opacity-70"
+                  style={{
+                    background: 'radial-gradient(closest-side, rgba(16,185,129,0.35), transparent 70%)'
+                  }}
+                ></div>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-[28px] text-slate-900 bg-white/90 shadow-[inset_0_0_0_3px_rgba(255,255,255,0.7)]" aria-hidden="true">🧭</div>
+              </div>
+              <h3 className="mt-1 text-xl font-extrabold text-slate-900">Internship Portal Access</h3>
+              <p className="m-0 text-slate-600 text-[0.98rem] leading-[1.7] max-w-[28ch]">Gain practical exposure with opportunities and verified certificates, all in one place.</p>
             </div>
           </div>
         </section>
@@ -316,12 +463,12 @@ function AboutUs() {
 
             <a
               className="achievement-card slide-from-right aboutus-certification-card"
-              href="https://www.startupindia.gov.in/content/sih/en/block-chain-recognised-certificate.html?DIPP=DIPP201797"
+              href="https://www.startupindia.gov.in/content/sih/en/block-chain-recognized-certificate.html?DIPP=DIPP201797"
               target="_blank"
               rel="noreferrer noopener"
             >
               <div className="achievement-image">
-                <img src="/startup-india-certificate.jpg" alt="Startup India Recognitions" loading="lazy" />
+                <img src="https://file+.vscode-resource.vscode-webview.net/c%3A/Users/varsha%20swathi/AppData/Roaming/Code/User/globalStorage/state.vscdb-temp/9e7e5a8a-5c5f-4b5b-8c5a-5d5c5b5a5f5e/FileDownload/startup-india-recognition.png" alt="Startup India Recognitions" loading="lazy" style={{objectFit: 'contain', backgroundColor: '#fff'}} />
                 <span className="achievement-badge" aria-hidden>+</span>
               </div>
               <div className="achievement-texts">
@@ -331,6 +478,7 @@ function AboutUs() {
             </a>
           </div>
         </section>
+
 
         <section className="contact-dark reveal-on-scroll" aria-labelledby="contact-title">
           <div className="contact-pill">GET IN TOUCH</div>
