@@ -10,6 +10,7 @@ function ContactUs() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [openFaq, setOpenFaq] = useState(null)
+  const [hoveredOffice, setHoveredOffice] = useState(null)
 
   const handleChange = (e) => {
     setFormData({
@@ -53,6 +54,13 @@ ${formData.message}
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index)
+  }
+
+  // Map embed URLs for each office using standard Google Maps embed
+  const officeMaps = {
+    corporate: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62214.544675061334!2d77.60007038796358!3d12.945657267494292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae173ecba2d963%3A0xdb979f5f7974e8da!2sWeWork%20Prestige%20Central%20-%20Coworking%20%26%20Office%20Space%20in%20Infantry%20Road%2C%20Bangalore!5e0!3m2!1sen!2sin!4v1764035923335!5m2!1sen!2sin%22%20width=%22600%22%20height=%22450%22%20style=%22border:0;%22%20allowfullscreen=%22%22%20loading=%22lazy%22%20referrerpolicy=%22no-referrer-when-downgrade",
+    lucknow: "https://www.google.com/maps?q=B1-722,+DLF+MyPad,+Gomti+Nagar,+Lucknow,+Uttar+Pradesh+226010&output=embed",
+    registered: "https://www.google.com/maps?q=Opposite+Swasti+Hospital,+Anupam+Nagar,+Bareilly,+Uttar+Pradesh+243001&output=embed"
   }
 
   const faqs = [
@@ -141,7 +149,11 @@ ${formData.message}
                 
                 <div className="space-y-3 sm:space-y-4 md:space-y-6">
                   {/* Corporate Office */}
-                  <div className="group bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-300 hover:-translate-y-1">
+                  <div 
+                    className="group bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-300 hover:-translate-y-1 relative"
+                    onMouseEnter={() => setHoveredOffice('corporate')}
+                    onMouseLeave={() => setHoveredOffice(null)}
+                  >
                     <div className="flex items-start space-x-3 sm:space-x-4">
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -159,10 +171,34 @@ ${formData.message}
                         </p>
                       </div>
                     </div>
+                    <div 
+                      className={`mt-4 rounded-lg overflow-hidden shadow-lg border border-gray-200 transition-all duration-500 ease-in-out transform ${
+                        hoveredOffice === 'corporate'
+                          ? 'opacity-100 max-h-[300px] translate-y-0 scale-100'
+                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none'
+                      }`}
+                      style={{ transition: 'opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out' }}
+                    >
+                      <iframe
+                        src={officeMaps.corporate}
+                        width="100%"
+                        height="250"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="w-full"
+                        title="Corporate Office Location"
+                      ></iframe>
+                    </div>
                   </div>
 
                   {/* Lucknow Office */}
-                  <div className="group bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-300 hover:-translate-y-1">
+                  <div 
+                    className="group bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-300 hover:-translate-y-1 relative"
+                    onMouseEnter={() => setHoveredOffice('lucknow')}
+                    onMouseLeave={() => setHoveredOffice(null)}
+                  >
                     <div className="flex items-start space-x-3 sm:space-x-4">
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -180,10 +216,34 @@ ${formData.message}
                         </p>
                       </div>
                     </div>
+                    <div 
+                      className={`mt-4 rounded-lg overflow-hidden shadow-lg border border-gray-200 transition-all duration-500 ease-in-out transform ${
+                        hoveredOffice === 'lucknow'
+                          ? 'opacity-100 max-h-[300px] translate-y-0 scale-100'
+                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none'
+                      }`}
+                      style={{ transition: 'opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out' }}
+                    >
+                      <iframe
+                        src={officeMaps.lucknow}
+                        width="100%"
+                        height="250"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="w-full"
+                        title="Lucknow Office Location"
+                      ></iframe>
+                    </div>
                   </div>
 
                   {/* Registered Office */}
-                  <div className="group bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-300 hover:-translate-y-1">
+                  <div 
+                    className="group bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-300 hover:-translate-y-1 relative"
+                    onMouseEnter={() => setHoveredOffice('registered')}
+                    onMouseLeave={() => setHoveredOffice(null)}
+                  >
                     <div className="flex items-start space-x-3 sm:space-x-4">
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -200,6 +260,26 @@ ${formData.message}
                           243001
                         </p>
                       </div>
+                    </div>
+                    <div 
+                      className={`mt-4 rounded-lg overflow-hidden shadow-lg border border-gray-200 transition-all duration-500 ease-in-out transform ${
+                        hoveredOffice === 'registered'
+                          ? 'opacity-100 max-h-[300px] translate-y-0 scale-100'
+                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none'
+                      }`}
+                      style={{ transition: 'opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out' }}
+                    >
+                      <iframe
+                        src={officeMaps.registered}
+                        width="100%"
+                        height="250"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="w-full"
+                        title="Registered Office Location"
+                      ></iframe>
                     </div>
                   </div>
                 </div>
