@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import FloatingWhatsApp from '../components/FloatingWhatsApp'
-import './Page.css'
 
 function ContactUs() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    domain: '',
+    otherDomain: '',
     message: ''
   })
   const [submitted, setSubmitted] = useState(false)
@@ -20,101 +19,263 @@ function ContactUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Simulate form submission
+    
+    // Construct email body with form data
+    const emailBody = `
+Name: ${formData.name}
+
+Email: ${formData.email}
+
+Domain of Internship: ${formData.domain}
+
+Message:
+${formData.message}
+    `.trim()
+    
+    // Encode the email body for URL
+    const encodedBody = encodeURIComponent(emailBody)
+    const encodedSubject = encodeURIComponent('Contact Form Submission - InLighnX Global')
+    
+    // Create mailto link
+    const mailtoLink = `mailto:inlighnxglobal@gmail.com?subject=${encodedSubject}&body=${encodedBody}`
+    
+    // Open the email client
+    window.location.href = mailtoLink
+    
+    // Show success message
     setSubmitted(true)
     setTimeout(() => {
       setSubmitted(false)
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      setFormData({ name: '', email: '', domain: '', otherDomain: '', message: '' })
     }, 3000)
   }
 
   return (
-    <div className="contact-us-container">
-      <div className="contact-us-content">
-        <h1 className="text-4xl md:text-5xl font-bold mb-12 mt-12 text-center" style={{ color: '#333333' }}>
-          Contact Us
-        </h1>
-        
-        {/* Contact Information Section */}
-        <div className="mt-12 mb-8">
-          <h2 className="text-3xl font-bold mb-8" style={{ color: '#14b8a6' }}>
-            Contact Information
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-            {/* Email Address Card */}
-            <div className="bg-white rounded-xl shadow-md p-6 flex items-start gap-4 hover:shadow-lg transition-shadow duration-300">
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#e0f2fe' }}>
-                <svg className="w-6 h-6" style={{ color: '#0ea5e9' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <p className="text-sm font-medium text-gray-600 mb-1">Email Address</p>
-                <p className="text-base font-semibold text-gray-900">info@inlighnx.com</p>
-              </div>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 mt-12">
+        {/* Page Header */}
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+            Contact Us
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            Get in touch with us. We're here to help and answer any questions you might have.
+          </p>
+        </div>
 
-            {/* Call Us Card */}
-            <div className="bg-white rounded-xl shadow-md p-6 flex items-start gap-4 hover:shadow-lg transition-shadow duration-300">
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#e0f2fe' }}>
-                <svg className="w-6 h-6" style={{ color: '#0ea5e9' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Contact Information Section */}
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
+                Contact Information
+              </h2>
+              
+              {/* Primary Contact Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
+                <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-300 hover:-translate-y-1">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-base font-semibold text-gray-900 mb-1">Email Address</h3>
+                      <p className="text-sm text-gray-600 break-words">info@inlighntech.com</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-300 hover:-translate-y-1">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-base font-semibold text-gray-900 mb-1">Call Us</h3>
+                      <p className="text-sm text-gray-600">+91 9368842663</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex-1">
-                <p className="text-sm font-medium text-gray-600 mb-1">Call Us</p>
-                <p className="text-base font-semibold text-gray-900">+91 93288 2087</p>
+
+              {/* Offices Section */}
+              <div className="mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Our Offices</h3>
+                
+                <div className="space-y-4 sm:space-y-6">
+                  {/* Corporate Office */}
+                  <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-300 hover:-translate-y-1">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-semibold text-gray-900 mb-2">Corporate Office</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          VO-301, WeWork Prestige Central, Ground Floor,<br/>
+                          38, Infantry Rd, Tasker Town,<br/>
+                          Shivaji Nagar, Bengaluru,<br/>
+                          Karnataka 560001
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Lucknow Office */}
+                  <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-indigo-300 hover:-translate-y-1">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-semibold text-gray-900 mb-2">Lucknow Office</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          B1- 722, DLF MyPad,<br/>
+                          Gomti Nagar,<br/>
+                          Lucknow, Uttar Pradesh<br/>
+                          226010
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Registered Office */}
+                  <div className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-300 hover:-translate-y-1">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-semibold text-gray-900 mb-2">Registered Office</h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          Opposite Swasti Hospital<br/>
+                          Anupam Nagar,<br/>
+                          Bareilly, Uttar Pradesh<br/>
+                          243001
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Our Office Section */}
-        <div className="mt-16 mb-8">
-          <h2 className="text-3xl font-bold mb-8" style={{ color: '#14b8a6' }}>
-            Our Office
-          </h2>
-          
-          <div className="max-w-4xl">
-            {/* Location Card */}
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#e0f2fe' }}>
-                  <svg className="w-6 h-6" style={{ color: '#0ea5e9' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-600 mb-1">Location</p>
-                  <p className="text-base font-semibold text-gray-900">InLighnX Global Private Limited</p>
-                  <p className="text-sm text-gray-600 mt-1">Your office address here</p>
-                </div>
-              </div>
+          {/* Contact Form Section */}
+          <div className="lg:sticky lg:top-8 lg:self-start">
+            <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-100">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
+                Send us a Message
+              </h2>
               
-              {/* Map Iframe */}
-              <div className="w-full rounded-lg overflow-hidden" style={{ height: '400px' }}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.1234567890123!2d72.8776559!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzMzLjUiTiA3MsKwNTInMzkuNiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Office Location"
-                  className="w-full h-full"
-                ></iframe>
-              </div>
+              {submitted ? (
+                <div className="text-center py-8 sm:py-12">
+                  <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4 sm:mb-6 animate-bounce">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Thank you for contacting us!</h3>
+                  <p className="text-gray-600">Your email client should open shortly. We'll get back to you as soon as possible.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Enter your name"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 outline-none text-gray-900 placeholder-gray-400"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Enter your email"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 outline-none text-gray-900 placeholder-gray-400"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="domain" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Domain of Internship
+                    </label>
+                    <input
+                      type="text"
+                      id="domain"
+                      name="domain"
+                      value={formData.domain}
+                      onChange={handleChange}
+                      placeholder="Enter your domain of interest"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 outline-none text-gray-900 placeholder-gray-400"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Type your message here..."
+                      rows="5"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 outline-none resize-y text-gray-900 placeholder-gray-400"
+                    ></textarea>
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-[#0F172A] to-[#1e293b] text-white font-semibold py-3 sm:py-3.5 px-6 rounded-lg hover:from-[#1e293b] hover:to-[#0F172A] transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+                  >
+                    <span>Send Message</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                    </svg>
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
       </div>
-      <FloatingWhatsApp />
     </div>
   )
 }
 
-export default ContactUs
-
+export default ContactUs;
