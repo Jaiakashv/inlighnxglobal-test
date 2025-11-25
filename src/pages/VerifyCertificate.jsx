@@ -81,79 +81,79 @@ function VerifyCertificate() {
           {verificationResult && (
             <>
               {verificationResult.valid ? (
-                <div className="flex justify-center items-center py-8 px-4 my-8 md:py-4 md:px-2 md:my-4">
+                <div className="flex justify-center items-center py-8 px-2 my-8 sm:py-6 sm:px-4 md:py-4 md:px-2 md:my-4">
                   <div 
-                    className="relative w-full max-w-[900px] min-h-[900px] bg-white border-8 border-[#1a5f3f] rounded shadow-[0_10px_30px_rgba(0,0,0,0.2)] mx-auto py-[4.5rem] px-16 md:min-h-auto md:border-[5px] md:max-w-full md:py-8 md:px-6"
+                    className="relative w-full max-w-[900px] min-h-[900px] bg-white border-8 border-[#1a5f3f] rounded shadow-[0_10px_30px_rgba(0,0,0,0.2)] mx-auto py-[4.5rem] px-16 sm:min-h-auto sm:border-[5px] sm:max-w-full sm:py-8 sm:px-6 md:min-h-auto md:border-[5px] md:max-w-full md:py-8 md:px-6"
                   >
                     {/* Inner Border */}
-                    <div className="absolute inset-2 border-[3px] border-[#ff6b35] rounded-[2px] pointer-events-none md:inset-[5px] md:border-2"></div>
+                    <div className="absolute inset-2 border-[3px] border-[#ff6b35] rounded-[2px] pointer-events-none sm:inset-[5px] sm:border-2 md:inset-[5px] md:border-2"></div>
                     
                     {/* Decorative Star */}
-                    <div className="absolute top-5 left-[30px] z-[1]">
-                      <div className="w-[50px] h-[50px] bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-full flex items-center justify-center text-white text-2xl shadow-[0_2px_8px_rgba(255,215,0,0.3)]">
+                    <div className="absolute top-5 left-[30px] z-[1] sm:top-3 sm:left-4 md:top-5 md:left-[30px]">
+                      <div className="w-[50px] h-[50px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-full flex items-center justify-center text-white text-2xl sm:text-xl md:text-2xl shadow-[0_2px_8px_rgba(255,215,0,0.3)]">
                         ★
                       </div>
                     </div>
-                    <div className="absolute top-1/2 right-[10%] -translate-y-1/2 text-[12rem] text-[rgba(255,107,53,0.15)] z-0 font-thin pointer-events-none hidden md:block">★</div>
+                    <div className="absolute top-1/2 right-[10%] -translate-y-1/2 text-[12rem] sm:text-[6rem] md:text-[12rem] text-[rgba(255,107,53,0.15)] z-0 font-thin pointer-events-none hidden sm:hidden md:block">★</div>
                     
                     {/* Company Logo */}
-                    <div className="text-center mb-6 relative z-[2] flex justify-center items-center">
-                      <img src={logo} alt="InLighnX Global Logo" className="max-w-[150px] w-auto h-auto object-contain block" />
+                    <div className="text-center mb-6 sm:mb-4 md:mb-6 relative z-[2] flex justify-center items-center">
+                      <img src={logo} alt="InLighnX Global Logo" className="max-w-[70px] sm:max-w-[100px] md:max-w-[150px] w-auto h-auto object-contain block" />
                     </div>
 
                     {/* Certificate Header */}
-                    <h1 className="text-center text-[#1e3a5f] text-[2.5rem] md:text-2xl font-bold my-6 md:my-4 tracking-[2px] md:tracking-[1px] font-serif relative z-[2]">CERTIFICATE OF ACHIEVEMENT</h1>
+                    <h1 className="text-center text-[#1e3a5f] text-[2.5rem] sm:text-xs md:text-2xl font-bold my-6 sm:my-4 md:my-4 tracking-[2px] sm:tracking-[1px] md:tracking-[1px] font-serif relative z-[2] px-2">CERTIFICATE OF ACHIEVEMENT</h1>
                     
                     {/* Presented To */}
-                    <p className="text-center text-[#333333] text-base md:text-sm my-4 md:my-3 font-medium tracking-[1px] relative z-[2]">PROUDLY PRESENTED TO</p>
+                    <p className="text-center text-[#333333] text-base sm:text-xs md:text-sm my-4 sm:my-2 md:my-3 font-medium tracking-[1px] sm:tracking-[0.5px] relative z-[2] px-2">PROUDLY PRESENTED TO</p>
                     
                     {/* Name */}
-                    <h2 className="text-center text-[#ff6b35] text-[2.2rem] md:text-2xl font-semibold my-4 md:my-3 italic font-serif relative z-[2]">{verificationResult["Name"]}</h2>
+                    <h2 className="text-center text-[#ff6b35] text-[2.2rem] sm:text-xl md:text-2xl font-semibold my-4 sm:my-2 md:my-3 italic font-serif relative z-[2] px-2 break-words">{verificationResult["Name"]}</h2>
                     
                     {/* Achievement Text */}
-                    <p className="text-center text-[#333333] text-lg md:text-base leading-relaxed my-6 md:my-4 relative z-[2]">
+                    <p className="text-center text-[#333333] text-lg sm:text-sm md:text-base leading-relaxed my-6 sm:my-3 md:my-4 relative z-[2] px-2 sm:px-1">
                       For successfully completing the internship in <strong className="text-[#1e3a5f] font-semibold">{verificationResult["Domain"]}</strong>
                     </p>
                     
                     {/* Details */}
-                    <div className="text-center my-6 md:my-4 relative z-[2]">
-                      <p className="text-[#333333] text-base md:text-sm my-2 leading-relaxed">
+                    <div className="text-center my-6 sm:my-3 md:my-4 relative z-[2] px-2">
+                      <p className="text-[#333333] text-base sm:text-xs md:text-sm my-2 sm:my-1 leading-relaxed">
                         <span className="font-semibold text-[#1e3a5f]">Duration:</span> {verificationResult["Duration"]} {verificationResult["Duration"] === 1 ? 'month' : 'months'}
                       </p>
-                      <p className="text-[#333333] text-base md:text-sm my-2 leading-relaxed">
+                      <p className="text-[#333333] text-base sm:text-xs md:text-sm my-2 sm:my-1 leading-relaxed">
                         <span className="font-semibold text-[#1e3a5f]">Intern ID:</span> {verificationResult["Intern ID"]}
                       </p>
                     </div>
                     
                     {/* Dates */}
-                    <div className="text-center text-[#333333] text-base md:text-sm my-6 md:my-4 relative z-[2]">
+                    <div className="text-center text-[#333333] text-base sm:text-xs md:text-sm my-6 sm:my-3 md:my-4 relative z-[2] px-2 break-words">
                       <span className="font-semibold text-[#1e3a5f]">From:</span> {formatDateForDisplay(verificationResult["Starting Date"])}
-                      <span className="mx-2"> To: </span>
+                      <span className="mx-2 sm:mx-1"> To: </span>
                       {formatDateForDisplay(verificationResult["Completion Date"])}
                     </div>
                     
                     {/* Divider */}
                     <div 
-                      className="w-full h-px my-8 md:my-6 relative z-[2]"
+                      className="w-full h-px my-8 sm:my-4 md:my-6 relative z-[2]"
                       style={{
                         background: 'repeating-linear-gradient(to right, #333333 0px, #333333 10px, transparent 10px, transparent 20px)'
                       }}
                     ></div>
                     
                     {/* Signatures */}
-                    <div className="flex justify-between mt-8 md:mt-6 relative z-[2] flex-col md:flex-row gap-4 md:gap-0">
-                      <div className="flex-1 text-left flex flex-col items-start">
+                    <div className="flex justify-between mt-8 sm:mt-4 md:mt-6 relative z-[2] flex-col sm:flex-col md:flex-row gap-4 sm:gap-3 md:gap-0">
+                      <div className="flex-1 text-center sm:text-center md:text-left flex flex-col items-center sm:items-center md:items-start">
                         <img 
                           src={signature} 
                           alt="Authorized Signature" 
-                          className="w-auto max-w-[180px] md:max-w-[150px] h-auto max-h-[60px] md:max-h-[50px] object-contain mb-2 block" 
+                          className="w-auto max-w-[180px] sm:max-w-[120px] md:max-w-[150px] h-auto max-h-[60px] sm:max-h-[40px] md:max-h-[50px] object-contain mb-2 block" 
                         />
-                        <div className="w-[200px] md:w-[150px] h-0.5 bg-[#333333] mb-2"></div>
-                        <p className="text-[#666666] text-sm m-0">Authorized Signature</p>
+                        <div className="w-[200px] sm:w-[120px] md:w-[150px] h-0.5 bg-[#333333] mb-2"></div>
+                        <p className="text-[#666666] text-sm sm:text-xs m-0">Authorized Signature</p>
                       </div>
-                      <div className="flex-1 text-right md:text-right">
-                        <p className="font-semibold text-[#333333] mb-1 text-base md:text-sm">Ghanshyam Tripathi</p>
-                        <p className="text-[#666666] text-sm m-0">Director</p>
+                      <div className="flex-1 text-center sm:text-center md:text-right">
+                        <p className="font-semibold text-[#333333] mb-1 text-base sm:text-sm md:text-sm">Ghanshyam Tripathi</p>
+                        <p className="text-[#666666] text-sm sm:text-xs m-0">Director</p>
                       </div>
                     </div>
                   </div>
