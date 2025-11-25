@@ -154,7 +154,10 @@ ${formData.message}
                     onMouseEnter={() => setHoveredOffice('corporate')}
                     onMouseLeave={() => setHoveredOffice(null)}
                   >
-                    <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div 
+                      className="flex items-start space-x-3 sm:space-x-4 cursor-pointer"
+                      onClick={() => setHoveredOffice(hoveredOffice === 'corporate' ? null : 'corporate')}
+                    >
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -174,8 +177,8 @@ ${formData.message}
                     <div 
                       className={`mt-4 rounded-lg overflow-hidden shadow-lg border border-gray-200 transition-all duration-500 ease-in-out transform ${
                         hoveredOffice === 'corporate'
-                          ? 'opacity-100 max-h-[300px] translate-y-0 scale-100'
-                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none'
+                          ? 'opacity-100 max-h-[400px] translate-y-0 scale-100 pointer-events-auto'
+                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none overflow-hidden'
                       }`}
                       style={{ transition: 'opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out' }}
                     >
@@ -199,7 +202,10 @@ ${formData.message}
                     onMouseEnter={() => setHoveredOffice('lucknow')}
                     onMouseLeave={() => setHoveredOffice(null)}
                   >
-                    <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div 
+                      className="flex items-start space-x-3 sm:space-x-4 cursor-pointer"
+                      onClick={() => setHoveredOffice(hoveredOffice === 'lucknow' ? null : 'lucknow')}
+                    >
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -219,8 +225,8 @@ ${formData.message}
                     <div 
                       className={`mt-4 rounded-lg overflow-hidden shadow-lg border border-gray-200 transition-all duration-500 ease-in-out transform ${
                         hoveredOffice === 'lucknow'
-                          ? 'opacity-100 max-h-[300px] translate-y-0 scale-100'
-                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none'
+                          ? 'opacity-100 max-h-[400px] translate-y-0 scale-100 pointer-events-auto'
+                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none overflow-hidden'
                       }`}
                       style={{ transition: 'opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out' }}
                     >
@@ -244,7 +250,10 @@ ${formData.message}
                     onMouseEnter={() => setHoveredOffice('registered')}
                     onMouseLeave={() => setHoveredOffice(null)}
                   >
-                    <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div 
+                      className="flex items-start space-x-3 sm:space-x-4 cursor-pointer"
+                      onClick={() => setHoveredOffice(hoveredOffice === 'registered' ? null : 'registered')}
+                    >
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -264,8 +273,8 @@ ${formData.message}
                     <div 
                       className={`mt-4 rounded-lg overflow-hidden shadow-lg border border-gray-200 transition-all duration-500 ease-in-out transform ${
                         hoveredOffice === 'registered'
-                          ? 'opacity-100 max-h-[300px] translate-y-0 scale-100'
-                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none'
+                          ? 'opacity-100 max-h-[400px] translate-y-0 scale-100 pointer-events-auto'
+                          : 'opacity-0 max-h-0 -translate-y-4 scale-95 pointer-events-none overflow-hidden'
                       }`}
                       style={{ transition: 'opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out' }}
                     >
