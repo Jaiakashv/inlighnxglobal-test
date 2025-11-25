@@ -8,13 +8,14 @@ import { FaTrophy, FaLaptopCode, FaUsers, FaGraduationCap, FaChevronLeft, FaChev
 // Import from react-icons/fa
 import { FaCalendarAlt, FaClipboardList, FaMedal, FaCertificate, FaAward, FaUserFriends, FaNetworkWired } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import './Page.css';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'rgba(0,0,0,0.5)', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', right: '10px', zIndex: 1 }}
+      style={{ ...style, background: 'rgba(0,0,0,0.5)', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', right: '10px', zIndex: 1 }}
       onClick={onClick}
     >
       <FaChevronRight className="text-white" />
@@ -27,7 +28,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'rgba(0,0,0,0.5)', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', left: '10px', zIndex: 1 }}
+      style={{ ...style, background: 'rgba(0,0,0,0.5)', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', left: '10px', zIndex: 1 }}
       onClick={onClick}
     >
       <FaChevronLeft className="text-white" />
@@ -120,22 +121,22 @@ function WhatsSpecial() {
   // Features data
   const features = [
     {
-      icon: <FaTrophy className="text-4xl text-[#14b8a6] mb-4" />,
+      icon: <FaTrophy className="text-4xl text-[#252c30] mb-4" />,
       title: 'Interns of the Month',
       description: 'Recognizing outstanding interns who demonstrate exceptional skills and dedication.'
     },
     {
-      icon: <FaLaptopCode className="text-4xl text-[#14b8a6] mb-4" />,
+      icon: <FaLaptopCode className="text-4xl text-[#252c30] mb-4" />,
       title: 'Real Projects',
       description: 'Work on real-world projects that make an impact and build your portfolio.'
     },
     {
-      icon: <FaUsers className="text-4xl text-[#14b8a6] mb-4" />,
+      icon: <FaUsers className="text-4xl text-[#252c30] mb-4" />,
       title: 'Mentorship',
       description: 'Learn from industry experts with years of experience in the field.'
     },
     {
-      icon: <FaGraduationCap className="text-4xl text-[#14b8a6] mb-4" />,
+      icon: <FaGraduationCap className="text-4xl text-[#252c30] mb-4" />,
       title: 'Career Growth',
       description: 'Gain valuable experience and skills to boost your career prospects.'
     }
@@ -145,17 +146,18 @@ function WhatsSpecial() {
   const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
     arrows: false,
     swipe: true,
     swipeToSlide: true,
     draggable: true,
     touchMove: true,
+    cssEase: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
     responsive: [
       {
         breakpoint: 1024,
@@ -192,7 +194,7 @@ function WhatsSpecial() {
         }
       `}</style>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#0F172A] via-[#1e293b] to-[#0F172A] text-white py-16 md:py-20 px-4">
+      <section className="bg-gradient-to-r from-[#0F172A] via-[#1e293b] to-[#0F172A] text-white py-16 md:py-20 px-4 mt-12">
         <div className="container mx-auto max-w-6xl text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">What's Special About Our Program?</h1>
           <p className="text-lg md:text-xl max-w-4xl mx-auto text-gray-200">
@@ -204,23 +206,55 @@ function WhatsSpecial() {
       {/* Features Section */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose Our Internship Program?</h2>
-            <div className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6 md:mb-8"></div>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeIn" }}
+          >
+            <motion.h2 
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeIn" }}
+            >
+              Why Choose Our Internship Program?
+            </motion.h2>
+            <motion.div 
+              className="w-20 h-1 bg-[#252c30] mx-auto mb-6 md:mb-8"
+              initial={{ opacity: 0, scaleX: 0 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeIn" }}
+            ></motion.div>
+            <motion.p 
+              className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeIn" }}
+            >
               We provide a comprehensive learning experience that goes beyond traditional classroom education.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <motion.div 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeIn" }}
+          >
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#14b8a6]"
+                transition={{ duration: 0.5, delay: 0.5 + (index * 0.1), ease: "easeIn" }}
+                className="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#252c30]"
               >
                 <div className="flex justify-center mb-4">
                   {feature.icon}
@@ -229,7 +263,7 @@ function WhatsSpecial() {
                 <p className="text-sm md:text-base text-gray-600 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -273,9 +307,13 @@ function WhatsSpecial() {
                   <p className="text-sm md:text-base text-gray-600 mb-6 leading-relaxed">{intern.description}</p>
                   <a 
                     href={intern.ctaLink}
-                    className="inline-block bg-[#14b8a6] hover:bg-[#0d9488] text-white font-medium py-2.5 px-6 rounded-lg transition-colors duration-300"
+                    className="card-button"
                   >
-                    {intern.ctaText}
+                    <span>{intern.ctaText}</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
                   </a>
                 </div>
               </motion.div>
@@ -287,80 +325,177 @@ function WhatsSpecial() {
       {/* Projects Section */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
+          <motion.div 
+            className="text-center mb-10 md:mb-12"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeIn" }}
+          >
+            <motion.h2 
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeIn" }}
+            >
               Intern Projects Showcase
-            </h2>
-            <div className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6"></div>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
+            </motion.h2>
+            <motion.div 
+              className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6"
+              initial={{ opacity: 0, scaleX: 0 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeIn" }}
+            ></motion.div>
+            <motion.p 
+              className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeIn" }}
+            >
               Explore innovative projects developed by our talented interns. Each project demonstrates technical excellence and creative problem-solving.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="relative px-2 md:px-4">
+          <motion.div 
+            className="relative px-2 md:px-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeIn" }}
+          >
             <div className="absolute inset-0 flex items-center z-10 pointer-events-none">
-              <button 
+              <motion.button 
                 onClick={() => sliderRef.current?.slickPrev()}
-                className="hidden lg:flex absolute left-0 w-12 h-12 -ml-6 items-center justify-center text-gray-400 hover:text-[#14b8a6] transition-colors duration-200 bg-white rounded-full shadow-lg pointer-events-auto"
+                className="hidden lg:flex absolute left-0 w-11 h-11 -ml-7 items-center justify-center text-gray-500 hover:text-white transition-all duration-300 bg-white hover:bg-[#14b8a6] rounded-full shadow-xl hover:shadow-2xl pointer-events-auto border border-gray-200 hover:border-[#14b8a6]"
                 aria-label="Previous project"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <FaChevronLeft className="text-xl" />
-              </button>
-              <button 
+              </motion.button>
+              <motion.button 
                 onClick={() => sliderRef.current?.slickNext()}
-                className="hidden lg:flex absolute right-0 w-12 h-12 -mr-6 items-center justify-center text-gray-400 hover:text-[#14b8a6] transition-colors duration-200 bg-white rounded-full shadow-lg pointer-events-auto"
+                className="hidden lg:flex absolute right-0 w-11 h-11 -mr-7 items-center justify-center text-gray-500 hover:text-white transition-all duration-300 bg-white hover:bg-[#14b8a6] rounded-full shadow-xl hover:shadow-2xl pointer-events-auto border border-gray-200 hover:border-[#14b8a6]"
                 aria-label="Next project"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <FaChevronRight className="text-xl" />
-              </button>
+              </motion.button>
             </div>
             <Slider {...sliderSettings} ref={sliderRef} className="py-4 md:py-8 group">
               {internProjects.map((project, index) => (
-                <div key={index} className="px-2 focus:outline-none">
-                  <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 h-full hover:-translate-y-1">
+                <motion.div 
+                  key={index} 
+                  className="px-2 focus:outline-none"
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: 0.6 + (index * 0.1), 
+                    ease: "easeOut" 
+                  }}
+                >
+                  <motion.div 
+                    className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full"
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
                     <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden group">
-                      <div className="absolute inset-0 bg-gray-100">
+                      <motion.div 
+                        className="absolute inset-0 bg-gray-100"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                      >
                         <img 
                           src={project.image} 
                           alt={project.title}
-                          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                           loading="lazy"
                         />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                        <h3 className="text-white font-bold text-lg md:text-xl lg:text-2xl mb-2 drop-shadow-md">{project.title}</h3>
+                      </motion.div>
+                      <motion.div 
+                        className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 group-hover:opacity-100"
+                        initial={{ opacity: 0.9 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      ></motion.div>
+                      <motion.div 
+                        className="absolute bottom-0 left-0 right-0 p-4 md:p-6"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.7 + (index * 0.1) }}
+                      >
+                        <h3 className="text-white font-bold text-lg md:text-xl lg:text-2xl mb-3 drop-shadow-lg">{project.title}</h3>
                         <div className="flex flex-wrap gap-2">
                           {project.tags.map((tag, tagIndex) => (
-                            <span key={tagIndex} className="text-xs bg-white/30 text-white px-2.5 md:px-3 py-1 rounded-full backdrop-blur-sm hover:bg-white/40 transition-colors duration-200">
+                            <motion.span 
+                              key={tagIndex} 
+                              className="text-xs bg-white/30 text-white px-2.5 md:px-3 py-1 rounded-full backdrop-blur-sm hover:bg-white/50 transition-all duration-300 border border-white/20"
+                              whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.3, delay: 0.8 + (index * 0.1) + (tagIndex * 0.05) }}
+                            >
                               {tag}
-                            </span>
+                            </motion.span>
                           ))}
                         </div>
-                      </div>
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="bg-white/90 text-[#14b8a6] px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                      </motion.div>
+                      <motion.div 
+                        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileHover={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <motion.span 
+                          className="bg-white/95 text-[#14b8a6] px-6 py-3 rounded-full text-sm font-semibold shadow-2xl border border-[#14b8a6]/20"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
+                        >
                           View Details →
-                        </span>
-                      </div>
+                        </motion.span>
+                      </motion.div>
                     </div>
-                    <div className="p-4 md:p-6 bg-white">
-                      <p className="text-gray-600 mb-4 text-sm md:text-base line-clamp-3 leading-relaxed">{project.description}</p>
-                      <a 
+                    <div className="p-5 md:p-6 bg-white">
+                      <p className="text-gray-600 mb-5 text-sm md:text-base line-clamp-3 leading-relaxed min-h-[4.5rem]">{project.description}</p>
+                      <motion.a 
                         href={project.ctaLink}
-                        className="inline-flex items-center text-[#14b8a6] font-medium hover:text-[#0d9488] transition-colors duration-300 text-sm md:text-base group"
+                        className="inline-flex items-center text-[#14b8a6] font-semibold hover:text-[#0d9488] transition-colors duration-300 text-sm md:text-base group"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.2 }}
                       >
                         {project.ctaText}
-                        <svg className="w-3 h-3 md:w-4 md:h-4 ml-1 md:ml-2 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <motion.svg 
+                          className="w-4 h-4 md:w-5 md:h-5 ml-2" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24" 
+                          xmlns="http://www.w3.org/2000/svg"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </a>
+                        </motion.svg>
+                      </motion.a>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               ))}
             </Slider>
-          </div>
+          </motion.div>
         </div>
       </section>
 
