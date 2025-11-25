@@ -3,6 +3,11 @@ import './Footer.css'
 import logo from '../assets/logo.png'
 
 function Footer() {
+  const handleLinkClick = () => {
+    // Scroll to top when footer link is clicked
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <footer className="footer">
       <div className="footer-top-line"></div>
@@ -24,22 +29,22 @@ function Footer() {
             <h4 className="footer-section-title">Menus</h4>
             <ul className="footer-links">
               <li>
-                <Link to="/" className="footer-link">Home</Link>
+                <Link to="/" className="footer-link" onClick={handleLinkClick}>Home</Link>
               </li>
               <li>
-                <Link to="/about-us" className="footer-link">About Us</Link>
+                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>About Us</Link>
               </li>
               <li>
-                <Link to="/programs" className="footer-link">Programs</Link>
+                <Link to="/programs" className="footer-link" onClick={handleLinkClick}>Programs</Link>
               </li>
               <li>
-                <Link to="/verify-certificate" className="footer-link">Verify Certificate</Link>
+                <Link to="/verify-certificate" className="footer-link" onClick={handleLinkClick}>Verify Certificate</Link>
               </li>
               <li>
-                <Link to="/whats-special" className="footer-link">What's Special</Link>
+                <Link to="/whats-special" className="footer-link" onClick={handleLinkClick}>What's Special</Link>
               </li>
               <li>
-                <Link to="/contact-us" className="footer-link">Contact Us</Link>
+                <Link to="/contact-us" className="footer-link" onClick={handleLinkClick}>Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -49,16 +54,16 @@ function Footer() {
             <h4 className="footer-section-title">Quick Links</h4>
             <ul className="footer-links">
               <li>
-                <Link to="/privacy-policy" className="footer-link">Privacy Policy</Link>
+                <Link to="/privacy-policy" className="footer-link" onClick={handleLinkClick}>Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/terms-and-conditions" className="footer-link">Terms and Conditions</Link>
+                <Link to="/terms-and-conditions" className="footer-link" onClick={handleLinkClick}>Terms and Conditions</Link>
               </li>
               <li>
-                <Link to="/disclaimers" className="footer-link">Disclaimers</Link>
+                <Link to="/disclaimers" className="footer-link" onClick={handleLinkClick}>Disclaimers</Link>
               </li>
               <li>
-                <Link to="/faqs" className="footer-link">FAQ's</Link>
+                <Link to="/faqs" className="footer-link" onClick={handleLinkClick}>FAQ's</Link>
               </li>
             </ul>
           </div>

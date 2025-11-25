@@ -730,9 +730,13 @@ function WhatsSpecial() {
               >
                 <a
                   href="/apply"
-                  className="inline-block bg-[#14b8a6] hover:bg-[#0d9488] text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300"
+                  className="card-button"
                 >
-                  Apply Now
+                  <span>Apply Now</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
                 </a>
               </motion.div>
             </div>
