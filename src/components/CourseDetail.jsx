@@ -416,7 +416,7 @@ function CourseDetail({ course: courseProp, onClose: onCloseProp }) {
                   onClick={() => setIsTopicsOpen(!isTopicsOpen)}
                 >
                   <span className="topics-icon">▶</span>
-                  <span>Beginner</span>
+                  <span>Course Module</span>
                   <span className={`topics-arrow ${isTopicsOpen ? 'open' : ''}`}>▼</span>
                 </button>
                 {isTopicsOpen && (

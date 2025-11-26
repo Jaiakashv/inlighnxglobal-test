@@ -23,13 +23,24 @@ export const ProgramsProvider = ({ children }) => {
         setLoading(true);
         setError(null);
         const response = await fetch(`${API_BASE_URL}/api/programs`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const result = await response.json();
         
+        console.log('API Response:', result);
+        console.log('Programs count:', result.count || (result.data ? result.data.length : 0));
+        
         if (result.success && result.data) {
+          console.log('Setting programs from result.data:', result.data.length, 'programs');
           setPrograms(result.data);
         } else if (Array.isArray(result)) {
+          console.log('Setting programs from array:', result.length, 'programs');
           setPrograms(result);
         } else {
+          console.warn('Unexpected response format:', result);
           setPrograms([]);
         }
       } catch (err) {
@@ -53,14 +64,25 @@ export const ProgramsProvider = ({ children }) => {
       try {
         setLoading(true);
         setError(null);
-        const response = await fetch(`${API_BASE_URL}/api/programs`);
+        const response = await fetch(`${API_BASE_URL}/api/programs?t=${Date.now()}`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const result = await response.json();
         
+        console.log('Refetch API Response:', result);
+        console.log('Programs count:', result.count || (result.data ? result.data.length : 0));
+        
         if (result.success && result.data) {
+          console.log('Setting programs from result.data:', result.data.length, 'programs');
           setPrograms(result.data);
         } else if (Array.isArray(result)) {
+          console.log('Setting programs from array:', result.length, 'programs');
           setPrograms(result);
         } else {
+          console.warn('Unexpected response format:', result);
           setPrograms([]);
         }
       } catch (err) {
