@@ -7,52 +7,52 @@ import man2 from '../assets/man-profile2.jpeg';
 const carouselData = [
   {
     quote:
-      "The internship program at InLighnX was transformative! The hands-on projects and mentorship helped me land my dream job at Google as a Software Engineer. The practical experience I gained here was invaluable.",
-    name: "Tamar Mendelson",
-    designation: "Placed at Google | Software Engineer",
+      "The internship journey was a turning point in my career. The practical exposure and real-world cybersecurity experience helped me secure my role as a Cybersecurity Engineer and strengthened my technical confidence.",
+    name: "Ayesha Tase",
+    designation: "Cybersecurity Engineer | Vinca Cybertech Pvt. Ltd.",
     src: man1,
-    linkedin: "", // Add LinkedIn profile URL here
+    linkedin: "https://www.linkedin.com/in/ayeshatase",
   },
   {
     quote:
-      "I'm grateful for the comprehensive training and real-world projects at InLighnX. The skills I developed here directly led to my placement at Microsoft as a Full Stack Developer. This program exceeded all my expectations!",
-    name: "Joe Charlescraft",
-    designation: "Placed at Microsoft | Full Stack Developer",
+    "This internship provided me with hands-on forensic investigation skills and deep insights into cyber analysis. It played a crucial role in shaping my career as a Cyber Forensic Consultant.",
+  name: "Krishnendu D",
+  designation: "Cyber Forensic Consultant | MAS Adroit (Adroit Engtech Pvt. Ltd.)",
     src: "https://images.unsplash.com/photo-1628749528992-f5702133b686",
-    linkedin: "", // Add LinkedIn profile URL here
+    linkedin: "https://www.linkedin.com/in/krishnendu-d-",
   },
   {
     quote:
-      "InLighnX provided me with the perfect foundation to kickstart my career. The industry-relevant projects and expert guidance helped me secure a position at Amazon as a Cloud Solutions Architect. Highly recommended!",
-    name: "Martina Edelweist",
-    designation: "Placed at Amazon | Cloud Solutions Architect",
+      "The exposure to real-time AI and Machine Learning projects during my internship significantly boosted my technical capabilities and helped me secure my position at DRDO as an AI & ML Intern.",
+    name: "Aditya Kumar",
+    designation: "AI & ML Intern | DRDO, India",
     src: "https://images.unsplash.com/photo-1524267213992-b76e8577d046",
-    linkedin: "", // Add LinkedIn profile URL here
+    linkedin: "https://www.linkedin.com/in/aditya-kumar-6604a8249", 
   },
-  {
-    quote:
-      "The internship experience at InLighnX was exceptional! The mentorship and hands-on learning opportunities prepared me perfectly for my role at Meta as a Frontend Developer. I couldn't have asked for a better start to my career!",
-    name: "Sarah Johnson",
-    designation: "Placed at Meta | Frontend Developer",
-    src: man2,
-    linkedin: "", // Add LinkedIn profile URL here
-  },
-  {
-    quote:
-      "InLighnX's program gave me the confidence and skills needed to succeed. Thanks to the practical training and industry connections, I landed a position at Apple as an iOS Developer. This program truly changed my career trajectory!",
-    name: "Michael Chen",
-    designation: "Placed at Apple | iOS Developer",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-    linkedin: "", // Add LinkedIn profile URL here
-  },
-  {
-    quote:
-      "The comprehensive curriculum and real-world projects at InLighnX were exactly what I needed. I'm now working at Netflix as a Backend Engineer, and I credit this program for my success. The support and guidance were outstanding!",
-    name: "Emily Rodriguez",
-    designation: "Placed at Netflix | Backend Engineer",
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-    linkedin: "", // Add LinkedIn profile URL here
-  },
+  // {
+  //   quote:
+  //     "The internship experience at InLighnX was exceptional! The mentorship and hands-on learning opportunities prepared me perfectly for my role at Meta as a Frontend Developer. I couldn't have asked for a better start to my career!",
+  //   name: "Sarah Johnson",
+  //   designation: "Placed at Meta | Frontend Developer",
+  //   src: man2,
+  //   linkedin: "", // Add LinkedIn profile URL here
+  // },
+  // {
+  //   quote:
+  //     "InLighnX's program gave me the confidence and skills needed to succeed. Thanks to the practical training and industry connections, I landed a position at Apple as an iOS Developer. This program truly changed my career trajectory!",
+  //   name: "Michael Chen",
+  //   designation: "Placed at Apple | iOS Developer",
+  //   src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+  //   linkedin: "", // Add LinkedIn profile URL here
+  // },
+  // {
+  //   quote:
+  //     "The comprehensive curriculum and real-world projects at InLighnX were exactly what I needed. I'm now working at Netflix as a Backend Engineer, and I credit this program for my success. The support and guidance were outstanding!",
+  //   name: "Emily Rodriguez",
+  //   designation: "Placed at Netflix | Backend Engineer",
+  //   src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+  //   linkedin: "", // Add LinkedIn profile URL here
+  // },
 ];
 
 export default function CircularCarousel() {
