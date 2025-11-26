@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./CircularCarousel.css";
 import Ayesha from '../assets/ayesha.png';
-import Krishnendu from '../assets/Krishnedu.png';
+import Krishnendu from '../assets/krish.png';
 import Aditya from '../assets/aditya.png';
 
 const carouselData = [
