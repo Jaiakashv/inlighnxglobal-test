@@ -38,6 +38,7 @@ function SamplePrevArrow(props) {
 
 function WhatsSpecial() {
   const sliderRef = useRef(null);
+  const eventsSliderRef = useRef(null);
   // Interns of the Month data
   const internsOfTheMonth = [
     {
@@ -745,159 +746,201 @@ function WhatsSpecial() {
       </section>
 
       {/* Our Events Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div 
-            className="text-center mb-12 md:mb-16"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeIn" }}
-          >
-            <motion.h2 
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeIn" }}
-            >
-              Our Events
-            </motion.h2>
+      <section className="py-16 bg-white w-full">
+        <div className="w-full">
+          <div className="container mx-auto px-4 max-w-7xl mb-12 md:mb-16">
             <motion.div 
-              className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6"
-              initial={{ opacity: 0, scaleX: 0 }}
-              whileInView={{ opacity: 1, scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeIn" }}
-            ></motion.div>
-            <motion.p 
-              className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4"
-              initial={{ opacity: 0, y: 20 }}
+              className="text-center"
+              initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeIn" }}
+              transition={{ duration: 0.6, ease: "easeIn" }}
             >
-              Celebrating our achievements and recognizing outstanding participants in various competitions and hackathons.
-            </motion.p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-            {/* Ideathon Winner Event */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
-            >
-              <div className="relative h-56 md:h-64 overflow-hidden">
-                <img 
-                  src="https://media.licdn.com/dms/image/v2/D5622AQHThJRGCWH1ig/feedshare-shrink_800/B56ZpUz2VqHIAg-/0/1762359474505?e=1766016000&v=beta&t=u7WKkssOLT5eUqZ42qFqScFf1gT6QISZrFfg3eYXwdM" 
-                  alt="Ideathon Winner"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <div className="bg-[#14b8a6] text-white px-4 py-2 rounded-full shadow-lg">
-                    <FaTrophy className="inline-block mr-2" />
-                    <span className="font-semibold text-sm">Winners</span>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-white font-bold text-xl md:text-2xl mb-2 drop-shadow-lg">Ideathon Winner</h3>
-                  <p className="text-gray-200 text-sm md:text-base">Innovation Challenge</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="mb-4">
-                  <p className="text-gray-700 text-sm md:text-base mb-4 leading-relaxed">
-                    Celebrating the Top 3 Innovators of Ideathon 2025! After an incredible journey of innovation, creativity, and impact-driven ideas — here are our Top 3 winners who truly stood out!
-                  </p>
-                  
-                  <div className="space-y-4">
-                    {/* First Place */}
-                    <div className="bg-gradient-to-r from-yellow-50 to-amber-50 p-4 rounded-lg border-l-4 border-yellow-500">
-                      <div className="flex items-start">
-                        <span className="text-2xl mr-3">🥇</span>
-                        <div className="flex-1">
-                          <h5 className="font-semibold text-gray-800 mb-1">Jyoti & Team — TwinDrive</h5>
-                          <p className="text-sm text-gray-700 mb-2">An AI-powered 3D Digital Twin System for Vehicle Health Monitoring</p>
-                          <p className="text-xs text-gray-600">Transforming automotive safety by predicting and preventing vehicle breakdowns in real time using AI.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Second Place */}
-                    <div className="bg-gradient-to-r from-gray-50 to-slate-50 p-4 rounded-lg border-l-4 border-gray-400">
-                      <div className="flex items-start">
-                        <span className="text-2xl mr-3">🥈</span>
-                        <div className="flex-1">
-                          <h5 className="font-semibold text-gray-800 mb-1">Jaiakash & Team — TravelFlux</h5>
-                          <p className="text-sm text-gray-700 mb-2">AI Mobility Intelligence for Tier-2 & Tier-3 Cities</p>
-                          <p className="text-xs text-gray-600">Forecasting future travel demand, traffic surges, and pricing — making mobility planning smarter and data-driven.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Third Place */}
-                    <div className="bg-gradient-to-r from-orange-50 to-amber-50 p-4 rounded-lg border-l-4 border-orange-600">
-                      <div className="flex items-start">
-                        <span className="text-2xl mr-3">🥉</span>
-                        <div className="flex-1">
-                          <h5 className="font-semibold text-gray-800 mb-1">Aaradhya & Team — Pathify</h5>
-                          <p className="text-sm text-gray-700 mb-2">AI Career Pathway Platform for Students</p>
-                          <p className="text-xs text-gray-600">Connecting learners, universities, and companies with intelligent career recommendations and skill roadmaps.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-600 text-xs mt-4 italic">
-                    ✨ Congratulations to these brilliant innovators for redefining the future with technology and purpose!
-                  </p>
-                </div>
-                <div className="flex items-center text-sm text-gray-600 pt-4 border-t border-gray-200">
-                  <FaCalendarAlt className="text-[#14b8a6] mr-2" />
-                  <span>Event Conducted by InLighnX Global</span>
-                </div>
-              </div>
+              <motion.h2 
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1, ease: "easeIn" }}
+              >
+                Our Events
+              </motion.h2>
+              <motion.div 
+                className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6"
+                initial={{ opacity: 0, scaleX: 0 }}
+                whileInView={{ opacity: 1, scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeIn" }}
+              ></motion.div>
+              <motion.p 
+                className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3, ease: "easeIn" }}
+              >
+                Celebrating our achievements and recognizing outstanding participants in various competitions and hackathons.
+              </motion.p>
             </motion.div>
+          </div>
 
-            {/* IITB Hackathon Event */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
-            >
-              <div className="relative h-56 md:h-64 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                  alt="IITB Hackathon"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <div className="bg-[#14b8a6] text-white px-4 py-2 rounded-full shadow-lg">
-                    <FaTrophy className="inline-block mr-2" />
-                    <span className="font-semibold text-sm">Winner</span>
+          <div className="relative w-full flex justify-center">
+            {/* Navigation Arrows */}
+            <div className="absolute inset-0 flex items-center z-10 pointer-events-none">
+              <motion.button 
+                onClick={() => eventsSliderRef.current?.slickPrev()}
+                className="hidden lg:flex absolute left-4 xl:left-8 w-11 h-11 items-center justify-center text-gray-500 hover:text-white transition-all duration-300 bg-white hover:bg-[#14b8a6] rounded-full shadow-xl hover:shadow-2xl pointer-events-auto border border-gray-200 hover:border-[#14b8a6] z-20"
+                aria-label="Previous event"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <FaChevronLeft className="text-xl" />
+              </motion.button>
+              <motion.button 
+                onClick={() => eventsSliderRef.current?.slickNext()}
+                className="hidden lg:flex absolute right-4 xl:right-8 w-11 h-11 items-center justify-center text-gray-500 hover:text-white transition-all duration-300 bg-white hover:bg-[#14b8a6] rounded-full shadow-xl hover:shadow-2xl pointer-events-auto border border-gray-200 hover:border-[#14b8a6] z-20"
+                aria-label="Next event"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <FaChevronRight className="text-xl" />
+              </motion.button>
+            </div>
+
+            <div className="w-full max-w-7xl mx-auto px-4">
+              <Slider 
+                ref={eventsSliderRef}
+                dots={true}
+                infinite={true}
+                speed={500}
+                slidesToShow={1}
+                slidesToScroll={1}
+                autoplay={true}
+                autoplaySpeed={5000}
+                pauseOnHover={true}
+                arrows={false}
+                className="py-4"
+              >
+                {/* Ideathon Winner Event */}
+                <div className="px-2 focus:outline-none">
+                  <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                  <div className="flex flex-col lg:flex-row min-h-[450px]">
+                    {/* Image Section */}
+                    <div className="relative h-64 lg:h-auto lg:w-3/5 lg:min-h-[450px] overflow-hidden flex items-center justify-center bg-gray-100">
+                      <img 
+                        src="https://media.licdn.com/dms/image/v2/D5622AQHThJRGCWH1ig/feedshare-shrink_800/B56ZpUz2VqHIAg-/0/1762359474505?e=1766016000&v=beta&t=u7WKkssOLT5eUqZ42qFqScFf1gT6QISZrFfg3eYXwdM" 
+                        alt="Ideathon Winner"
+                        className="w-full h-full object-contain lg:object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                      <div className="absolute top-4 right-4 z-10">
+                        <div className="bg-[#14b8a6] text-white px-4 py-2 rounded-full shadow-lg">
+                          <FaTrophy className="inline-block mr-2" />
+                          <span className="font-semibold text-sm">Winners</span>
+                        </div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                        <h3 className="text-white font-bold text-xl md:text-2xl mb-2 drop-shadow-lg">Ideathon Winner</h3>
+                        <p className="text-gray-200 text-sm md:text-base">Innovation Challenge</p>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="lg:w-2/5 p-6 lg:p-8 flex flex-col justify-center">
+                      <p className="text-gray-700 text-sm md:text-base mb-5 leading-relaxed">
+                        Celebrating the Top 3 Innovators of Ideathon 2025! After an incredible journey of innovation, creativity, and impact-driven ideas — here are our Top 3 winners who truly stood out!
+                      </p>
+                      
+                      {/* Winners in Row */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5">
+                        {/* First Place */}
+                        <div className="bg-gradient-to-b from-yellow-50 to-amber-50 p-3 rounded-lg border-l-4 border-yellow-500 flex flex-col justify-between">
+                          <div className="text-center">
+                            <span className="text-2xl block mb-2">🥇</span>
+                            <h5 className="font-semibold text-gray-800 text-xs mb-1">Jyoti & Team</h5>
+                            <p className="text-xs font-semibold text-gray-700 mb-1">TwinDrive</p>
+                            <p className="text-xs text-gray-600 leading-tight">AI-powered 3D Digital Twin System for Vehicle Health Monitoring</p>
+                          </div>
+                        </div>
+
+                        {/* Second Place */}
+                        <div className="bg-gradient-to-b from-gray-50 to-slate-50 p-3 rounded-lg border-l-4 border-gray-400 flex flex-col justify-between">
+                          <div className="text-center">
+                            <span className="text-2xl block mb-2">🥈</span>
+                            <h5 className="font-semibold text-gray-800 text-xs mb-1">Jaiakash & Team</h5>
+                            <p className="text-xs font-semibold text-gray-700 mb-1">TravelFlux</p>
+                            <p className="text-xs text-gray-600 leading-tight">AI Mobility Intelligence for Tier-2 & Tier-3 Cities</p>
+                          </div>
+                        </div>
+
+                        {/* Third Place */}
+                        <div className="bg-gradient-to-b from-orange-50 to-amber-50 p-3 rounded-lg border-l-4 border-orange-600 flex flex-col justify-between">
+                          <div className="text-center">
+                            <span className="text-2xl block mb-2">🥉</span>
+                            <h5 className="font-semibold text-gray-800 text-xs mb-1">Aaradhya & Team</h5>
+                            <p className="text-xs font-semibold text-gray-700 mb-1">Pathify</p>
+                            <p className="text-xs text-gray-600 leading-tight">AI Career Pathway Platform for Students</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p className="text-gray-600 text-xs mb-4 italic text-center lg:text-left">
+                        ✨ Congratulations to these brilliant innovators for redefining the future with technology and purpose!
+                      </p>
+                      
+                      <div className="flex items-center justify-center lg:justify-start text-sm text-gray-600 pt-4 border-t border-gray-200">
+                        <FaCalendarAlt className="text-[#14b8a6] mr-2" />
+                        <span>Event Conducted by InLighnX Global</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-white font-bold text-xl md:text-2xl mb-2 drop-shadow-lg">IITB Hackathon</h3>
-                  <p className="text-gray-200 text-sm md:text-base">IIT Bombay Hackathon Competition</p>
+              </div>
+
+              {/* IITB Hackathon Event */}
+              <div className="px-2 focus:outline-none">
+                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                  <div className="flex flex-col lg:flex-row min-h-[450px]">
+                    {/* Image Section */}
+                    <div className="relative h-64 lg:h-auto lg:w-3/5 lg:min-h-[450px] overflow-hidden flex items-center justify-center bg-gray-100">
+                      <img 
+                        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                        alt="IITB Hackathon"
+                        className="w-full h-full object-contain lg:object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                      <div className="absolute top-4 right-4 z-10">
+                        <div className="bg-[#14b8a6] text-white px-4 py-2 rounded-full shadow-lg">
+                          <FaTrophy className="inline-block mr-2" />
+                          <span className="font-semibold text-sm">Winner</span>
+                        </div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                        <h3 className="text-white font-bold text-xl md:text-2xl mb-2 drop-shadow-lg">IITB Hackathon</h3>
+                        <p className="text-gray-200 text-sm md:text-base">IIT Bombay Hackathon Competition</p>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="lg:w-2/5 p-6 lg:p-8 flex items-center justify-center">
+                      <div className="flex items-center text-sm text-gray-600">
+                        <FaCalendarAlt className="text-[#14b8a6] mr-2" />
+                        <span>Event Conducted by InLighnX Global</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="p-6">
-                <div className="flex items-center text-sm text-gray-600">
-                  <FaCalendarAlt className="text-[#14b8a6] mr-2" />
-                  <span>Event Conducted</span>
-                </div>
-              </div>
-            </motion.div>
+            </Slider>
+            </div>
           </div>
         </div>
       </section>
