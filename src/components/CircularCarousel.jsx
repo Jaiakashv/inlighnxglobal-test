@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./CircularCarousel.css";
-import man1 from '../assets/man-profile.jpg';
-import man2 from '../assets/man-profile2.jpeg';
+import Ayesha from '../assets/ayesha.png';
+import Krishnendu from '../assets/Krishnedu.png';
+import Aditya from '../assets/aditya.png';
 
 const carouselData = [
   {
@@ -10,7 +11,7 @@ const carouselData = [
       "The internship journey was a turning point in my career. The practical exposure and real-world cybersecurity experience helped me secure my role as a Cybersecurity Engineer and strengthened my technical confidence.",
     name: "Ayesha Tase",
     designation: "Cybersecurity Engineer | Vinca Cybertech Pvt. Ltd.",
-    src: man1,
+    src: Ayesha,
     linkedin: "https://www.linkedin.com/in/ayeshatase",
   },
   {
@@ -18,7 +19,7 @@ const carouselData = [
     "This internship provided me with hands-on forensic investigation skills and deep insights into cyber analysis. It played a crucial role in shaping my career as a Cyber Forensic Consultant.",
   name: "Krishnendu D",
   designation: "Cyber Forensic Consultant | MAS Adroit (Adroit Engtech Pvt. Ltd.)",
-    src: "https://images.unsplash.com/photo-1628749528992-f5702133b686",
+    src: Krishnendu,
     linkedin: "https://www.linkedin.com/in/krishnendu-d-",
   },
   {
@@ -26,7 +27,7 @@ const carouselData = [
       "The exposure to real-time AI and Machine Learning projects during my internship significantly boosted my technical capabilities and helped me secure my position at DRDO as an AI & ML Intern.",
     name: "Aditya Kumar",
     designation: "AI & ML Intern | DRDO, India",
-    src: "https://images.unsplash.com/photo-1524267213992-b76e8577d046",
+    src: Aditya,
     linkedin: "https://www.linkedin.com/in/aditya-kumar-6604a8249", 
   },
   // {
