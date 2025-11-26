@@ -8,25 +8,28 @@ import VerifyCertificate from './pages/VerifyCertificate'
 import WhatsSpecial from './pages/WhatsSpecial'
 import ContactUs from './pages/ContactUs'
 import CourseDetail from './components/CourseDetail'
+import { ProgramsProvider } from './contexts/ProgramsContext'
 import './App.css'
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/programs/:courseSlug" element={<CourseDetail />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/verify-certificate" element={<VerifyCertificate />} />
-          <Route path="/whats-special" element={<WhatsSpecial />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <ProgramsProvider>
+      <Router>
+        <div className="app">
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/programs/:courseSlug" element={<CourseDetail />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/verify-certificate" element={<VerifyCertificate />} />
+            <Route path="/whats-special" element={<WhatsSpecial />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </ProgramsProvider>
   )
 }
 

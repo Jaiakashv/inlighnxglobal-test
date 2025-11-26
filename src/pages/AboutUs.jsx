@@ -432,7 +432,7 @@ function AboutUs() {
               rel="noreferrer noopener"
             >
               <div className="achievement-image">
-                <img src="https://file+.vscode-resource.vscode-webview.net/c%3A/Users/varsha%20swathi/AppData/Roaming/Code/User/globalStorage/state.vscdb-temp/9e7e5a8a-5c5f-4b5b-8c5a-5d5c5b5a5f5e/FileDownload/startup-india-recognition.png" alt="Startup India Recognitions" loading="lazy" style={{objectFit: 'contain', backgroundColor: '#fff'}} />
+                <img src="https://www.inlighntech.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-30-at-16.32.01_07ba59ed-780x777.jpg" alt="Startup India Recognitions" loading="lazy" style={{objectFit: 'cover', backgroundColor: '#fff'}} />
                 <span className="achievement-badge" aria-hidden>+</span>
               </div>
               <div className="achievement-texts">

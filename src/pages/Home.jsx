@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useNavigate } from 'react-router-dom';
 import TiltedCard from '../components/TiltedCard';
 import CircularCarousel from '../components/CircularCarousel';
 import LightRays from '../components/LightRays';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
 import { cn } from "../lib/utils";
 import './Page.css';
-import titleimg from '../assets/title-card.jpg';
+import titleimg from '../assets/title-card.png';
 import isoLogo from '../assets/iso.png';
 import msmeLogo from '../assets/MSME-Logo.png';
 import startupLogo from '../assets/startup-india.png';
@@ -13,7 +14,9 @@ import mcaLogo from '../assets/mca.jpg';
 import bannerimg from '../assets/banner-bg.jpg';
 import mentorimg from '../assets/Mentorship.jpg';
 import whoBg from '../assets/who-bg.jpg';
+import visionBg from '../assets/our-vision.png';
 function Home() {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [visibleCards, setVisibleCards] = useState([false, false, false, false]);
   const [statsValues, setStatsValues] = useState({ interns: 0, projects: 0, satisfaction: 0, instructors: 0 });
@@ -132,7 +135,7 @@ function Home() {
       title: "About INLIGHN TECH",
       content: "At INLIGHN TECH, we believe that the future of education lies in bridging the gap between academic learning and industry needs. Founded with a passion for providing meaningful and immersive learning experiences, we offer internship programs that equip students and young professionals with practical skills in Full Stack Development, Data Science, and Project Management.",
       iconBg: "#14b8a6",
-      image: titleimg, // Add your custom image here
+      image: "https://www.inlighntech.com/wp-content/uploads/2023/07/img-meta6.jpg", // Add your custom image here
       icon: (
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -148,7 +151,7 @@ function Home() {
       title: "Our Mission",
       content: "To empower students and young professionals by providing immersive, real-world learning experiences through tailored internship programs. We aim to equip our participants with the practical skills and confidence they need to succeed in the fast-evolving tech industry.",
       iconBg: "#ff6b35",
-      image: titleimg, // Add your custom image here
+      image: "https://www.inlighntech.com/wp-content/uploads/2023/07/img-meta5.jpg", // Add your custom image here
       icon: (
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -162,7 +165,7 @@ function Home() {
       title: "Our Vision",
       content: "To empower students and young professionals by providing immersive, real-world learning experiences through tailored internship programs. We aim to equip our participants with the practical skills and confidence they need to succeed in the fast-evolving tech industry.",
       iconBg: "#14b8a6",
-      image: titleimg, // Add your custom image here
+      image: visionBg, // Add your custom image here
       icon: (
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -731,7 +734,7 @@ function Home() {
                       </div>
                       <h3 className="card-title">{card.title}</h3>
                       <p className="card-content">{card.content}</p>
-                      <button className="card-button">
+                      <button className="card-button" onClick={() => navigate('/about-us')}>
                         <span>Learn More</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -796,12 +799,12 @@ function Home() {
                 </div>
                 <div className="testimonial-info">
                   <h4 className="testimonial-name">David Park</h4>
-                  <p className="testimonial-handle">
+                  <a href="https://www.linkedin.com/in/davidpark" target="_blank" rel="noopener noreferrer" className="testimonial-handle" style={{ textDecoration: 'none', color: '#0a66c2', display: 'inline-block' }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', marginRight: '6px', verticalAlign: 'middle' }}>
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                     davidpark
-                  </p>
+                  </a>
                   <p className="testimonial-text">The e-learning platform is incredible! The interactive courses and real-world projects helped me land my dream job. Highly recommend!</p>
                 </div>
               </div>
@@ -811,12 +814,12 @@ function Home() {
                 </div>
                 <div className="testimonial-info">
                   <h4 className="testimonial-name">Sofia Rodriguez</h4>
-                  <p className="testimonial-handle">
+                  <a href="https://www.linkedin.com/in/sofiarodriguez" target="_blank" rel="noopener noreferrer" className="testimonial-handle" style={{ textDecoration: 'none', color: '#0a66c2', display: 'inline-block' }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', marginRight: '6px', verticalAlign: 'middle' }}>
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                     sofiarodriguez
-                  </p>
+                  </a>
                   <p className="testimonial-text">Amazing learning experience! The instructors are knowledgeable and the course materials are comprehensive. I've gained so much practical knowledge.</p>
                 </div>
               </div>
@@ -826,12 +829,12 @@ function Home() {
                 </div>
                 <div className="testimonial-info">
                   <h4 className="testimonial-name">Emma Thompson</h4>
-                  <p className="testimonial-handle">
+                  <a href="https://www.linkedin.com/in/emmathompson" target="_blank" rel="noopener noreferrer" className="testimonial-handle" style={{ textDecoration: 'none', color: '#0a66c2', display: 'inline-block' }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', marginRight: '6px', verticalAlign: 'middle' }}>
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                     emmathompson
-                  </p>
+                  </a>
                   <p className="testimonial-text">Best online learning platform I've used! The flexible schedule and hands-on projects made it perfect for balancing work and learning.</p>
                 </div>
               </div>
@@ -841,12 +844,12 @@ function Home() {
                 </div>
                 <div className="testimonial-info">
                   <h4 className="testimonial-name">Michael Johnson</h4>
-                  <p className="testimonial-handle">
+                  <a href="https://www.linkedin.com/in/michaeljohnson" target="_blank" rel="noopener noreferrer" className="testimonial-handle" style={{ textDecoration: 'none', color: '#0a66c2', display: 'inline-block' }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', marginRight: '6px', verticalAlign: 'middle' }}>
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                     michaeljohnson
-                  </p>
+                  </a>
                   <p className="testimonial-text">The mentorship program is outstanding! My mentor guided me through every step and helped me build a strong portfolio. Thank you!</p>
                 </div>
               </div>
@@ -857,12 +860,12 @@ function Home() {
                 </div>
                 <div className="testimonial-info">
                   <h4 className="testimonial-name">David Park</h4>
-                  <p className="testimonial-handle">
+                  <a href="https://www.linkedin.com/in/davidpark" target="_blank" rel="noopener noreferrer" className="testimonial-handle" style={{ textDecoration: 'none', color: '#0a66c2', display: 'inline-block' }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', marginRight: '6px', verticalAlign: 'middle' }}>
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                     davidpark
-                  </p>
+                  </a>
                   <p className="testimonial-text">The e-learning platform is incredible! The interactive courses and real-world projects helped me land my dream job. Highly recommend!</p>
                 </div>
               </div>
@@ -872,12 +875,12 @@ function Home() {
                 </div>
                 <div className="testimonial-info">
                   <h4 className="testimonial-name">Sofia Rodriguez</h4>
-                  <p className="testimonial-handle">
+                  <a href="https://www.linkedin.com/in/davidpark" target="_blank" rel="noopener noreferrer" className="testimonial-handle" style={{ textDecoration: 'none', color: '#0a66c2', display: 'inline-block' }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', marginRight: '6px', verticalAlign: 'middle' }}>
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
-                    sofiarodriguez
-                  </p>
+                    davidpark
+                  </a>
                   <p className="testimonial-text">Amazing learning experience! The instructors are knowledgeable and the course materials are comprehensive. I've gained so much practical knowledge.</p>
                 </div>
               </div>
@@ -887,12 +890,12 @@ function Home() {
                 </div>
                 <div className="testimonial-info">
                   <h4 className="testimonial-name">Emma Thompson</h4>
-                  <p className="testimonial-handle">
+                  <a href="https://www.linkedin.com/in/davidpark" target="_blank" rel="noopener noreferrer" className="testimonial-handle" style={{ textDecoration: 'none', color: '#0a66c2', display: 'inline-block' }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', marginRight: '6px', verticalAlign: 'middle' }}>
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
-                    emmathompson
-                  </p>
+                    davidpark
+                  </a>
                   <p className="testimonial-text">Best online learning platform I've used! The flexible schedule and hands-on projects made it perfect for balancing work and learning.</p>
                 </div>
               </div>
@@ -902,12 +905,12 @@ function Home() {
                 </div>
                 <div className="testimonial-info">
                   <h4 className="testimonial-name">Michael Johnson</h4>
-                  <p className="testimonial-handle">
+                  <a href="https://www.linkedin.com/in/davidpark" target="_blank" rel="noopener noreferrer" className="testimonial-handle" style={{ textDecoration: 'none', color: '#0a66c2', display: 'inline-block' }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ display: 'inline-block', marginRight: '6px', verticalAlign: 'middle' }}>
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
-                    michaeljohnson
-                  </p>
+                    davidpark
+                  </a>
                   <p className="testimonial-text">The mentorship program is outstanding! My mentor guided me through every step and helped me build a strong portfolio. Thank you!</p>
                 </div>
                 </div>

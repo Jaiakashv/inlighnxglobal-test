@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { usePrograms } from '../contexts/ProgramsContext';
 import './Programs.css';
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://web-backend-0aiv.onrender.com';
 
 function Programs() {
   const navigate = useNavigate();
-  const [programs, setPrograms] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { programs, loading } = usePrograms();
   
   // Filter and search state
   const [searchQuery, setSearchQuery] = useState('');
@@ -15,32 +13,6 @@ function Programs() {
   const [selectedLevel, setSelectedLevel] = useState('All');
   const [selectedDuration, setSelectedDuration] = useState('All');
   const [sortBy, setSortBy] = useState('Featured');
-
-  // Fetch programs from backend
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(`${API_BASE_URL}/api/programs`);
-        const result = await response.json();
-        
-        if (result.success && result.data) {
-          setPrograms(result.data);
-        } else if (Array.isArray(result)) {
-          setPrograms(result);
-        } else {
-          setPrograms([]);
-        }
-      } catch (error) {
-        console.error('Error fetching programs:', error);
-        setPrograms([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPrograms();
-  }, []);
 
   // Filter and sort programs
   const filteredPrograms = useMemo(() => {
