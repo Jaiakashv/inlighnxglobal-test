@@ -1,9 +1,57 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import FloatingWhatsApp from '../components/FloatingWhatsApp'
 import './aboutus.css'
 import Roadmap from '../assets/Roadmap.jpg';
 
 function AboutUs() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    domain: '',
+    otherDomain: '',
+    message: ''
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    // Construct email body with form data
+    const emailBody = `
+Name: ${formData.name}
+
+Email: ${formData.email}
+
+Domain of Internship: ${formData.domain}
+
+Message:
+${formData.message}
+    `.trim()
+    
+    // Encode the email body for URL
+    const encodedBody = encodeURIComponent(emailBody)
+    const encodedSubject = encodeURIComponent('Contact Form Submission - InLighnX Global')
+    
+    // Create mailto link
+    const mailtoLink = `mailto:inlighnxglobal@gmail.com?subject=${encodedSubject}&body=${encodedBody}`
+    
+    // Open the email client
+    window.location.href = mailtoLink
+    
+    // Show success message
+    setSubmitted(true)
+    setTimeout(() => {
+      setSubmitted(false)
+      setFormData({ name: '', email: '', domain: '', otherDomain: '', message: '' })
+    }, 3000)
+  }
   const roadmapSvg = (
     <div className="roadmap-container" style={{ width: '100%', height: 'auto', maxWidth: '1200px', margin: '0 auto' }}>
       <img 
@@ -303,19 +351,8 @@ function AboutUs() {
           </div>
         </section>
 
-        <div className="about-wave-separator" aria-hidden="true">
-          <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,96L60,112C120,128,240,160,360,149.3C480,139,600,85,720,69.3C840,53,960,75,1080,80C1200,85,1320,75,1380,69.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"/>
-          </svg>
-        </div>
 
-        {/* <section className="about-banner reveal-on-scroll">
-          <div className="about-banner-inner"><br />
-            <h3>Save Time and Effort with INLIGHN TECH</h3>
-          </div>
-        </section> */}
-
-        <section className="vision-mission reveal-on-scroll">
+        <section className="vision-mission reveal-on-scroll ">
           <div className="vm-grid">
             <div className="vm-content">
               <div className="vm-item">
@@ -365,7 +402,7 @@ function AboutUs() {
           <h2>The Best Beneficial Side of INLIGHNTECH</h2>
         </div>
         <section className="relative py-8 pb-4 mb-8 overflow-hidden reveal-on-scroll">
-          <div className="absolute inset-0 top-0 h-[180px] z-0 overflow-hidden" aria-hidden="true">
+          <div className="absolute inset-0 top-0 h-[180px] z-0 overflow-hidden animated-dashed-line-container" aria-hidden="true">
             <svg className="w-full h-full block max-w-full" viewBox="0 0 1200 180" preserveAspectRatio="none">
               <path 
                 d="M0,120 C200,60 350,160 520,110 C720,50 880,140 1200,80" 
@@ -444,71 +481,103 @@ function AboutUs() {
         </section>
 
 
-        <section className="contact-dark reveal-on-scroll" aria-labelledby="contact-title">
-          <div className="contact-pill">GET IN TOUCH</div>
-          <h2 id="contact-title" className="contact-title">Speak with our team</h2>
-          <div className="contact-meta">
-            <div className="contact-meta-item" aria-label="Email">
-              <span className="meta-icon" aria-hidden>✉️</span>
-              <div>
-                <div className="meta-label">Email</div>
-                <a href="mailto:support@inlighntech.com" className="meta-link">support@inlighntech.com</a>
-              </div>
-            </div>
-            <div className="contact-meta-item" aria-label="Phone">
-              <span className="meta-icon" aria-hidden>📞</span>
-              <div>
-                <div className="meta-label">Phone</div>
-                <a href="tel:+919999999999" className="meta-link">+91 99999 99999</a>
-              </div>
+        <section className="contact-form-section reveal-on-scroll" aria-labelledby="contact-title">
+        <div className="lg:sticky lg:top-8 lg:self-start">
+            <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 lg:p-10 border border-gray-100">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-5 sm:mb-6 md:mb-8">
+                Get in Touch
+              </h2>
+              
+              {submitted ? (
+                <div className="text-center py-8 sm:py-12">
+                  <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4 sm:mb-6 animate-bounce">
+                    <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Thank you for contacting us!</h3>
+                  <p className="text-gray-600">Your email client should open shortly. We'll get back to you as soon as possible.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 md:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Enter your name"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 outline-none text-gray-900 placeholder-gray-400"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Enter your email"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 outline-none text-gray-900 placeholder-gray-400"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="domain" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Domain of Internship
+                    </label>
+                    <input
+                      type="text"
+                      id="domain"
+                      name="domain"
+                      value={formData.domain}
+                      onChange={handleChange}
+                      placeholder="Enter your domain of interest"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 outline-none text-gray-900 placeholder-gray-400"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Type your message here..."
+                      rows="5"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 outline-none resize-y text-gray-900 placeholder-gray-400"
+                    ></textarea>
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-[#0F172A] to-[#1e293b] text-white font-semibold py-3 sm:py-3.5 px-6 rounded-lg hover:from-[#1e293b] hover:to-[#0F172A] transition-all duration-300 shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+                  >
+                    <span>Send Message</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                    </svg>
+                  </button>
+                </form>
+              )}
             </div>
           </div>
-          <form className="contact-form-mock" onSubmit={(e) => { e.preventDefault(); window.location.href = '/contact-us' }}>
-            <div className="contact-grid">
-              <div className="form-group">
-                <label className="form-label" htmlFor="fullName">Full Name</label>
-                <input id="fullName" name="fullName" className="form-input" placeholder="e.g., Priya Sharma" required />
-              </div>
-              <div className="form-group">
-                <label className="form-label" htmlFor="email">Email</label>
-                <input id="email" name="email" className="form-input" placeholder="you@example.com" type="email" required />
-              </div>
-              <div className="form-group">
-                <label className="form-label" htmlFor="phone">Phone</label>
-                <input id="phone" name="phone" className="form-input" placeholder="e.g., +91 98765 43210" type="tel" />
-              </div>
-              <div className="form-group">
-                <label className="form-label" htmlFor="program">Program</label>
-                <select id="program" name="program" className="form-input">
-                  <option value="">Select program</option>
-                  <option value="data-science">Data Science</option>
-                  <option value="full-stack">Full Stack Development</option>
-                  <option value="cyber-security">Cyber Security</option>
-                  <option value="project-management">Project Management</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label className="form-label" htmlFor="state">State</label>
-                <input id="state" name="state" className="form-input" placeholder="Your state" />
-              </div>
-              <div className="form-group">
-                <label className="form-label" htmlFor="subject">Subject</label>
-                <input id="subject" name="subject" className="form-input" placeholder="How can we help?" />
-              </div>
-            </div>
-            <div className="form-group">
-              <label className="form-label" htmlFor="message">Message</label>
-              <textarea id="message" name="message" className="form-textarea" placeholder="Tell us a bit about your goals or queries" rows="4"></textarea>
-              <div className="form-help">We aim to respond within 1–2 business days.</div>
-            </div>
-            <div className="form-consent">
-              <input id="consent" name="consent" type="checkbox" required />
-              <label htmlFor="consent">I agree to be contacted and accept the privacy policy.</label>
-            </div>
-            <div className="form-actions">
-              <button className="submit-button" type="submit">Send message</button>
-            </div>
-          </form>
         </section>
       </div>
       <FloatingWhatsApp />

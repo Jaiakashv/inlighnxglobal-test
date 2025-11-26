@@ -195,6 +195,7 @@
   .roadmap-wrapper svg text { display: none; }
   .features-connector { height: 120px; }
   .feature-bubble { width: 180px; height: 180px; }
+  .animated-dashed-line-container { display: none; }
   .features-bubbles { grid-template-columns: 1fr; gap: 1.25rem; }
   .feature-desc { max-width: 32ch; }
   .aboutus-page-container { padding: 1rem; }
