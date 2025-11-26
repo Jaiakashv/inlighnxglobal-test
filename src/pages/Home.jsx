@@ -132,8 +132,8 @@ function Home() {
   // Who We Are Carousel - Memoized to prevent re-renders
   const whoWeAreCards = useMemo(() => [
     {
-      title: "About INLIGHN TECH",
-      content: "At INLIGHN TECH, we believe that the future of education lies in bridging the gap between academic learning and industry needs. Founded with a passion for providing meaningful and immersive learning experiences, we offer internship programs that equip students and young professionals with practical skills in Full Stack Development, Data Science, and Project Management.",
+      title: "About InLighnX Global (InLighn Tech)",
+      content: "At InlighnX Global, we believe that the future of education lies in bridging the gap between academic learning and industry needs. Founded with a passion for providing meaningful and immersive learning experiences, we offer internship programs that equip students and young professionals with practical skills in Full Stack Development, Data Science, and Project Management.",
       iconBg: "#14b8a6",
       image: "https://www.inlighntech.com/wp-content/uploads/2023/07/img-meta6.jpg", // Add your custom image here
       icon: (
@@ -633,7 +633,7 @@ function Home() {
           <div className="internship-content">
             <h2 className="internship-title">We Provide Best Internship For You</h2>
             <p className="internship-description">
-              At INLIGHN TECH, we believe that the future of education lies in bridging the gap between academic learning and industry needs. Founded with a passion for providing meaningful and immersive learning experiences, we offer internship programs that equip students and young professionals with practical skills in Full Stack Development, Data Science, and Project Management.
+              At InLighnX Global (InLighn Tech), we believe that the future of education lies in bridging the gap between academic learning and industry needs. Founded with a passion for providing meaningful and immersive learning experiences, we offer internship programs that equip students and young professionals with practical skills in Full Stack Development, Data Science, and Project Management.
             </p>
             <button className="internship-know-more-button">Know More</button>
           </div>

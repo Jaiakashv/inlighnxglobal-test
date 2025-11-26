@@ -54,16 +54,16 @@ function Footer() {
             <h4 className="footer-section-title">Quick Links</h4>
             <ul className="footer-links">
               <li>
-                <Link to="/privacy-policy" className="footer-link" onClick={handleLinkClick}>Privacy Policy</Link>
+                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/terms-and-conditions" className="footer-link" onClick={handleLinkClick}>Terms and Conditions</Link>
+                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>Terms and Conditions</Link>
               </li>
               <li>
-                <Link to="/disclaimers" className="footer-link" onClick={handleLinkClick}>Disclaimers</Link>
+                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>Disclaimers</Link>
               </li>
               <li>
-                <Link to="/faqs" className="footer-link" onClick={handleLinkClick}>FAQ's</Link>
+                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>FAQ's</Link>
               </li>
             </ul>
           </div>
@@ -73,29 +73,7 @@ function Footer() {
             <h4 className="footer-section-title">Follow Us</h4>
             <div className="social-media-icons">
               <a 
-                href="https://www.facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="social-icon"
-                aria-label="Facebook"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://www.twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="social-icon"
-                aria-label="Twitter"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://www.linkedin.com" 
+                href="linkedin.com/company/inlighn-tech/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="social-icon"
@@ -106,7 +84,7 @@ function Footer() {
                 </svg>
               </a>
               <a 
-                href="https://www.instagram.com" 
+                href="https://www.instagram.com/inlighn_tech/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="social-icon"
@@ -117,7 +95,7 @@ function Footer() {
                 </svg>
               </a>
               <a 
-                href="https://www.youtube.com" 
+                href="https://www.youtube.com/@INLIGHNTECH" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="social-icon"
@@ -134,13 +112,13 @@ function Footer() {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>123 Business Street, City, State 12345, Country</span>
+                <span>Corporate Office- Office No: VO-301, WeWork Prestige Central, Ground Floor, 36, Infantry Rd, Tasker Town, Shivaji Nagar, Bengaluru, Karnataka 560001</span>
               </div>
               <div className="contact-item">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
-                <span>+1 (555) 123-4567</span>
+                <span>+91 9368842663</span>
               </div>
               <div className="contact-item">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
