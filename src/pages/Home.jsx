@@ -8,7 +8,7 @@ import { cn } from "../lib/utils";
 import './Page.css';
 import titleimg from '../assets/title-card.png';
 import isoLogo from '../assets/iso.png';
-import msmeLogo from '../assets/MSME-Logo.png';
+import msmeLogo from '../assets/MSME-Logo.webp';
 import startupLogo from '../assets/startup-india.png';
 import mcaLogo from '../assets/mca.jpg';
 import bannerimg from '../assets/banner-bg.jpg';
