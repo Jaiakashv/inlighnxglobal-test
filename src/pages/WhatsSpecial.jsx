@@ -744,7 +744,163 @@ function WhatsSpecial() {
         </div>
       </section>
 
+      {/* Our Events Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div 
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeIn" }}
+          >
+            <motion.h2 
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeIn" }}
+            >
+              Our Events
+            </motion.h2>
+            <motion.div 
+              className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6"
+              initial={{ opacity: 0, scaleX: 0 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeIn" }}
+            ></motion.div>
+            <motion.p 
+              className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeIn" }}
+            >
+              Celebrating our achievements and recognizing outstanding participants in various competitions and hackathons.
+            </motion.p>
+          </motion.div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+            {/* Ideathon Winner Event */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="relative h-56 md:h-64 overflow-hidden">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D5622AQHThJRGCWH1ig/feedshare-shrink_800/B56ZpUz2VqHIAg-/0/1762359474505?e=1766016000&v=beta&t=u7WKkssOLT5eUqZ42qFqScFf1gT6QISZrFfg3eYXwdM" 
+                  alt="Ideathon Winner"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-[#14b8a6] text-white px-4 py-2 rounded-full shadow-lg">
+                    <FaTrophy className="inline-block mr-2" />
+                    <span className="font-semibold text-sm">Winners</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-white font-bold text-xl md:text-2xl mb-2 drop-shadow-lg">Ideathon Winner</h3>
+                  <p className="text-gray-200 text-sm md:text-base">Innovation Challenge</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="mb-4">
+                  <p className="text-gray-700 text-sm md:text-base mb-4 leading-relaxed">
+                    Celebrating the Top 3 Innovators of Ideathon 2025! After an incredible journey of innovation, creativity, and impact-driven ideas — here are our Top 3 winners who truly stood out!
+                  </p>
+                  
+                  <div className="space-y-4">
+                    {/* First Place */}
+                    <div className="bg-gradient-to-r from-yellow-50 to-amber-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                      <div className="flex items-start">
+                        <span className="text-2xl mr-3">🥇</span>
+                        <div className="flex-1">
+                          <h5 className="font-semibold text-gray-800 mb-1">Jyoti & Team — TwinDrive</h5>
+                          <p className="text-sm text-gray-700 mb-2">An AI-powered 3D Digital Twin System for Vehicle Health Monitoring</p>
+                          <p className="text-xs text-gray-600">Transforming automotive safety by predicting and preventing vehicle breakdowns in real time using AI.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Second Place */}
+                    <div className="bg-gradient-to-r from-gray-50 to-slate-50 p-4 rounded-lg border-l-4 border-gray-400">
+                      <div className="flex items-start">
+                        <span className="text-2xl mr-3">🥈</span>
+                        <div className="flex-1">
+                          <h5 className="font-semibold text-gray-800 mb-1">Jaiakash & Team — TravelFlux</h5>
+                          <p className="text-sm text-gray-700 mb-2">AI Mobility Intelligence for Tier-2 & Tier-3 Cities</p>
+                          <p className="text-xs text-gray-600">Forecasting future travel demand, traffic surges, and pricing — making mobility planning smarter and data-driven.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Third Place */}
+                    <div className="bg-gradient-to-r from-orange-50 to-amber-50 p-4 rounded-lg border-l-4 border-orange-600">
+                      <div className="flex items-start">
+                        <span className="text-2xl mr-3">🥉</span>
+                        <div className="flex-1">
+                          <h5 className="font-semibold text-gray-800 mb-1">Aaradhya & Team — Pathify</h5>
+                          <p className="text-sm text-gray-700 mb-2">AI Career Pathway Platform for Students</p>
+                          <p className="text-xs text-gray-600">Connecting learners, universities, and companies with intelligent career recommendations and skill roadmaps.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 text-xs mt-4 italic">
+                    ✨ Congratulations to these brilliant innovators for redefining the future with technology and purpose!
+                  </p>
+                </div>
+                <div className="flex items-center text-sm text-gray-600 pt-4 border-t border-gray-200">
+                  <FaCalendarAlt className="text-[#14b8a6] mr-2" />
+                  <span>Event Conducted by InLighnX Global</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* IITB Hackathon Event */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="relative h-56 md:h-64 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                  alt="IITB Hackathon"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-[#14b8a6] text-white px-4 py-2 rounded-full shadow-lg">
+                    <FaTrophy className="inline-block mr-2" />
+                    <span className="font-semibold text-sm">Winner</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-white font-bold text-xl md:text-2xl mb-2 drop-shadow-lg">IITB Hackathon</h3>
+                  <p className="text-gray-200 text-sm md:text-base">IIT Bombay Hackathon Competition</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center text-sm text-gray-600">
+                  <FaCalendarAlt className="text-[#14b8a6] mr-2" />
+                  <span>Event Conducted</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       <FloatingWhatsApp />
     </div>
