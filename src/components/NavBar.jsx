@@ -34,11 +34,14 @@ function NavBar() {
     <nav className="navbar">
       <div className="navbar-top-line"></div>
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo-section" onClick={handleLinkClick}>
-          <div className="logo-circle">
-           <img src={logo} alt="InLighn Tech" className="logo-image" />
-          </div>
-        </Link>
+        <div className="logo-container">
+          <Link to="/" className="navbar-logo-section" onClick={handleLinkClick}>
+            <div className="logo-circle">
+              <img src={logo} alt="InLighn Tech" className="logo-image" />
+            </div>
+          </Link>
+          <span className="mobile-logo-text">InlighnXglobal</span>
+        </div>
         
         <button 
           className={`hamburger-menu ${isMenuOpen ? 'active' : ''}`}

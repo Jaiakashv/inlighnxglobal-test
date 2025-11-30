@@ -160,6 +160,23 @@
   }
 }
 
+/* Company name in a single row for mobile */
+@media (max-width: 768px) {
+  .home-company-name {
+    display: inline-block;
+    margin-right: 0.25rem;
+    white-space: nowrap;
+  }
+  
+  .home-company-name:last-child {
+    margin-right: 0;
+  }
+  
+  .home-content {
+    text-align: center;
+  }
+}
+
 /* Tablet Styles (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
   .home-content-wrapper {
@@ -284,6 +301,13 @@
   
   .home-company-name {
     font-size: 1.1rem;
+    display: inline-block;
+    margin-right: 0.25rem;
+  }
+  
+  /* Remove right margin from the last element */
+  .home-company-name:last-child {
+    margin-right: 0;
   }
   
   .home-description {
