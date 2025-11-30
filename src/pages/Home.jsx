@@ -6,7 +6,7 @@ import LightRays from '../components/LightRays';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
 import { cn } from "../lib/utils";
 import './Page.css';
-import titleimg from '../assets/title-card.png';
+import titleimg from '../assets/title-card.jpeg';
 import isoLogo from '../assets/iso.png';
 import msmeLogo from '../assets/MSME-Logo.webp';
 import startupLogo from '../assets/startup-india.png';
