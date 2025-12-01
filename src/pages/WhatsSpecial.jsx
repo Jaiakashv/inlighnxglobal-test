@@ -71,53 +71,69 @@ function WhatsSpecial() {
   // Intern Projects data
   const internProjects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online store with product listings, cart functionality, and secure payment integration.',
-      image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      title: 'Tables in Database',
+      description: 'Data Analysis of Tables in Database',
+      image: 'https://www.inlighntech.com/wp-content/uploads/2025/07/Screenshot-2025-07-08-at-12.31.13%E2%80%AFPM.png',
       ctaText: 'View Project',
-      ctaLink: '#',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe']
+      ctaLink: 'https://www.linkedin.com/posts/avishee-dubey-152329278_sql-postgresql-dataanalysis-activity-7347958385717182464-nQwX?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEfdUx0Bju2m32WJAuF-DbWdByJKlYPEGZE',
+      tags: ['PostgreSQL + pgAdmin 4 ', 'Excel + CSVs', 'Canva ', 'Github']
     },
     {
-      title: 'Task Management App',
-      description: 'A productivity application for managing tasks, deadlines, and team collaboration in real-time.',
-      image: 'https://images.unsplash.com/photo-1543285198-3af15c4592ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      title: 'Subdomain Enumeration Tool',
+      description: 'Subdomain Enumeration Tool in Cybersecurity',
+      image: 'https://www.inlighntech.com/wp-content/uploads/2025/04/Screenshot-2025-04-27-155243.png',
       ctaText: 'View Project',
-      ctaLink: '#',
-      tags: ['React Native', 'Firebase', 'Redux']
+      ctaLink: 'https://drive.google.com/file/d/1zg2KJ6PJJlG3-FY0_tjAewfP0xcpxr1e/view',
+      tags: ['Cybersecurity', 'Python', 'Github']
     },
     {
-      title: 'Portfolio Website',
-      description: 'A modern, responsive portfolio website showcasing projects, skills, and professional experience.',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      title: 'PDF Protector Tool',
+      description: 'PDF Protector Tool in Cybersecurity',
+      image: 'https://www.inlighntech.com/wp-content/uploads/2025/04/Screenshot-2025-04-27-155434.png',
       ctaText: 'View Project',
-      ctaLink: '#',
-      tags: ['React', 'Tailwind CSS', 'Framer Motion']
+      ctaLink: 'https://docs.google.com/presentation/d/1CUslcz6XM013FIqp90nNddkD1va4bm77/edit?slide=id.p1#slide=id.p1',
+      tags: ['Cybersecurity', 'Python', 'Github']
     },
     {
-      title: 'Food Delivery App',
-      description: 'A mobile application for ordering food from local restaurants with real-time order tracking.',
-      image: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      title: 'Amazon Sales Dashboard',
+      description: 'Amazon Sales Dashboard using data analysis',
+      image: 'https://www.inlighntech.com/wp-content/uploads/2025/04/Screenshot-2025-04-27-155626.png',
       ctaText: 'View Project',
-      ctaLink: '#',
-      tags: ['React Native', 'Node.js', 'MongoDB']
+      ctaLink: 'https://github.com/G-arimaP/Excel-Project/blob/main/Amazon%20Dashboard.xlsx',
+      tags: ['Data Analysis', 'Python', 'Github', 'PowerBI']
     },
     {
-      title: 'Fitness Tracker',
-      description: 'A comprehensive fitness tracking application with workout plans and progress monitoring.',
-      image: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      title: 'Nova – Voice-Activated AI Assistant',
+      description: 'Nova – Voice-Activated AI Assistant',
+      image: 'https://www.inlighntech.com/wp-content/uploads/2025/04/Screenshot-2025-04-27-155900.png',
       ctaText: 'View Project',
-      ctaLink: '#',
+      ctaLink: 'https://drive.google.com/file/d/1M8oX1FyaiXdv6kIwwoxRNEP37YPoLRS8/view',
       tags: ['React', 'Firebase', 'Chart.js']
     },
     {
-      title: 'Social Media Dashboard',
-      description: 'An analytics dashboard for tracking social media metrics and engagement across multiple platforms.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      title: 'Python Programming Projects',
+      description: 'Python Programming Projects',
+      image: 'https://www.inlighntech.com/wp-content/uploads/2025/05/Screenshot-2025-05-24-130059.png',
       ctaText: 'View Project',
-      ctaLink: '#',
-      tags: ['React', 'D3.js', 'Express', 'MongoDB']
-    }
+      ctaLink: 'https://drive.google.com/file/d/1HXIhDx4CIn3ajKDgij7hfDzEqpJNbLsh/view',
+      tags: ['Python', 'Github']
+    },
+    {
+      title: 'AI interview Mocker',
+      description: 'Webdevelopment',
+      image: 'https://www.inlighntech.com/wp-content/uploads/2025/07/Screenshot-2025-07-08-at-12.33.47%E2%80%AFPM.png',
+      ctaText: 'View Project',
+      ctaLink: 'https://ai-mock-interview-sonia-sharmas-projects.vercel.app/sign-in?redirect_url=https%3A%2F%2Fai-mock-interview-sonia-sharmas-projects.vercel.app%2Fdashboard%2Finterview%2F335eb553-8aca-43df-81fc-1763dc551a67%2Fstart',
+      tags: ['Webdevelopment', 'Hosting','Github']
+    },
+    {
+      title: 'Flipkart Sales Dashboard',
+      description: 'Flipkart Sales Dashboard using data analysis',
+      image: 'https://www.inlighntech.com/wp-content/uploads/2025/07/Screenshot-2025-07-08-at-12.37.26%E2%80%AFPM.png',
+      ctaText: 'View Project',
+      ctaLink: 'https://www.linkedin.com/posts/jotham-bhattacharya-a51346230_powerbi-businessanalytics-dashboarddesign-activity-7345348066977185792-jnbZ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADnT9RcBLXg7RhZ1-KtA7oqpHgC5uaS2NV4',
+      tags: ['Data Analysis', 'Python', 'Github', 'PowerBI']
+    },
   ];
 
   // Features data
@@ -146,37 +162,40 @@ function WhatsSpecial() {
 
 
   const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
-    arrows: false,
-    swipe: true,
-    swipeToSlide: true,
-    draggable: true,
-    touchMove: true,
-    cssEase: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
+  dots: true,
+  infinite: true,
+  speed: 800,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  pauseOnHover: true,
+  arrows: false,
+  swipe: true,
+  swipeToSlide: true,
+  draggable: true,
+  touchMove: true,
+  cssEase: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
       }
-    ]
-  };
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: false,     // ensure full single-card view
+        centerPadding: "0px"
+      }
+    }
+  ]
+};
+
 
   return (
     <div className="min-h-screen bg-white">
