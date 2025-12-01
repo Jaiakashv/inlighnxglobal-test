@@ -179,19 +179,15 @@ function WhatsSpecial() {
   responsive: [
     {
       breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      }
+      settings: { slidesToShow: 2, slidesToScroll: 1 }
     },
     {
-      breakpoint: 640,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        centerMode: false,     // ensure full single-card view
-        centerPadding: "0px"
-      }
+      breakpoint: 820,      // broader breakpoint for many phones/tablets
+      settings: { slidesToShow: 1, slidesToScroll: 1, centerMode: false, centerPadding: "0px" }
+    },
+    {
+      breakpoint: 480,      // very small devices
+      settings: { slidesToShow: 1, slidesToScroll: 1, centerMode: false, centerPadding: "0px" }
     }
   ]
 };
