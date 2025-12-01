@@ -484,10 +484,18 @@
   flex: 1;
 }
 
-.program-card-title {
+.program-card {
+  transition: border-color 0.3s ease;
+}
+
+.program-card:hover {
+  border: 2px solid #252c30;
+}
+
+.program-card .program-card-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--brand-700);
+  color: #252c30 !important;
   margin: 0;
   line-height: 1.3;
 }
@@ -568,24 +576,27 @@
 .learn-more-btn {
   margin-top: auto;
   padding: 0.875rem 1.5rem;
-  background: var(--accent);
-  color: #ffffff;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: white;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: all 0.3s ease, transform 0.2s ease;
   width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .learn-more-btn:hover {
-  background: var(--accent-dark);
+  background: linear-gradient(135deg, #e55a2b 0%, #ff6b35 100%);
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .learn-more-btn:active {
   transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* No Results */

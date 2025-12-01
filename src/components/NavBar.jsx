@@ -60,10 +60,25 @@ function NavBar() {
           <Link to="/verify-certificate" className={`nav-link ${isActive('/verify-certificate') ? 'active' : ''}`} onClick={handleLinkClick}>Verify Certificate</Link>
           <Link to="/whats-special" className={`nav-link ${isActive('/whats-special') ? 'active' : ''}`} onClick={handleLinkClick}>What's Special</Link>
           <Link to="/contact-us" className={`nav-link ${isActive('/contact-us') ? 'active' : ''}`} onClick={handleLinkClick}>Contact Us</Link>
-          <button className="login-button login-button-mobile" onClick={closeMenu}>Login to Portal</button>
+          <a 
+            href="https://inlighntech.podia.com/login"
+            className="login-button login-button-mobile"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+          >
+            Login to Portal
+          </a>
         </div>
         
-        <button className="login-button login-button-desktop" onClick={closeMenu}>Login to Portal</button>
+        <a 
+          href="https://inlighntech.podia.com/login"
+          className="login-button login-button-desktop"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Login to Portal
+        </a>
       </div>
     </nav>
   )

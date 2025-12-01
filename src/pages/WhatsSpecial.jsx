@@ -1,12 +1,13 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
 // Import from react-icons/fa6
-import { FaTrophy, FaLaptopCode, FaUsers, FaGraduationCap, FaChevronLeft, FaChevronRight, FaCheck, FaUserTie, FaBriefcase } from 'react-icons/fa6';
+import { FaTrophy, FaLaptopCode, FaUsers, FaGraduationCap, FaChevronLeft, FaChevronRight, FaCheck, FaUserTie, FaBriefcase, FaHandshake, FaArrowRight } from 'react-icons/fa6';
 // Import from react-icons/fa
-import { FaCalendarAlt, FaClipboardList, FaMedal, FaCertificate, FaAward, FaUserFriends, FaNetworkWired } from 'react-icons/fa';
+import { FaCalendarAlt, FaClipboardList, FaMedal, FaCertificate, FaAward, FaUserFriends, FaNetworkWired, FaInfoCircle, FaExternalLinkAlt, FaUniversity, FaQuoteLeft } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './Page.css';
 
@@ -195,12 +196,43 @@ function WhatsSpecial() {
         }
       `}</style>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#0F172A] via-[#1e293b] to-[#0F172A] text-white py-16 md:py-20 px-4 mt-12">
-        <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">What's Special About Our Program?</h1>
-          <p className="text-lg md:text-xl max-w-4xl mx-auto text-gray-200">
-            Discover what makes our internship program unique and how it can shape your career in technology.
-          </p>
+      <section className="relative py-16 md:py-24 px-4 mt-12 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#1e293b]/80 to-[#0F172A]/90"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+            alt="E-learning background"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        
+        <div className="container relative z-10 mx-auto max-w-6xl text-center">
+          <div className="max-w-4xl mx-auto bg-transparent rounded-2xl p-8 md:p-12 shadow-2xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              What's Special About Our Program?
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
+              Discover what makes our internship program unique and how it can shape your career in technology.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <Link 
+                to="/programs" 
+                style={{color : 'white' }}
+                className="px-8 py-3 bg-gradient-to-r from-[#ff6b35] to-[#ff8c42] text-white font-semibold rounded-full hover:from-[#e55a2b] hover:to-[#ff6b35] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+              >
+                Explore Programs
+              </Link>
+              <Link 
+                to="/contact-us" 
+                style={{color : 'white' }}
+                className="px-8 py-3 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -730,7 +762,7 @@ function WhatsSpecial() {
                 className="mt-8 text-center md:text-left"
               >
                 <a
-                  href="/apply"
+                  href="https://www.youtube.com/watch?v=w07el7UywbQ"
                   className="card-button"
                 >
                   <span>Apply Now</span>
@@ -763,7 +795,7 @@ function WhatsSpecial() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeIn" }}
               >
-                Our Events
+                Our Events & Sponsorship
               </motion.h2>
               <motion.div 
                 className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6"
@@ -911,9 +943,9 @@ function WhatsSpecial() {
                     {/* Image Section */}
                     <div className="relative h-64 lg:h-auto lg:w-3/5 lg:min-h-[450px] overflow-hidden flex items-center justify-center bg-gray-100">
                       <img 
-                        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                        src="https://media.licdn.com/dms/image/v2/D4E22AQGRY9jvA2emJA/feedshare-shrink_1280/B4EZdoY5NjHIAk-/0/1749803052112?e=2147483647&v=beta&t=C1ehqQrDFwlLNx6au9UpUXGg7QSu8u2XdVbSZ_-fPqU" 
                         alt="IITB Hackathon"
-                        className="w-full h-full object-contain lg:object-cover"
+                        className="w-full h-150 object-cover lg:object-cover"
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -931,9 +963,120 @@ function WhatsSpecial() {
 
                     {/* Content Section */}
                     <div className="lg:w-2/5 p-6 lg:p-8 flex items-center justify-center">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <FaCalendarAlt className="text-[#14b8a6] mr-2" />
-                        <span>Event Conducted by InLighnX Global</span>
+                      <div className="max-w-md">
+                        <div className="flex items-center mb-4">
+                          <div className="bg-[#14b8a6] p-2 rounded-lg mr-3">
+                            <FaHandshake className="text-white text-xl" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800">Our Partnership</h3>
+                        </div>
+                        
+                        <div className="space-y-4 text-gray-600">
+                          <p className="text-sm leading-relaxed">
+                            We're proud to be the <span className="font-semibold text-[#14b8a6]">Sponsorship Partner</span> for Frontend Battle 2025 – 2nd Edition, hosted by WebnD!
+                          </p>
+                          
+                          <div className="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r">
+                            <p className="text-xs text-amber-800">
+                              <FaInfoCircle className="inline mr-1" />
+                              Join us in this exciting journey of innovation and code!
+                            </p>
+                          </div>
+                          
+                          <p className="text-sm leading-relaxed">
+                            This collaboration marks a significant step in bringing together the brightest minds in frontend development. With Inlighn Tech's support, we're gearing up for a bigger, bolder, and more impactful competition.
+                          </p>
+                          
+                          <div className="pt-2">
+                            <a 
+                              href="https://www.linkedin.com/posts/webd-iitbbs_webnd-iitbhubaneswar-frontendbattle-activity-7339205948038606848-NTIr?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              style={{color:'white'}}
+                              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#14b8a6] to-teal-600  text-sm font-medium rounded-md hover:shadow-md transition-all duration-200"
+                            >
+                              Learn More About the Event
+                              <FaArrowRight className="ml-2" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Hack Summit 2025 Event */}
+              <div className="px-2 focus:outline-none mt-8">
+                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                  <div className="flex flex-col lg:flex-row min-h-[450px]">
+                    {/* Image Section */}
+                    <div className="relative h-64 lg:h-auto lg:w-3/5 lg:min-h-[450px] overflow-hidden flex items-center justify-center bg-gray-100">
+                      <img 
+                        src="https://media.licdn.com/dms/image/v2/D5622AQH6xJx0FduCsw/feedshare-shrink_800/B56ZbTug8JGsAg-/0/1747308909135?e=2147483647&v=beta&t=Vs6yXzyGbKOHXBNk2NGRd8Ggql_WzIS9kbqbGoS5fyU" 
+                        alt="Hack Summit 2025 at PACE"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                      <div className="absolute top-4 right-4 z-10">
+                        <div className="bg-[#14b8a6] text-white px-4 py-2 rounded-full shadow-lg">
+                          <FaCalendarAlt className="inline-block mr-2" />
+                          <span className="font-semibold text-sm">May 15-16, 2025</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="lg:w-2/5 p-6 lg:p-8 flex items-center justify-center">
+                      <div className="max-w-md">
+                        <div className="flex items-center mb-4">
+                          <div className="bg-[#14b8a6] p-2 rounded-lg mr-3">
+                            <FaTrophy className="text-white text-xl" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800">Hack Summit 2025</h3>
+                        </div>
+                        
+                        <div className="space-y-4 text-gray-600">
+                          <p className="text-sm leading-relaxed">
+                            Thrilled to announce that InlighnX Global is proudly sponsoring Hack Summit 2025 at P.A. College of Engineering, Mangalore! 🚀 This 24-hour hackathon, powered by GD Edu Tech, is bringing together brilliant minds to innovate and collaborate. 💻
+                          </p>
+
+                          <div className="bg-blue-50 border-l-4 border-blue-400 p-3 rounded-r">
+                            <p className="text-xs text-blue-800">
+                              <FaInfoCircle className="inline mr-1" />
+                              Special thanks to Mohammed Bilal, President of GLUG PACE, for this opportunity!
+                            </p>
+                          </div>
+
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium text-gray-700">Organized by:</p>
+                            <ul className="grid grid-cols-2 gap-2 text-xs">
+                              <li className="flex items-center"><FaUniversity className="mr-1 text-[#14b8a6]" /> P A College of Engineering</li>
+                              <li className="flex items-center"><FaGraduationCap className="mr-1 text-[#14b8a6]" /> Department of CS</li>
+                              <li className="flex items-center"><FaUsers className="mr-1 text-[#14b8a6]" /> GD Edu Tech</li>
+                              <li className="flex items-center"><FaNetworkWired className="mr-1 text-[#14b8a6]" /> IEEE Mangalore</li>
+                              <li className="flex items-center"><FaLaptopCode className="mr-1 text-[#14b8a6]" /> GLUG PACE</li>
+                            </ul>
+                          </div>
+
+                          <p className="text-sm leading-relaxed">
+                            At InlighnX Global, we're passionate about fostering innovation and empowering the next generation of tech leaders. Join us at Hack Summit 2025 to witness creativity in action! 💡
+                          </p>
+
+                          <div className="pt-2">
+                            <a 
+                              href="https://www.linkedin.com/posts/inlighn-tech_pacollegeofengineeringmangalore-hacksummit2025-activity-7328744752240046080-PFOS?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              style={{color:'white'}}
+                              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#14b8a6] to-teal-600 text-white text-sm font-medium rounded-md hover:shadow-md transition-all duration-200"
+                            >
+                              View Event Details
+                              <FaExternalLinkAlt className="ml-2 text-xs" />
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -945,6 +1088,68 @@ function WhatsSpecial() {
         </div>
       </section>
 
+      {/* Achievement and Recognition Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div 
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeIn" }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Achievement and Recognition
+            </h2>
+            <div className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6"></div>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="flex flex-col md:flex-row">
+              {/* Image Section */}
+              <div className="md:w-2/5 bg-gray-100 flex items-center justify-center p-8">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D5622AQFM2HTwXoSnRg/feedshare-shrink_1280/B56ZnpFlO6HUAs-/0/1760552181859?e=2147483647&v=beta&t=jN4MPVa6QoxKucJwBGIn0wwpUAWiuvCy2-TeCmNG300" 
+                  alt="Bharat Business Award"
+                  className="w-full h-auto rounded-lg shadow-md"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Content Section */}
+              <div className="md:w-3/5 p-8 md:p-10">
+                <div className="flex items-center mb-6">
+                  <div className="bg-[#14b8a6] p-3 rounded-lg mr-4">
+                    <FaTrophy className="text-white text-2xl" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800">Bharat Business Awards 2024</h3>
+                </div>
+
+                <div className="space-y-4 text-gray-600">
+                  <p className="leading-relaxed">
+                    Our organization, <span className="font-semibold text-gray-800">InLighnX Global Pvt Ltd (InLighn Tech)</span> was honored with the 
+                    <span className="font-semibold text-[#14b8a6]"> "#Best_Emerging_EdTech_Startup_in_Tech_Training"</span> award at the 
+                    Bharat Business Awards, presented by Ashneer Grover.
+                  </p>
+                  
+                  <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r">
+                    <p className="text-sm text-amber-800">
+                      <FaQuoteLeft className="inline mr-1 text-amber-400" />
+                      We started this journey just one year ago with no guidance, building everything from scratch through countless sleepless nights — driven by one mantra: 
+                      <span className="font-semibold">"Finish what you've started."</span>
+                    </p>
+                  </div>
+
+                  <p className="text-sm text-gray-500 mt-6">
+                    This recognition is a testament to our team's dedication and hard work in revolutionizing tech education and training.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
       <FloatingWhatsApp />
     </div>
   )
