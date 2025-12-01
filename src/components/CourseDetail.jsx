@@ -283,11 +283,8 @@ function CourseDetail({ course: courseProp, onClose: onCloseProp }) {
 
                   <div className="info-card price-card">
                     <div className="info-card-header">
-                      <svg className="info-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                      </svg>
-                      <span className="info-card-label">Application Price</span>
+                      <h1 className="text-2xl font-bold text-white">₹</h1>
+                      <span className="info-card-label">Application Price (INR)</span>
                     </div>
                     <div className="price-display">
                       <span className="price-main">₹{discountedPrice}</span>
