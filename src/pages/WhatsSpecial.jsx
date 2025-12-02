@@ -421,20 +421,23 @@ function WhatsSpecial() {
                           ))}
                         </div>
                       </motion.div>
-                      <motion.div 
+                      <motion.a 
+                        href={project.ctaLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileHover={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3 }}
                       >
                         <motion.span 
-                          className="bg-white/95 text-[#14b8a6] px-6 py-3 rounded-full text-sm font-semibold shadow-2xl border border-[#14b8a6]/20"
-                          whileHover={{ scale: 1.1 }}
+                          className="bg-white/95 text-[#14b8a6] px-6 py-3 rounded-full text-sm font-semibold shadow-2xl border border-[#14b8a6]/20 cursor-pointer"
+                          whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 1)' }}
                           transition={{ duration: 0.2 }}
                         >
                           View Details →
                         </motion.span>
-                      </motion.div>
+                      </motion.a>
                     </div>
                     <div className="p-5 md:p-6 bg-white">
                       <p className="text-gray-600 mb-5 text-sm md:text-base line-clamp-3 leading-relaxed min-h-[4.5rem]">{project.description}</p>
