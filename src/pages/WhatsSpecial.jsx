@@ -40,33 +40,6 @@ function SamplePrevArrow(props) {
 function WhatsSpecial() {
   const sliderRef = useRef(null);
   const eventsSliderRef = useRef(null);
-  // Interns of the Month data
-  const internsOfTheMonth = [
-    {
-      name: 'Intern of the Month',
-      description: 'If you\'re in your last month of internship, you\'re eligible! You\'ll receive a Google Form to apply for this prestigious title!',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      ctaText: 'Apply Now',
-      ctaLink: '#',
-      month: 'November 2023'
-    },
-    {
-      name: 'Top Performer',
-      description: 'Recognizing interns who have demonstrated exceptional performance and dedication throughout their internship program.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      ctaText: 'View Details',
-      ctaLink: '#',
-      month: 'October 2023'
-    },
-    {
-      name: 'Innovation Champion',
-      description: 'Awarded to interns who have shown outstanding creativity and innovation in their projects and problem-solving approaches.',
-      image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      ctaText: 'Learn More',
-      ctaLink: '#',
-      month: 'September 2023'
-    }
-  ];
 
   // Intern Projects data
   const internProjects = [
@@ -315,60 +288,6 @@ function WhatsSpecial() {
         </div>
       </section>
 
-      {/* Interns of the Month Section */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
-              Interns of the Month Challenge
-            </h2>
-            <div className="w-20 h-1 bg-[#14b8a6] mx-auto mb-6"></div>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-              Every month, we recognize and reward our most outstanding interns who demonstrate exceptional skills and dedication.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {internsOfTheMonth.map((intern, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="relative h-48 md:h-56 overflow-hidden">
-                  <img 
-                    src={intern.image} 
-                    alt={intern.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-white font-bold text-lg md:text-xl">{intern.name}</h3>
-                    <p className="text-sm text-gray-200">{intern.month}</p>
-                  </div>
-                </div>
-                <div className="p-5 md:p-6">
-                  <p className="text-sm md:text-base text-gray-600 mb-6 leading-relaxed">{intern.description}</p>
-                  <a 
-                    href={intern.ctaLink}
-                    className="card-button"
-                  >
-                    <span>{intern.ctaText}</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Projects Section */}
       <section className="py-12 md:py-16 bg-white">
