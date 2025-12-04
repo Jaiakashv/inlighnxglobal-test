@@ -815,6 +815,53 @@ function Home() {
           </div>
         </div>
 
+        {/* Award Section */}
+        <div className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row max-w-5xl mx-auto">
+              <div className="md:w-2/5">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D5622AQFM2HTwXoSnRg/feedshare-shrink_1280/B56ZnpFlO6HUAs-/0/1760552181859?e=2147483647&v=beta&t=jN4MPVa6QoxKucJwBGIn0wwpUAWiuvCy2-TeCmNG300" 
+                  alt="Bharat Business Awards 2024" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="md:w-3/5 p-8 md:p-10">
+                <div className="flex items-center mb-6">
+                  <div className="bg-[#14b8a6] p-3 rounded-lg mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800">Bharat Business Awards 2024</h3>
+                </div>
+
+                <div className="space-y-4 text-gray-600">
+                  <p className="leading-relaxed">
+                    Our organization, <span className="font-semibold text-gray-800">InLighnX Global Pvt Ltd (InLighn Tech)</span> was honored with the 
+                    <span className="font-semibold text-[#14b8a6]"> "#Best_Emerging_EdTech_Startup_in_Tech_Training"</span> award at the 
+                    Bharat Business Awards, presented by Ashneer Grover.
+                  </p>
+                  
+                  <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r">
+                    <p className="text-sm text-amber-800">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 inline mr-1 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                      </svg>
+                      We started this journey just one year ago with no guidance, building everything from scratch through countless sleepless nights — driven by one mantra: 
+                      <span className="font-semibold">"Finish what you've started."</span>
+                    </p>
+                  </div>
+
+                  <p className="text-sm text-gray-500 mt-6">
+                    This recognition is a testament to our team's dedication and hard work in revolutionizing tech education and training.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Testimonials Section */}
         <div className="testimonials-section" style={{ position: 'relative' }}>
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
