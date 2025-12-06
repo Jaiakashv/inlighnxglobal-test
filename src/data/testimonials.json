@@ -1,405 +1,140 @@
 {
-  "total_records": 50,
+  "total_records": 17,
   "records": [
     {
       "id": 1,
-      "name": "Abinaya.k",
+      "name": "Abinaya K",
       "internship_domain": "Python Programming Intern",
-      "feedback": "I, Abinaya, am grateful for the opportunity given to me to complete my one-month internship at Inligh Company. Throughout my internship, I gained valuable practical knowledge and enhanced my technical...",
+      "feedback": "My one-month Python Programming internship at InLighn Company gave me valuable hands-on experience and improved my technical abilities.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1YplqVzVbZ1bATjX6_4qh258iIfzI4nhM",
-      "linkedin_link": "www.linkedin.com/in/Abinaya kalimuthu"
+      "linkedin_link": "https://www.linkedin.com/in/abinaya-kalimuthu"
     },
     {
       "id": 2,
-      "name": "Gowsika.S",
-      "internship_domain": "Python Programming Intern",
-      "feedback": "This internship boosted my confidence, enhanced my problem-solving ability, and gave me a clearer idea of my career goals. I am grateful for the opportunity and the support I received throughout the t...",
+      "name": "Vatsla Sharma",
+      "internship_domain": "Cyber Security (Offensive Security) Intern",
+      "feedback": "During my Offensive Security internship at InLighnX Global Pvt Ltd, I gained practical exposure to security tools, attack simulations, and real-world offensive methodologies.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1_5bRjtyE2h25oAZS8h3O8Dx7wFl2czH-",
-      "linkedin_link": "www.linkedin.com/in/Gowsika Sivakumar"
+      "linkedin_link": "https://www.linkedin.com/in/vatsla-sharma-/"
     },
     {
       "id": 3,
-      "name": "Darshan Gholap",
-      "internship_domain": "Ethical hacking Intern",
-      "feedback": "My experience at Inlighn Tech was highly enriching and professionally transformative. I gained hands-on exposure to advanced cybersecurity tools, network defense systems, and real-world ethical hackin...",
+      "name": "Kavita C",
+      "internship_domain": "AI & Machine Learning Intern",
+      "feedback": "I completed a 2-month AI & ML internship at InLighnX Global Pvt Ltd, working on fraud detection and malware analysis projects, which enhanced my understanding of machine learning applications in cybersecurity.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1-QhnZG8ocYyZ9PWU7jEqzz1DbyV_fV1m",
-      "linkedin_link": "www.linkedin.com/in/darshan-gholap"
+      "linkedin_link": "https://www.linkedin.com/in/kavita-c/"
     },
     {
       "id": 4,
-      "name": "YASH SUJIT TABIB",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "Nice to work with the company .",
+      "name": "Sonia Sharma",
+      "internship_domain": "Internship Training Program",
+      "feedback": "I was honored with a Certificate of Appreciation from InLighnX Global Pvt Ltd for my dedication during the internship, which motivated me to keep improving my skills.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1wh5GdaE4_jukXqOrxIHLb66-KzTzuGfh",
-      "linkedin_link": "https://www.linkedin.com/in/yash-tabib-a9a852375?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      "linkedin_link": "https://www.linkedin.com/in/sonia-sharma/"
     },
     {
       "id": 5,
-      "name": "Tushar venunath",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "My internship experience at Inglighnx was productive and insightful. I had the opportunity to apply my technical skills to real-world projects and gain practical exposure to industry workflows. The te...",
+      "name": "Bhagyasri S",
+      "internship_domain": "Python / Data Science Intern",
+      "feedback": "My internship at InLighnX Global Pvt Ltd was an enriching experience that allowed me to explore practical data science applications and feel valued by the team.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1sQsGPGC8TdGcXD6yn-tdHzgTPLII2fdb",
-      "linkedin_link": "https://www.linkedin.com/in/tushar-musmade-9b0284377?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      "linkedin_link": "https://www.linkedin.com/in/bhagyasri-s/"
     },
     {
       "id": 6,
-      "name": "Afrin Jennisha A",
-      "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "Great learning experience! Gained real hands-on knowledge in Cybersecurity.",
+      "name": "Narinder Singh",
+      "internship_domain": "Data Analyst Intern",
+      "feedback": "Over six months at InLighnX Global, I gained hands-on experience with real datasets and developed dashboards and insights that helped me understand data-driven decision-making.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=178rhN9QSnx4_rWe83OFg4z2x6t71eYnc",
-      "linkedin_link": "https://www.linkedin.com/in/afrin-jennisha-a-90bb65269?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      "linkedin_link": "https://www.linkedin.com/in/narinder-singh/"
     },
     {
       "id": 7,
-      "name": "Keerthana N Naidu",
-      "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "The internship was conducted remotely with recorded and live online sessions, which provided flexibility but limited hands-on experience. Overall, it was a good learning opportunity, though in-person ...",
+      "name": "Mithun Monnappa",
+      "internship_domain": "Data Science Intern",
+      "feedback": "During my 3-month Data Science internship, I built ML projects across healthcare, NLP, and environmental domains, which strengthened my skills in model development and analysis.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1em3H4VFcyBvuuzwjj7kR4aNk6zJ0kkqG",
-      "linkedin_link": "https://www.linkedin.com/in/keerthana-naidu-632a30333?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      "linkedin_link": "https://www.linkedin.com/in/mithun-monnappa/"
     },
     {
       "id": 8,
-      "name": "Digvijay Patil",
-      "internship_domain": "Ethical hacking Intern",
-      "feedback": "Cool",
+      "name": "Rahul S",
+      "internship_domain": "AI & Machine Learning Intern",
+      "feedback": "I completed a two-month AI & ML internship at InLighnX Global Pvt Ltd, where I built models for fake news and web attack detection, gaining practical experience in preprocessing, feature engineering, and model evaluation.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1qrcGlMqbYlGbZZ9urER4lJDx4lLzsJbq",
-      "linkedin_link": "https://www.linkedin.com/in/digvijay-patil-3826a8220/"
+      "linkedin_link": "https://www.linkedin.com/in/rahul-s/"
     },
     {
       "id": 9,
-      "name": "DARUPALLY VARSHITHA",
-      "internship_domain": "Front-end Development Intern",
-      "feedback": "I have successfully completed my internship as a Front-End Developer at InLinghnX, where I gained valuable hands-on experience and applied my skills in real-time projects. I am grateful for the opport...",
+      "name": "Manasa Nimma",
+      "internship_domain": "Data Analyst Intern",
+      "feedback": "My one-month Data Analyst internship gave me practical exposure to SQL, Power BI, Python, and Excel, helping me build dashboards and strengthen analytical thinking.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1yXT2k4qpDiiFZV4UQfyHvAr_nZ0owZ2-",
-      "linkedin_link": "https://www.linkedin.com/in/varshitha-darupally-453650300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      "linkedin_link": "https://www.linkedin.com/in/manasa-nimma/"
     },
     {
       "id": 10,
-      "name": "Samir Sunil Dhanawade",
+      "name": "Jagarnath Mali",
       "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "i have gained so much knowledge and hands on experience during my internship.It boosts my skills in cyber security field.It was great experience.Thank you for your support.",
+      "feedback": "I gained hands-on experience in malware analysis and app security during my one-month Offensive Cyber Security internship, building tools and automating threat detection processes.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1uPR1UyQkSbBMceqmzAbfBlJtCPCVs4HN",
-      "linkedin_link": "https://www.linkedin.com/in/samirdhanawade/"
+      "linkedin_link": "https://www.linkedin.com/in/jagarnath-mali/"
     },
     {
       "id": 11,
-      "name": "Kranthi Kumar Reddy Yaramala",
-      "internship_domain": "Data Science Intern",
-      "feedback": "this internship is very good and useful and provide internships on salesforce and other technologies as well",
+      "name": "Manish Kumar",
+      "internship_domain": "Frontend Development Intern",
+      "feedback": "Through practical projects like a portfolio website and quiz app, my Frontend Development internship enhanced my skills in responsive design, JavaScript, and UI/UX principles.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1Oej3_UvgHlBNOsnRiJ8qo4IEK5vo_Fi2",
-      "linkedin_link": "https://www.linkedin.com/in/kranthi-kumar-reddy-2236971a8/"
+      "linkedin_link": "https://www.linkedin.com/in/manish-kumar/"
     },
     {
       "id": 12,
-      "name": "vivek",
-      "internship_domain": "Ethical hacking Intern",
-      "feedback": "Great experience",
+      "name": "Mohammed Rukhnuddin Shariff",
+      "internship_domain": "Ethical Hacking Intern",
+      "feedback": "I worked on web security tasks including brute-force testing and authentication analysis during my one-month Ethical Hacking internship, strengthening my cybersecurity fundamentals.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=14bns60YcKVwFG-y6N0AURYkOH-FdDMTZ",
-      "linkedin_link": "https://www.linkedin.com/in/vivek-1b1934289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      "linkedin_link": "https://www.linkedin.com/in/mohammed-rukhnuddin-shariff/"
     },
     {
       "id": 13,
-      "name": "Mohammad Kousar",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "IT WAS GOOD",
+      "name": "Sayan Saha",
+      "internship_domain": "Ethical Hacking Intern",
+      "feedback": "My 3-month Ethical Hacking internship exposed me to real-world offensive security practices, giving me hands-on experience and improving my understanding of cybersecurity techniques.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1o0hv-cWMUFJy2V3RGgzJbfSnTm5yL_Bl",
-      "linkedin_link": "https://www.linkedin.com/in/kousar-mohammad-a25b4a323"
+      "linkedin_link": "https://www.linkedin.com/in/sayan-saha/"
     },
     {
       "id": 14,
-      "name": "Angel Elsa Thomas",
-      "internship_domain": "Data Science Intern",
-      "feedback": "The experience was good and it helped me learn new concepts and skills.",
+      "name": "Sangeeth U",
+      "internship_domain": "Ethical Hacking Intern",
+      "feedback": "I completed a 3-month Ethical Hacking internship where I worked on authentication flaws, brute-force attacks, and session management vulnerabilities, which strengthened my penetration testing skills.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1h3wb_52Np8vxNDp6Hk2BaGvYARCA9cPO",
-      "linkedin_link": "www.linkedin.com/in/angel-elsa-thomas-175381326"
+      "linkedin_link": "https://www.linkedin.com/in/sangeeth-u/"
     },
     {
       "id": 15,
-      "name": "Paras Verma",
-      "internship_domain": "Full Stack Development Intern",
-      "feedback": "My 3-month Full Stack Development internship at INLIGHN TECH was truly transformative. I built a complete healthcare web application from scratch - a Fall Risk Assessment Tool using the MERN stack - a...",
+      "name": "Kshitij Tiwari",
+      "internship_domain": "Offensive Cybersecurity Intern",
+      "feedback": "My internship in Offensive Cybersecurity gave me practical experience with network security, web testing, exploitation, and red team techniques, helping me better understand attacker strategies.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1t5hxcyfA94TBreQz0SkIdzsDHo8p8hyr",
-      "linkedin_link": "www.linkedin.com/in/paras-verma-091781243"
+      "linkedin_link": "https://www.linkedin.com/in/kshitij-tiwari/"
     },
     {
       "id": 16,
-      "name": "Sofia Crasto",
-      "internship_domain": "Data Science Intern",
-      "feedback": "THE INTERSHIP WAS GREAT AND HAD AWSOME LEARNING EXPERINCE",
+      "name": "Sumeet Kumar",
+      "internship_domain": "Data Analyst Intern",
+      "feedback": "During my 2-month Data Analyst internship, I worked on real datasets, analyzed trends, and created dashboards, which strengthened my problem-solving and data-driven decision-making abilities.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1jWL7-61PdXpCX88m4uYij11SfSg7ReOA",
-      "linkedin_link": "https://www.linkedin.com/in/sofia-crasto-data-analytics"
+      "linkedin_link": "https://www.linkedin.com/in/sumeet-kumar/"
     },
     {
       "id": 17,
-      "name": "Kunj Patel",
-      "internship_domain": "Data Science Intern",
-      "feedback": "Working as a Data Science Intern at Inlighn Tech has been an incredible learning experience. The internship provided me with hands-on exposure to real-world data analytics and machine learning project...",
+      "name": "Pallavi .",
+      "internship_domain": "Ethical Hacking Intern",
+      "feedback": "I developed a Privilege Escalation Scanner and gained hands-on experience in penetration testing and Linux security during my one-month Ethical Hacking internship.",
       "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1jQVLxB7S8wuxfzA2uYdQURECu1TXx0sY",
-      "linkedin_link": "www.linkedin.com/in/kunj-patel-a10623297"
-    },
-    {
-      "id": 18,
-      "name": "Akshaya A",
-      "internship_domain": "Data Analyst Intern",
-      "feedback": "I had a great experience with your Intern Journey. When coming to solving queries and guiding part all the mentors were so helpful, Especially one of the mentor Mr. Shubham sir guided so well irrespec...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1Yi_B-JnBTjVg0PHgJllMuddrWHus7mli",
-      "linkedin_link": "www.linkedin.com/in/ akshayaashok28"
-    },
-    {
-      "id": 19,
-      "name": "Aaswin Kumar ES",
-      "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "It is very nice. The classes are very informative and catchable.",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1g7tmuCwZ07NGaGe58Xqe75WxwK919qPN",
-      "linkedin_link": "https://www.linkedin.com/in/aaswin-es-1656992b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-    },
-    {
-      "id": 20,
-      "name": "ANJANA S",
-      "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "My experience with INLIGHN TECH has been truly valuable and enriching. During my time here, I got the opportunity to work on practical cybersecurity and digital forensics projects that helped me stren...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1M1L0crabKbkLJfI9iHObJ7-jFB-uKYQ-",
-      "linkedin_link": "https://www.linkedin.com/in/anjana-s-0243a5355/"
-    },
-    {
-      "id": 21,
-      "name": "Gouthum kharvi",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "My internship experience at INLIGHN TECH was very valuable and helped me improve my practical skills in Artificial Intelligence and Machine Learning. I got the opportunity to work on real-time project...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1xrXbG4i904kGRB7C2Yhz75WfPvSjorlc",
-      "linkedin_link": "https://www.linkedin.com/in/gouthum-kharvi-2366a6219/"
-    },
-    {
-      "id": 22,
-      "name": "Vaghasiya Yashvi Alpeshbhai",
-      "internship_domain": "Data Analyst Intern",
-      "feedback": "My internship experience with Inlighn Tech IT Company was excellent. The work at Inlighn Tech IT Company is really good. The tasks are well-organized, and I gained valuable hands-on experience during ...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1lvm2dIZmLway5TCPlW68r0CUo-PYTEBX",
-      "linkedin_link": "www.linkedin.com/in/yashvi-vaghasiya-106656376"
-    },
-    {
-      "id": 23,
-      "name": "Tanushree SM",
-      "internship_domain": "Front-end Development Intern",
-      "feedback": "My 1-month internship at Inlighn Tech was a fantastic learning experience. The team was supportive and encouraging, providing hands-on exposure to front-end technologies and practical projects. I appr...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1BOY4HVcYL-Jh06A08ZZJtehFHvhSgDWs",
-      "linkedin_link": "https://www.linkedin.com/in/tanushree-sm-220007321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-    },
-    {
-      "id": 24,
-      "name": "M. Srikar Bharadwaj",
-      "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "The live classes were great â€“ they helped me understand things clearly because there was a lot of interaction. The projects that we worked on were very interesting and useful. The video lectures wer...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=13PGcDeYA8KUAVf0g95TZyinQsnh4NyKF",
-      "linkedin_link": "https://www.linkedin.com/in/srikar-bhardwaj/"
-    },
-    {
-      "id": 25,
-      "name": "Rohit Gupta",
-      "internship_domain": "Data Analyst Intern",
-      "feedback": "I have created all the Project till now but it is not Submitting.",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1tJVspxMax_g15aokyFGeb4Dvk0JIIUyS",
-      "linkedin_link": "www.linkedin.com/in/rohit-gupta-85392b128"
-    },
-    {
-      "id": 26,
-      "name": "Thivari Naga Shiva Harshitha",
-      "internship_domain": "Data Analyst Intern",
-      "feedback": "I had a great learning experience during my internship at  InLighn Tech as a Data Analyst Intern. This internship helped me gain practical knowledge of data analysis tools, techniques, and real-world ...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1rj4cIVt_4PKuQ0t1L4_QDdr1QSYx6Hm2",
-      "linkedin_link": "https://www.linkedin.com/in/thivari-naga-shiva-harshitha-1bab612a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-    },
-    {
-      "id": 27,
-      "name": "Ritik Arunrao Kalmeghe",
-      "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "I had a great learning experience during my internship at Inlightn Tech. The program helped me understand real-world offensive security concepts and improve my practical skills in ethical hacking and ...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1uv7trH6wLoOnwVgGyu1pqUa0qM_pYySl",
-      "linkedin_link": "https://www.linkedin.com/in/ritik-kalmeghe-75924a303/"
-    },
-    {
-      "id": 28,
-      "name": "VAKALAPUDI ROHITH",
-      "internship_domain": "Business Analyst Intern",
-      "feedback": "I have nice experience with work and videos class I had learn more in this internship thank you for InLighn Tech.",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1yfTsqdjtYGrC-dv0nk781DLExqYWLCSx",
-      "linkedin_link": "https://www.linkedin.com/in/vakalapudi-rohith?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-    },
-    {
-      "id": 29,
-      "name": "Tarun Kumar Vishwakarma",
-      "internship_domain": "Data Analyst Intern",
-      "feedback": "It was a great experience with InlighnX Global Private Limited",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1rOgf4JWlasDyj-hF8hAIXHA-BSV30yEN",
-      "linkedin_link": "www.linkedin.com/in/tarun-vishwakarma123"
-    },
-    {
-      "id": 30,
-      "name": "vignesh R",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "I gained valuable hands-on experience in AI, Machine Learning, and Deep Learning, improving my technical, analytical, and problem-solving skills through multiple real-world projects.",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1lIedyDmdFB9haPmnFWfg8X6bh6xrHyUZ",
-      "linkedin_link": "www.linkedin.com/in/vigneshrvicky"
-    },
-    {
-      "id": 31,
-      "name": "Abhijit Sudhir Patil",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "At Inlighn Tech, I benefited greatly from their commitment to continuous learning through regular training classes. This allowed me to develop and deploy several high-impact machine learning solutions...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=10oM8qUx-VEM1Yg5fNsL_Roc_UA3NdPMG",
-      "linkedin_link": "https://www.linkedin.com/in/abhijit-patil-31b541293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-    },
-    {
-      "id": 32,
-      "name": "Kanha Gupta",
-      "internship_domain": "Full Stack Development Intern",
-      "feedback": "My internship at InLighnX Global Pvt. Ltd. was a highly enriching experience. The company provided a professional and supportive learning environment where I enhanced my skills in Full Stack Developme...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1R9FVoCZmIuNvr5RlqPM3U6DG2VESWPmB",
-      "linkedin_link": "https://www.linkedin.com/in/kanha-gupta-833b10206/"
-    },
-    {
-      "id": 33,
-      "name": "Gulshan Kumar",
-      "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "1. Executive summary During my one-month internship at INLIGHN Tech I focused on learning Python end-to-end for automation and security testing, applying those skills to build multiple prototype tools...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1NPOXPddN6bACk5NRWFRVrutHT2Buj_7W",
-      "linkedin_link": "www.linkedin.com/in/gulshan-kumar-557786384"
-    },
-    {
-      "id": 34,
-      "name": "Pranav Pandit",
-      "internship_domain": "Ethical hacking Intern",
-      "feedback": "excellent",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1cHTiKnqTZq1ZwIiIzTDA4BHREDSjMOgY",
-      "linkedin_link": "https://www.linkedin.com/in/pranav-pandit-201121280/"
-    },
-    {
-      "id": 35,
-      "name": "PH Arvind Sharma",
-      "internship_domain": "Data Science Intern",
-      "feedback": "got lot of experience",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=17l8scNca2HqgNpJgQaGf__LSi4ADncI2",
-      "linkedin_link": "https://www.linkedin.com/in/ph-arvind-sharma-02a688294/"
-    },
-    {
-      "id": 36,
-      "name": "khushboo kotwani",
-      "internship_domain": "Data Analyst Intern",
-      "feedback": "This internship has been a truly transformative experience for me. As my first-ever internship, it marked several important milestones in my journey â€” my first interview, my first exposure to profes...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1BNptnwXWlUh4uXErUON_hYdndY8Ivt4a",
-      "linkedin_link": "www.linkedin.com/in/ khushbookotwani"
-    },
-    {
-      "id": 37,
-      "name": "nikhitha",
-      "internship_domain": "Full Stack Development Intern",
-      "feedback": "it is very helpful for me , i learned a lot from these intenship, thank you for your support and guide",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=17NI3TeB0fe9Od6FWlwRAQYDeAGuUWDFG",
-      "linkedin_link": "https://www.linkedin.com/posts/nikhitha-chandan-274102352_codosoft-internship-webdevelopment-activity-7372500175413469184-bdnJ?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAFfvuvgBskOcrvR2Nfgm9_sn_-kfBJPDzHs&utm_campaign=whatsapp"
-    },
-    {
-      "id": 38,
-      "name": "VATSAVAYI VENKATA VARMA",
-      "internship_domain": "Data Analyst Intern",
-      "feedback": "It is a very good platform for intermediate level developers",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1ojOvrS64SuaG3cWBFzL10DGXaiKu-C0f",
-      "linkedin_link": "https://www.linkedin.com/in/venkata-varma-90b2b8271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-    },
-    {
-      "id": 39,
-      "name": "Durga Prasanth Yesu",
-      "internship_domain": "Data Analyst Intern",
-      "feedback": "Great experience from learing new technolgies and tools with both recorded classes and online classes it was wonderful experience and looking forward to work as full time intern in Inlighnx",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1L15zkgMr7kD5pT8MjwNSFb-wIe3g9SIY",
-      "linkedin_link": "https://www.linkedin.com/in/durga-prasanth-yesu-824945230/"
-    },
-    {
-      "id": 40,
-      "name": "Lalit Singh Karki",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "My time at INLIGHN TECH helped me grow technically and professionally through hands-on AI and ML projects with great mentor support.",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1CTY55tCDIaYTVs8v21Kzy4sUw0qhUKsp",
-      "linkedin_link": "www.linkedin.com/in/karkilalit18"
-    },
-    {
-      "id": 41,
-      "name": "LAVANYA G N",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "It was nice experience",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1B--WIFtI0TCjBxh1cjBDTstch-cqr0s4",
-      "linkedin_link": "https://www.linkedin.com/in/lavanya-g-n-991077281"
-    },
-    {
-      "id": 42,
-      "name": "Kanha Gupta",
-      "internship_domain": "Full Stack Development Intern",
-      "feedback": "Had an awesome experience, learned how to manage our projects and how to structure it.",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=10gQijw11VYp1eSXLSX2DFsfnb9MMwtmd",
-      "linkedin_link": "https://www.linkedin.com/in/kanha-gupta-833b10206/"
-    },
-    {
-      "id": 43,
-      "name": "vaibhav khare",
-      "internship_domain": "Ethical hacking Intern",
-      "feedback": "good project but provide some more hard task like find some vulnerability on web application and make their report this type of task may help to grow skills like WAPT,VAPT..",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1a5ddoPxYh7Zw7m8xK1jAHopTEHN39WwF",
-      "linkedin_link": "https://www.linkedin.com/in/vaibhav-khare-813059362/"
-    },
-    {
-      "id": 44,
-      "name": "Sanchit Sudhakar Sakhare",
-      "internship_domain": "Full Stack Development Intern",
-      "feedback": "The journey was great, learnt lot of new Tech, Thanks to all.",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1tWco7CzHqy5hiGgv4I2qpUgH6i_5a63E",
-      "linkedin_link": "https://www.linkedin.com/in/sanchit-sudhakar-sakhare?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-    },
-    {
-      "id": 45,
-      "name": "Harshith B U",
-      "internship_domain": "Ethical hacking Intern",
-      "feedback": "Good experience",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1_NgK4qHRGW7mPGe4GxpAbq_pM08OEGyq",
-      "linkedin_link": "https://www.linkedin.com/in/harshith-b-u-89a566122/"
-    },
-    {
-      "id": 46,
-      "name": "Saurabh Saraswat",
-      "internship_domain": "Full Stack Development Intern",
-      "feedback": "My experience was overwhelmingly positive, solidifying my desire to pursue a career in full-stack engineering. The challenges I faced were valuable learning opportunities, and I am grateful for the ch...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1rtaIWNj56wLEJ8Jwl1mTwpqs5RltJ5fq",
-      "linkedin_link": "https://www.linkedin.com/in/saurabh-saraswat-b469a7286/"
-    },
-    {
-      "id": 47,
-      "name": "Ali Abdul Qadeer Baig",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "My internship at InLighn Tech was a highly valuable and enriching experience. It provided me with practical exposure to real-world data analysis and machine learning workflows. I worked on a project t...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=10T8j096cwHLEffXFkSREp21xTOS42ozB",
-      "linkedin_link": "www.linkedin.com/in/ ali-baig-089b082ba"
-    },
-    {
-      "id": 48,
-      "name": "BONTHA SHANMUKHASAI",
-      "internship_domain": "Front-end Development Intern",
-      "feedback": "A great internship for my internship, and slowly giving experience , i am glad to have this internship",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1PvSNnq32pfc1UP-XH1-H_0Df4HSOd5wU",
-      "linkedin_link": "https://www.linkedin.com/in/bontha-shanmukha-sai-7303802a3?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-    },
-    {
-      "id": 49,
-      "name": "Abhishek Sangappa Birajdar",
-      "internship_domain": "Offensive Cyber Security Intern",
-      "feedback": "UNDERSTAND THE OFFENSIVE CYBERSECURITY BY DOING THE PROJECTS",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1hHtNoFa-tZdpQk_vnAaCBPaGltHHcfe5",
-      "linkedin_link": "www.linkedin.com/in/abhishek-birajdar-2bbb1026a"
-    },
-    {
-      "id": 50,
-      "name": "Ankan Dutta",
-      "internship_domain": "Artificial Intelligence and Machine Learning",
-      "feedback": "It was a nice and brilliant experience working on the projects given to us and it was very informative for me to know new things about Artificial Intelligence and Machine Learning through this intersh...",
-      "photo_link": "https://drive.google.com/u/0/open?usp=forms_web&id=1DIa0MRdH-QcBlbKIqy5UDPc4aPeiXtRX",
-      "linkedin_link": "linkedin.com/in/ankan-dutta-91811a198/?skipRedirect=true"
+      "linkedin_link": "https://www.linkedin.com/in/pallavi/"
     }
-  ]
-}
+  ]}
