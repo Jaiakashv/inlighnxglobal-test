@@ -54,16 +54,16 @@ function Footer() {
             <h4 className="footer-section-title">Quick Links</h4>
             <ul className="footer-links">
               <li>
-                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>Privacy Policy</Link>
+                <Link to="/privacy-policy" className="footer-link" onClick={handleLinkClick}>Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>Terms and Conditions</Link>
+                <Link to="/terms-and-conditions" className="footer-link" onClick={handleLinkClick}>Terms and Conditions</Link>
               </li>
               <li>
-                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>Disclaimers</Link>
+                <Link to="/disclaimers" className="footer-link" onClick={handleLinkClick}>Disclaimers</Link>
               </li>
               <li>
-                <Link to="/about-us" className="footer-link" onClick={handleLinkClick}>FAQ's</Link>
+                <Link to="/contact-us" className="footer-link" onClick={handleLinkClick}>FAQ's</Link>
               </li>
             </ul>
           </div>
@@ -73,7 +73,7 @@ function Footer() {
             <h4 className="footer-section-title">Follow Us</h4>
             <div className="social-media-icons">
               <a 
-                href="linkedin.com/company/inlighn-tech/" 
+                href="https://www.linkedin.com/company/inlighn-tech/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="social-icon"

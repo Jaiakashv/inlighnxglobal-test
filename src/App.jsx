@@ -8,6 +8,9 @@ import VerifyCertificate from './pages/VerifyCertificate'
 import WhatsSpecial from './pages/WhatsSpecial'
 import ContactUs from './pages/ContactUs'
 import CourseDetail from './components/CourseDetail'
+import PrivacyPolicy from './pages/legal/PrivacyPolicy'
+import TermsAndConditions from './pages/legal/TermsAndConditions'
+import Disclaimers from './pages/legal/Disclaimers'
 import { ProgramsProvider } from './contexts/ProgramsContext'
 import './App.css'
 
@@ -25,6 +28,9 @@ function App() {
             <Route path="/verify-certificate" element={<VerifyCertificate />} />
             <Route path="/whats-special" element={<WhatsSpecial />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/disclaimers" element={<Disclaimers />} />
           </Routes>
           <Footer />
         </div>
