@@ -407,7 +407,7 @@ function Home() {
             <p className="home-description">
               Gain real-world experience with our immersive internship programs in Cyber Security, Full Stack Development, Data Science, Data Analyst and in various tech domains. Learn today, lead tomorrow.
             </p>
-            <button className="home-cta-button">Explore Internships</button>
+            <button className="home-cta-button" onClick={() => navigate('/programs')}>Explore Internships</button>
           </div>
           <div className="home-tilted-card-wrapper">
             <TiltedCard
@@ -678,7 +678,7 @@ function Home() {
             <p className="internship-description">
               At InLighnX Global (InLighn Tech), we believe that the future of education lies in bridging the gap between academic learning and industry needs. Founded with a passion for providing meaningful and immersive learning experiences, we offer internship programs that equip students and young professionals with practical skills in Full Stack Development, Data Science, and Project Management.
             </p>
-            <button className="internship-know-more-button">Know More</button>
+            <button className="internship-know-more-button" onClick={() => navigate('/programs')}>Know More</button>
           </div>
         </div>
         
