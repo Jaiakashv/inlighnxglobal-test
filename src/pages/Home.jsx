@@ -15,6 +15,7 @@ import bannerimg from '../assets/banner-bg.jpg';
 import mentorimg from '../assets/Mentorship.jpg';
 import whoBg from '../assets/who-bg.jpg';
 import visionBg from '../assets/our-vision.png';
+import mentor from '../assets/mentor.jpg';
 import testimonialsData from '../data/testimonials.json';
 function Home() {
   const navigate = useNavigate();
@@ -711,9 +712,15 @@ function Home() {
           </div>
           <div className="features-image-wrapper">
             <img 
-              src={mentorimg} 
+              src={mentor} 
               alt="Features" 
               className="features-image"
+              style={{
+                width: '100%',
+                height: '300px',
+                objectFit: 'cover',
+                borderRadius: '10px',
+              }}
             />
           </div>
         </div>
